@@ -1,0 +1,197 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-31T00:00:00.000Z",
+  "title": "Design System: Dewstick",
+  "extensions": {
+    "colorMeta": {
+      "dew": {
+        "role": "primary",
+        "displayName": "Dew Red",
+        "canonical": "#e94b3c",
+        "tonalRamp": [
+          "oklch(24% 0.09 33)",
+          "oklch(34% 0.13 33)",
+          "oklch(44% 0.17 33)",
+          "oklch(53% 0.20 33)",
+          "oklch(63% 0.19 33)",
+          "oklch(74% 0.14 33)",
+          "oklch(86% 0.08 33)",
+          "oklch(95% 0.03 33)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#1a1a1a",
+        "note": "All greys are this value at a fixed opacity: 0.8 / 0.7 / 0.6 / 0.5 / 0.4 / 0.25.",
+        "tonalRamp": [
+          "oklch(18% 0 0)",
+          "oklch(28% 0 0)",
+          "oklch(40% 0 0)",
+          "oklch(52% 0 0)",
+          "oklch(64% 0 0)",
+          "oklch(76% 0 0)",
+          "oklch(88% 0 0)",
+          "oklch(96% 0 0)"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "oklch(90% 0 0)",
+          "oklch(92% 0 0)",
+          "oklch(94% 0 0)",
+          "oklch(96% 0 0)",
+          "oklch(97% 0 0)",
+          "oklch(98% 0 0)",
+          "oklch(99% 0 0)",
+          "oklch(100% 0 0)"
+        ]
+      },
+      "mist": {
+        "role": "neutral",
+        "displayName": "Mist",
+        "canonical": "#f5f4f2",
+        "note": "Warm off-white. The entire tonal-elevation vocabulary: Mist on Paper.",
+        "tonalRamp": [
+          "oklch(86% 0.004 70)",
+          "oklch(89% 0.004 70)",
+          "oklch(91% 0.004 70)",
+          "oklch(93% 0.004 70)",
+          "oklch(95% 0.004 70)",
+          "oklch(96% 0.004 70)",
+          "oklch(97% 0.004 70)",
+          "oklch(98% 0.003 70)"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Line",
+        "canonical": "#e4e2dd",
+        "note": "Hairline dividers only. One weight (1px), one job.",
+        "tonalRamp": [
+          "oklch(80% 0.006 75)",
+          "oklch(83% 0.006 75)",
+          "oklch(86% 0.006 75)",
+          "oklch(89% 0.006 75)",
+          "oklch(91% 0.006 75)",
+          "oklch(93% 0.005 75)",
+          "oklch(95% 0.004 75)",
+          "oklch(97% 0.003 75)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "The single largest statement on the page — the founder-note headline. Sentence case. One instance per page." },
+      "headline": { "displayName": "Headline", "purpose": "Section titles (UPPERCASE) and the hero H1 (sentence case, leading-tight)." },
+      "title": { "displayName": "Title", "purpose": "The centered philosophy statement only — body weight at a larger size, read as a held breath." },
+      "body": { "displayName": "Body", "purpose": "All running copy, Ink at 70%, constrained to a ~40–48ch measure." },
+      "label": { "displayName": "Micro-Label", "purpose": "Nav, eyebrows, CTA text, captions, footer headers, price tags. 11px uppercase, 0.18em tracking. The connective tissue of the layout." }
+    },
+    "shadows": [],
+    "motion": [
+      { "name": "duration-fast", "value": "150ms", "purpose": "color and border-color transitions on links, CTAs, nav, and the submit button" },
+      { "name": "ease-standard", "value": "cubic-bezier(0.4, 0, 0.2, 1)", "purpose": "default easing for all state transitions" },
+      { "name": "scroll-behavior", "value": "smooth", "purpose": "in-page anchor navigation; disabled under prefers-reduced-motion" }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Underline CTA",
+      "kind": "button",
+      "refersTo": "cta-underline",
+      "description": "The dominant call to action — an uppercase micro-label with a 1px baseline rule. Used for every CTA except a form's submit button.",
+      "html": "<a href=\"#waitlist\" class=\"ds-cta-underline\">Join the waitlist &rarr;</a>",
+      "css": ".ds-cta-underline { display: inline-block; font-family: \"Hanken Grotesk\", \"Noto Sans SC\", system-ui, sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #1a1a1a; text-decoration: none; border-bottom: 1px solid #1a1a1a; padding-bottom: 4px; transition: color 150ms cubic-bezier(0.4,0,0.2,1), border-color 150ms cubic-bezier(0.4,0,0.2,1); } .ds-cta-underline:hover { color: #e94b3c; border-color: #e94b3c; } .ds-cta-underline:focus-visible { outline: 2px solid #1a1a1a; outline-offset: 4px; }"
+    },
+    {
+      "name": "Filled Submit Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Reserved for the submit control inside an email capture form. Never a standalone page CTA.",
+      "html": "<button type=\"submit\" class=\"ds-btn-primary\">Join</button>",
+      "css": ".ds-btn-primary { font-family: \"Hanken Grotesk\", \"Noto Sans SC\", system-ui, sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #ffffff; background: #1a1a1a; border: none; border-radius: 0; padding: 12px 20px; cursor: pointer; transition: background 150ms cubic-bezier(0.4,0,0.2,1); } .ds-btn-primary:hover { background: #e94b3c; } .ds-btn-primary:focus-visible { outline: 2px solid #1a1a1a; outline-offset: 2px; }"
+    },
+    {
+      "name": "Email Capture Row",
+      "kind": "input",
+      "refersTo": "input-email",
+      "description": "Input and submit button as one horizontal object. The row (not the field) carries the edge — white fill over photography, 1px Ink border on Paper.",
+      "html": "<form class=\"ds-capture\"><div class=\"ds-capture-row\"><input type=\"email\" class=\"ds-input-email\" placeholder=\"your email\" /><button type=\"submit\" class=\"ds-btn-primary\">Join</button></div></form>",
+      "css": ".ds-capture-row { display: flex; background: #ffffff; } .ds-input-email { flex: 1 1 auto; min-width: 0; background: transparent; border: none; outline: none; padding: 12px 16px; font-family: \"Hanken Grotesk\", \"Noto Sans SC\", system-ui, sans-serif; font-size: 13px; color: #1a1a1a; } .ds-input-email::placeholder { color: rgba(26,26,26,0.4); } .ds-capture-row:focus-within { outline: 2px solid #1a1a1a; outline-offset: 2px; } .ds-capture-row.is-error { outline: 2px solid #e94b3c; outline-offset: 0; } .ds-btn-primary { flex: none; font-family: inherit; font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #fff; background: #1a1a1a; border: none; padding: 0 20px; cursor: pointer; transition: background 150ms; } .ds-btn-primary:hover { background: #e94b3c; }"
+    },
+    {
+      "name": "Nav Link",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Header navigation link — 11px uppercase label, Ink shifting to Dew Red on hover.",
+      "html": "<a href=\"#shades\" class=\"ds-nav-link\">Shades</a>",
+      "css": ".ds-nav-link { font-family: \"Hanken Grotesk\", \"Noto Sans SC\", system-ui, sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #1a1a1a; text-decoration: none; transition: color 150ms cubic-bezier(0.4,0,0.2,1); } .ds-nav-link:hover { color: #e94b3c; } .ds-nav-link:focus-visible { outline: 2px solid #1a1a1a; outline-offset: 4px; }"
+    },
+    {
+      "name": "Language Toggle",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "EN / 中文 switch. Active language bold Ink; inactive Ink 40%; slash separator Ink 25%.",
+      "html": "<div class=\"ds-lang\"><button class=\"ds-lang-btn is-active\" aria-pressed=\"true\">EN</button><span class=\"ds-lang-sep\">/</span><button class=\"ds-lang-btn\" aria-pressed=\"false\">中文</button></div>",
+      "css": ".ds-lang { display: inline-flex; align-items: center; gap: 4px; font-family: \"Hanken Grotesk\", \"Noto Sans SC\", system-ui, sans-serif; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; } .ds-lang-btn { background: none; border: none; padding: 0 4px; cursor: pointer; color: rgba(26,26,26,0.4); } .ds-lang-btn.is-active { font-weight: 700; color: #1a1a1a; } .ds-lang-sep { color: rgba(26,26,26,0.25); } .ds-lang-btn:focus-visible { outline: 2px solid #1a1a1a; outline-offset: 2px; }"
+    },
+    {
+      "name": "Product Card",
+      "kind": "card",
+      "refersTo": null,
+      "description": "No border, no shadow. A Mist image well with the product floated, and a caption stack beneath.",
+      "html": "<article class=\"ds-card\"><div class=\"ds-card-well\"><img src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='150'%3E%3Crect width='120' height='150' fill='%23f0704a'/%3E%3C/svg%3E\" alt=\"dewstick in nectar\" /></div><div class=\"ds-card-meta\"><p class=\"ds-card-name\">nectar <span>/ coral</span></p><p class=\"ds-card-desc\">Tinted lip balm &mdash; sun-warm coral</p><p class=\"ds-card-price\">$22 CAD</p></div></article>",
+      "css": ".ds-card { font-family: \"Hanken Grotesk\", \"Noto Sans SC\", system-ui, sans-serif; } .ds-card-well { background: #f5f4f2; aspect-ratio: 4 / 5; display: flex; align-items: center; justify-content: center; padding: 56px; } .ds-card-well img { max-height: 100%; width: auto; object-fit: contain; } .ds-card-meta { margin-top: 12px; font-size: 13px; } .ds-card-name { font-weight: 500; color: #1a1a1a; } .ds-card-name span { color: rgba(26,26,26,0.4); } .ds-card-desc { color: rgba(26,26,26,0.5); } .ds-card-price { margin-top: 4px; color: #1a1a1a; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Pharmacy Counter",
+    "overview": "Dewstick looks like the front counter of a good apothecary: bright, orderly, unhurried, and quietly authoritative. The product is a tinted lip balm, but the page treats it as a treatment first and a color second — so the design borrows the discipline of skincare packaging (generous white space, exact hairline rules, a single prescriptive red) rather than the candy energy of a lipstick brand. Everything is set on a wide editorial grid lifted from Typology's homepage: full-bleed photography alternating with tightly-captioned product rows, sections that each earn the next one, and a single unmissable job on every screen — leave an email.\n\nThe restraint is the brand. Type is mostly small: uppercase micro-labels, sentence-case body, and a handful of large semibold headings. There is exactly one accent color and it is used like a wax seal — the wordmark, every hover, one or two pieces of emphasis per section, and nothing else. Surfaces are flat. Depth comes from tone (a warm off-white panel against pure white) and from structure (a 1px divider, a full-bleed image), never from a shadow. The page is bilingual to its foundation: every string exists in English and Simplified Chinese, and neither is treated as the translation of the other.\n\nVisual anti-reference: the playful, value-priced DTC lipstick look — joke-forward copy, candy-bright fills, sticker and script clutter, rounded bubbly containers — exemplified by tuttilipstick.com. Dewstick shares the product category and deliberately rejects that surface. Where that world is loud and cute, Dewstick is calm and exact.",
+    "keyCharacteristics": [
+      "Wide editorial grid (max 1400px), full-bleed image sections alternating with captioned product rows.",
+      "Zero corner radius anywhere in the UI. Every edge is square.",
+      "No shadows. Flat surfaces, tonal and structural depth only.",
+      "One accent color (Dew Red), rationed to roughly 10% of any screen.",
+      "Small type by default; uppercase micro-labels with wide tracking as the connective tissue.",
+      "The dominant CTA is an underlined caps micro-label, not a filled button.",
+      "English and 中文 are equal citizens, toggled and persisted."
+    ],
+    "rules": [
+      { "name": "The One Seal Rule", "body": "Dew Red is a stamp, not a system. It may occupy no more than ~10% of any viewport, and no two red elements may sit adjacent. If a screen needs red in two places to work, the layout is wrong, not the palette.", "section": "colors" },
+      { "name": "The Ink-Is-Grey Rule", "body": "There are no grey tokens. Every \"grey\" is #1a1a1a at a set opacity. Pick from the ramp (80 / 70 / 60 / 50 / 40 / 25); do not introduce a new neutral.", "section": "colors" },
+      { "name": "The Micro-Label Rule", "body": "Anything that is not a heading or a sentence of body copy is an 11px uppercase label with 0.18em tracking. Nav, buttons, eyebrows, captions, section kickers — all the same treatment.", "section": "typography" },
+      { "name": "The One Big Thing Rule", "body": "At most one Display-size element per section, and only one per page at the very top of the scale. Size is rationed like the accent color.", "section": "typography" },
+      { "name": "The Flat-By-Default Rule", "body": "Surfaces are flat at rest and flat on interaction. A hover changes color, a border, or position — never adds a shadow.", "section": "elevation" },
+      { "name": "The No-Radius Rule", "body": "Every corner is 90°. There is no border-radius token above 0, and none is to be introduced. Softness in this brand comes from photography and language, never from geometry.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep every corner at 0 radius. Square is the brand.",
+      "Do treat Dew Red as a seal: wordmark, hovers, and ≤1 emphasis per section. Keep it under ~10% of any screen.",
+      "Do build \"grey\" from #1a1a1a at a fixed opacity from the ramp (80 / 70 / 60 / 50 / 40 / 25).",
+      "Do make every non-heading, non-sentence element an 11px uppercase label at 0.18em tracking.",
+      "Do convey depth with a Mist panel on Paper, or a 1px Line border — one or the other, never stacked.",
+      "Do use the Underline CTA for every call to action except a form's own submit button.",
+      "Do ship every new string in English and 中文, and check that a language switch does not reflow the layout.",
+      "Do constrain body copy to a max-w-sm/max-w-md measure; never run it the full grid width.",
+      "Do keep the hero email field and button visible without scrolling on a standard phone."
+    ],
+    "donts": [
+      "Don't add a box-shadow to anything, at rest or on hover.",
+      "Don't introduce a second accent color, a gradient, or a tinted fill beyond Mist.",
+      "Don't use a filled button as a standalone page CTA — that treatment belongs to form submit only.",
+      "Don't add rounded corners, sticker/script callouts, or candy-bright fills — that is the tuttilipstick.com anti-reference, not Dewstick.",
+      "Don't create new grey tokens or a border-radius token above 0.",
+      "Don't widen a border past 1px (the transient 2px red error outline is the sole exception).",
+      "Don't fabricate reviews, ratings, or customer counts to fill the social-proof slot — the honest \"No reviews yet.\" founder note is deliberate.",
+      "Don't let Chinese read as a translation afterthought: match line-length and emphasis to the English, not word-for-word."
+    ]
+  }
+}

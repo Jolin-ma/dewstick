@@ -31,11 +31,13 @@ clean URLs and image caching.
 ## Build spec & decisions
 
 The full brief is in [`docs/dewstick_master_build_brief.md`](docs/dewstick_master_build_brief.md).
-Calls made during the build (were "open" in §13 of the brief, still unconfirmed):
+Durable product truth lives in [`PRODUCT.md`](PRODUCT.md). The §13 "open decisions"
+were confirmed on 2026-08-31 and are now canonical:
 
-- **Positioning** — "luxury lip mask, colour is the bonus", warm not joke-forward.
+- **Positioning** — luxury lip treatment first, colour is the bonus. Skincare-first, warm not joke-forward; deliberately not in Tutti's playful/value lane.
 - **Pricing** — single **$22 CAD**, the set of five **$98 CAD** (save $12).
 - **Shade names** — nectar (coral), poppy (true red), peony (rosy nude), blush (soft pink), orchid (berry rose).
+- **Funnel tool** — Klaviyo free tier (still to wire).
 
 Two deliberate departures from a literal Typology copy: the lifestyle-break CTA
 is a real email capture (this is a waitlist, not a store), and the reviews block
