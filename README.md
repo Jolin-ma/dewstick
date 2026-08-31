@@ -34,7 +34,7 @@ The full brief is in [`docs/dewstick_master_build_brief.md`](docs/dewstick_maste
 Calls made during the build (were "open" in §13 of the brief, still unconfirmed):
 
 - **Positioning** — "luxury lip mask, colour is the bonus", warm not joke-forward.
-- **Pricing** — single **$16**, five-pack **$68**.
+- **Pricing** — single **$22 CAD**, the set of five **$98 CAD** (save $12).
 - **Shade names** — nectar (coral), poppy (true red), peony (rosy nude), blush (soft pink), orchid (berry rose).
 
 Two deliberate departures from a literal Typology copy: the lifestyle-break CTA
