@@ -183,7 +183,7 @@ Two button expressions, and they are not interchangeable.
 - **Style:** transparent background, `12px 16px` padding, 13px text, `outline: none`, zero radius. The field carries no border of its own — the *containing row* provides the edge: a `#ffffff` fill when the form sits over a photograph, or a `1px` Ink border when it sits on Paper (the footer).
 - **Layout:** input and submit button share one horizontal row with no gap; the row is the visual object.
 - **Error:** JavaScript applies a `2px solid #e94b3c` outline to the row and refocuses the input. There is no inline error text.
-- **Focus:** *(known gap — the incumbent removes the focus ring with `outline: none` and adds nothing back. New work should restore a visible focus state, e.g. a `2px` Ink outline offset from the row.)*
+- **Focus:** the field keeps `outline: none`; the *row* carries the indicator via `:focus-within` — a `2px` Ink outline at `2px` offset. The submit button inside the row shows its own `2px` white outline inset `-4px` on `:focus-visible` so keyboard focus is distinct as it moves from field to button.
 
 ### Navigation
 - **Desktop:** three-column header — left link cluster, centered Dew Red wordmark, right-side controls. Links are 11px uppercase labels (0.18em tracking), Ink, shifting to Dew Red on hover.

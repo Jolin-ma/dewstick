@@ -1,3 +1,15 @@
 {
-  "buildPath": "comp"
+  "buildPath": "comp",
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "design-system-font-size",
+        "value": "15px",
+        "createdAt": "2026-08-31T23:17:51.894Z",
+        "reason": "DESIGN.md documents 15px as the type ramp's base size (html font-size); pre-existing base, not an off-ramp value"
+      }
+    ]
+  }
 }
