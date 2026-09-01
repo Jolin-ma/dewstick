@@ -5,6 +5,7 @@ package-lock.json
 # editor / OS
 .idea/
 .vscode/
+.claude/
 .DS_Store
 Thumbs.db
 

@@ -24,7 +24,7 @@
     };
   </script>
   <style>
-    html { font-size: 15px; scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    html { font-size: 17px; scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
     body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
     /* language toggle — pure CSS, no FOUC after the head init script */
     html[data-lang="zh"] [data-lang-en] { display: none !important; }
@@ -40,7 +40,7 @@
 <body class="bg-paper text-ink font-sans">
 
   <!-- ================= ANNOUNCEMENT BAR ================= -->
-  <div class="bg-ink text-white text-[11px] u-mini uppercase text-center py-2 px-4">
+  <div class="bg-ink text-white text-[13px] u-mini uppercase text-center py-2 px-4">
     <span data-lang-en>Join the waitlist — first pick of shades when we launch</span>
     <span data-lang-zh>加入等候名单 — 上市时优先挑选你的色号</span>
   </div>
@@ -49,7 +49,7 @@
   <header id="top" class="sticky top-0 z-50 bg-paper/95 backdrop-blur border-b border-line">
     <div class="mx-auto flex items-center justify-between gap-4 px-4 md:px-8 h-14">
       <!-- left nav -->
-      <nav class="hidden md:flex items-center gap-6 text-[11px] u-mini uppercase flex-1">
+      <nav class="hidden md:flex items-center gap-6 text-[13px] u-mini uppercase flex-1">
         <a href="#shades" class="hover:text-dew transition-colors"><span data-lang-en>Shades</span><span data-lang-zh>色号</span></a>
         <a href="#why" class="hover:text-dew transition-colors"><span data-lang-en>Ingredients</span><span data-lang-zh>成分</span></a>
         <a href="#note" class="hover:text-dew transition-colors"><span data-lang-en>The idea</span><span data-lang-zh>理念</span></a>
@@ -60,16 +60,16 @@
       </button>
 
       <!-- wordmark -->
-      <a href="#top" class="text-dew text-2xl font-bold tracking-tight leading-none px-2" aria-label="dewstick home">dewstick</a>
+      <a href="#top" class="text-dew text-3xl md:text-4xl font-bold tracking-tight leading-none px-2" aria-label="dewstick home">dewstick</a>
 
       <!-- right -->
       <div class="flex items-center justify-end gap-4 flex-1">
-        <div class="flex items-center gap-1 text-[11px] u-mini uppercase">
+        <div class="flex items-center gap-1 text-[13px] u-mini uppercase">
           <button data-set-lang="en" aria-pressed="true" class="px-1 aria-pressed:font-bold aria-pressed:text-ink text-ink/40">EN</button>
           <span class="text-ink/25">/</span>
           <button data-set-lang="zh" aria-pressed="false" class="px-1 aria-pressed:font-bold aria-pressed:text-ink text-ink/40">中文</button>
         </div>
-        <a href="#waitlist" class="hidden sm:inline text-[11px] u-mini uppercase border-b border-ink pb-0.5 hover:text-dew hover:border-dew transition-colors">
+        <a href="#waitlist" class="hidden sm:inline text-[13px] u-mini uppercase border-b border-ink pb-0.5 hover:text-dew hover:border-dew transition-colors">
           <span data-lang-en>Waitlist</span><span data-lang-zh>等候名单</span>
         </a>
       </div>
@@ -85,22 +85,22 @@
 
   <!-- ================= HERO ================= -->
   <section class="relative h-[86vh] min-h-[520px] w-full overflow-hidden bg-mist">
-    <img src="https://placehold.co/2000x1400/e9ddd8/b7a79c?text=hero+image" alt="" class="absolute inset-0 w-full h-full object-cover" />
+    <img src="image/1.jpeg" alt="The five dewstick shades lined up in a row" class="absolute inset-0 w-full h-full object-cover object-center" />
     <div class="absolute inset-0 bg-black/10"></div>
     <div class="relative h-full max-w-[1400px] mx-auto flex items-center px-6 md:px-16">
-      <div class="max-w-md bg-paper/90 backdrop-blur-sm p-7 md:p-10">
-        <p class="text-[11px] u-mini uppercase text-ink/60 mb-3">
+      <div class="max-w-lg p-7 md:p-10">
+        <p class="text-[13px] u-mini uppercase text-ink/60 mb-3">
           <span data-lang-en>New — tinted lip balm</span><span data-lang-zh>全新 — 有色润唇膏</span>
         </p>
-        <h1 class="text-3xl md:text-4xl font-semibold leading-tight tracking-tight">
+        <h1 class="text-4xl md:text-6xl font-semibold leading-tight tracking-tight">
           <span data-lang-en>half lipstick.<br />half lip balm.</span>
           <span data-lang-zh>半支口红，<br />半支润唇膏。</span>
         </h1>
-        <p class="mt-4 text-sm md:text-base text-ink/70 leading-relaxed">
+        <p class="mt-4 text-base md:text-lg text-ink/70 leading-relaxed">
           <span data-lang-en>A luxury lip mask, in a stick — real colour over squalane, shea butter and ceramides.</span>
           <span data-lang-zh>一支棒状的奢华唇膜 —— 真实色彩，融合角鲨烷、乳木果油与神经酰胺。</span>
         </p>
-        <a href="#waitlist" class="mt-6 inline-block text-[11px] u-mini uppercase border-b border-ink pb-1 hover:text-dew hover:border-dew transition-colors">
+        <a href="#waitlist" class="mt-6 inline-block text-[13px] u-mini uppercase border-b border-ink pb-1 hover:text-dew hover:border-dew transition-colors">
           <span data-lang-en>Join the waitlist →</span><span data-lang-zh>加入等候名单 →</span>
         </a>
       </div>
@@ -109,7 +109,7 @@
 
   <!-- ================= FORMULA STRIP ================= -->
   <div class="border-y border-line">
-    <p class="max-w-[1400px] mx-auto text-center text-[11px] md:text-xs u-mini uppercase py-4 px-4 text-ink/70">
+    <p class="max-w-[1400px] mx-auto text-center text-[13px] md:text-sm u-mini uppercase py-4 px-4 text-ink/70">
       <span data-lang-en>The formula is: squalane · shea butter · ceramides</span>
       <span data-lang-zh>配方成分：角鲨烷 · 乳木果油 · 神经酰胺</span>
     </p>
@@ -121,15 +121,15 @@
       <h2 class="text-2xl md:text-4xl font-semibold uppercase tracking-tight">
         <span data-lang-en>The hero shades</span><span data-lang-zh>明星色号</span>
       </h2>
-      <a href="#all-shades" class="mt-2 inline-block text-[11px] u-mini uppercase border-b border-ink pb-0.5 hover:text-dew hover:border-dew transition-colors">
+      <a href="#all-shades" class="mt-2 inline-block text-[13px] u-mini uppercase border-b border-ink pb-0.5 hover:text-dew hover:border-dew transition-colors">
         <span data-lang-en>See all</span><span data-lang-zh>查看全部</span>
       </a>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
       <!-- card -->
       <article class="group">
-        <div class="bg-mist aspect-[4/5] flex items-center justify-center p-14 md:p-20">
-          <img src="https://placehold.co/600x750/f0704a/ffffff?text=nectar" alt="dewstick in nectar" class="max-h-full w-auto object-contain" loading="lazy" />
+        <div class="bg-mist aspect-[4/5] overflow-hidden">
+          <img src="image/shade-nectar.jpg" alt="dewstick in nectar" class="w-full h-full object-cover" loading="lazy" />
         </div>
         <div class="mt-3 text-sm">
           <p class="font-medium">nectar <span class="text-ink/40">/ <span data-lang-en>coral</span><span data-lang-zh>珊瑚色</span></span></p>
@@ -138,8 +138,8 @@
         </div>
       </article>
       <article class="group">
-        <div class="bg-mist aspect-[4/5] flex items-center justify-center p-14 md:p-20">
-          <img src="https://placehold.co/600x750/d8352b/ffffff?text=poppy" alt="dewstick in poppy" class="max-h-full w-auto object-contain" loading="lazy" />
+        <div class="bg-mist aspect-[4/5] overflow-hidden">
+          <img src="image/shade-poppy.jpg" alt="dewstick in poppy" class="w-full h-full object-cover" loading="lazy" />
         </div>
         <div class="mt-3 text-sm">
           <p class="font-medium">poppy <span class="text-ink/40">/ <span data-lang-en>true red</span><span data-lang-zh>正红色</span></span></p>
@@ -148,8 +148,8 @@
         </div>
       </article>
       <article class="group">
-        <div class="bg-mist aspect-[4/5] flex items-center justify-center p-14 md:p-20">
-          <img src="https://placehold.co/600x750/e79db3/ffffff?text=blush" alt="dewstick in blush" class="max-h-full w-auto object-contain" loading="lazy" />
+        <div class="bg-mist aspect-[4/5] overflow-hidden">
+          <img src="image/shade-blush.jpg" alt="dewstick in blush" class="w-full h-full object-cover" loading="lazy" />
         </div>
         <div class="mt-3 text-sm">
           <p class="font-medium">blush <span class="text-ink/40">/ <span data-lang-en>soft pink</span><span data-lang-zh>柔粉色</span></span></p>
@@ -166,18 +166,18 @@
       <h2 class="text-2xl md:text-4xl font-semibold uppercase tracking-tight">
         <span data-lang-en>All five shades</span><span data-lang-zh>全部五色</span>
       </h2>
-      <a href="#waitlist" class="mt-2 inline-block text-[11px] u-mini uppercase border-b border-ink pb-0.5 hover:text-dew hover:border-dew transition-colors">
+      <a href="#waitlist" class="mt-2 inline-block text-[13px] u-mini uppercase border-b border-ink pb-0.5 hover:text-dew hover:border-dew transition-colors">
         <span data-lang-en>Join the waitlist</span><span data-lang-zh>加入等候名单</span>
       </a>
     </div>
     <div class="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4">
-      <article><div class="bg-mist aspect-[4/5] flex items-center justify-center p-6"><img src="https://placehold.co/400x500/f0704a/ffffff?text=nectar" alt="nectar" class="max-h-full w-auto object-contain" loading="lazy" /></div><p class="mt-2 text-xs"><span class="font-medium">nectar</span> · <span data-lang-en>coral</span><span data-lang-zh>珊瑚色</span></p><p class="text-xs text-ink/50">$22 CAD</p></article>
-      <article><div class="bg-mist aspect-[4/5] flex items-center justify-center p-6"><img src="https://placehold.co/400x500/d8352b/ffffff?text=poppy" alt="poppy" class="max-h-full w-auto object-contain" loading="lazy" /></div><p class="mt-2 text-xs"><span class="font-medium">poppy</span> · <span data-lang-en>true red</span><span data-lang-zh>正红色</span></p><p class="text-xs text-ink/50">$22 CAD</p></article>
-      <article><div class="bg-mist aspect-[4/5] flex items-center justify-center p-6"><img src="https://placehold.co/400x500/c6d63a/ffffff?text=peony" alt="peony" class="max-h-full w-auto object-contain" loading="lazy" /></div><p class="mt-2 text-xs"><span class="font-medium">peony</span> · <span data-lang-en>rosy nude</span><span data-lang-zh>玫瑰裸色</span></p><p class="text-xs text-ink/50">$22 CAD</p></article>
-      <article><div class="bg-mist aspect-[4/5] flex items-center justify-center p-6"><img src="https://placehold.co/400x500/e79db3/ffffff?text=blush" alt="blush" class="max-h-full w-auto object-contain" loading="lazy" /></div><p class="mt-2 text-xs"><span class="font-medium">blush</span> · <span data-lang-en>soft pink</span><span data-lang-zh>柔粉色</span></p><p class="text-xs text-ink/50">$22 CAD</p></article>
-      <article><div class="bg-mist aspect-[4/5] flex items-center justify-center p-6"><img src="https://placehold.co/400x500/a8c9e3/ffffff?text=orchid" alt="orchid" class="max-h-full w-auto object-contain" loading="lazy" /></div><p class="mt-2 text-xs"><span class="font-medium">orchid</span> · <span data-lang-en>berry rose</span><span data-lang-zh>莓果玫瑰</span></p><p class="text-xs text-ink/50">$22 CAD</p></article>
+      <article><div class="bg-mist aspect-[4/5] overflow-hidden"><img src="image/shade-nectar.jpg" alt="nectar" class="w-full h-full object-cover" loading="lazy" /></div><p class="mt-2 text-sm"><span class="font-medium">nectar</span> · <span data-lang-en>coral</span><span data-lang-zh>珊瑚色</span></p><p class="text-sm text-ink/50">$22 CAD</p></article>
+      <article><div class="bg-mist aspect-[4/5] overflow-hidden"><img src="image/shade-poppy.jpg" alt="poppy" class="w-full h-full object-cover" loading="lazy" /></div><p class="mt-2 text-sm"><span class="font-medium">poppy</span> · <span data-lang-en>true red</span><span data-lang-zh>正红色</span></p><p class="text-sm text-ink/50">$22 CAD</p></article>
+      <article><div class="bg-mist aspect-[4/5] overflow-hidden"><img src="image/shade-peony.jpg" alt="peony" class="w-full h-full object-cover" loading="lazy" /></div><p class="mt-2 text-sm"><span class="font-medium">peony</span> · <span data-lang-en>rosy nude</span><span data-lang-zh>玫瑰裸色</span></p><p class="text-sm text-ink/50">$22 CAD</p></article>
+      <article><div class="bg-mist aspect-[4/5] overflow-hidden"><img src="image/shade-blush.jpg" alt="blush" class="w-full h-full object-cover" loading="lazy" /></div><p class="mt-2 text-sm"><span class="font-medium">blush</span> · <span data-lang-en>soft pink</span><span data-lang-zh>柔粉色</span></p><p class="text-sm text-ink/50">$22 CAD</p></article>
+      <article><div class="bg-mist aspect-[4/5] overflow-hidden"><img src="image/shade-orchid.jpg" alt="orchid" class="w-full h-full object-cover" loading="lazy" /></div><p class="mt-2 text-sm"><span class="font-medium">orchid</span> · <span data-lang-en>berry rose</span><span data-lang-zh>莓果玫瑰</span></p><p class="text-sm text-ink/50">$22 CAD</p></article>
     </div>
-    <p class="mt-6 text-xs text-ink/50">
+    <p class="mt-6 text-sm text-ink/50">
       <span data-lang-en>Every shade $22 CAD. Waitlist members get first pick of shades and launch-week pricing.</span>
       <span data-lang-zh>每支 $22 加元。等候名单成员享优先选色及上市周专属价格。</span>
     </p>
@@ -187,7 +187,7 @@
   <section id="the-set" class="border-t border-line">
     <div class="max-w-[1400px] mx-auto grid md:grid-cols-2">
       <div class="relative min-h-[320px] bg-mist order-1 md:order-none">
-        <img src="https://placehold.co/1200x1200/E94B3C/ffffff?text=the+set" alt="the dewstick set of five" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+        <img src="image/9.jpeg" alt="the dewstick set of five, spilling from its gift box" class="absolute inset-0 w-full h-full object-cover object-center" loading="lazy" />
       </div>
       <div class="px-4 md:px-10 py-14 md:py-20 flex flex-col justify-center">
         <h2 class="text-2xl md:text-4xl font-semibold uppercase tracking-tight">
@@ -198,7 +198,7 @@
           <span data-lang-zh>五个色号，一盒收齐 —— 同一配方，适配每一种心情。快乐色号，快乐每一天。</span>
         </p>
         <p class="mt-4 text-sm"><span class="font-medium">$98 CAD</span> <span class="text-dew"><span data-lang-en>— save $12 vs. singles</span><span data-lang-zh>—— 比单支省 $12</span></span></p>
-        <a href="#waitlist" class="mt-6 inline-block text-[11px] u-mini uppercase border-b border-ink pb-1 hover:text-dew hover:border-dew transition-colors">
+        <a href="#waitlist" class="mt-6 inline-block text-[13px] u-mini uppercase border-b border-ink pb-1 hover:text-dew hover:border-dew transition-colors">
           <span data-lang-en>Join the waitlist →</span><span data-lang-zh>加入等候名单 →</span>
         </a>
       </div>
@@ -207,8 +207,8 @@
 
   <!-- ================= LIFESTYLE BREAK / WAITLIST ================= -->
   <section id="waitlist" class="relative h-[70vh] min-h-[440px] w-full overflow-hidden bg-mist">
-    <img src="https://placehold.co/2000x1200/d9c9c2/b19c93?text=lifestyle+image" alt="" class="absolute inset-0 w-full h-full object-cover" />
-    <div class="absolute inset-0 bg-black/30"></div>
+    <img src="image/8.jpeg" alt="" class="absolute inset-0 w-full h-full object-cover object-center" />
+    <div class="absolute inset-0 bg-black/40"></div>
     <div class="relative h-full flex flex-col items-center justify-center text-center px-6">
       <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-white drop-shadow">
         <span data-lang-en>Join the waitlist</span><span data-lang-zh>加入等候名单</span>
@@ -222,11 +222,11 @@
           <input type="email" name="email" inputmode="email" autocomplete="email" required
                  class="flex-1 min-w-0 bg-transparent px-4 py-3 text-sm outline-none"
                  data-ph-en="your email" data-ph-zh="你的邮箱" placeholder="your email" />
-          <button type="submit" class="flex-none bg-ink text-white text-[11px] u-mini uppercase px-5 hover:bg-dew transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-white">
+          <button type="submit" class="flex-none bg-ink text-white text-[13px] u-mini uppercase px-5 hover:bg-dew transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-white">
             <span data-lang-en>Join</span><span data-lang-zh>加入</span>
           </button>
         </div>
-        <p class="js-note mt-2 text-[11px] text-white/80 drop-shadow">
+        <p class="js-note mt-2 text-[13px] text-white/80 drop-shadow">
           <span data-lang-en>We&rsquo;ll only email you about the dewstick launch. No spam, unsubscribe anytime.</span>
           <span data-lang-zh>我们仅会向你发送 dewstick 上市相关邮件。绝无垃圾邮件，可随时退订。</span>
         </p>
@@ -244,31 +244,50 @@
       <h2 class="text-2xl md:text-4xl font-semibold uppercase tracking-tight">
         <span data-lang-en>Why it works</span><span data-lang-zh>为什么有效</span>
       </h2>
-      <a href="#note" class="mt-2 inline-block text-[11px] u-mini uppercase border-b border-ink pb-0.5 hover:text-dew hover:border-dew transition-colors">
+      <a href="#note" class="mt-2 inline-block text-[13px] u-mini uppercase border-b border-ink pb-0.5 hover:text-dew hover:border-dew transition-colors">
         <span data-lang-en>The idea</span><span data-lang-zh>了解理念</span>
       </a>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
-      <article><div class="bg-mist aspect-square flex items-center justify-center p-8"><img src="https://placehold.co/400x400/f5f4f2/b7a79c?text=hydrate" alt="" class="max-h-full w-auto object-contain" loading="lazy" /></div><p class="mt-3 text-sm font-medium"><span data-lang-en>Hydrate</span><span data-lang-zh>保湿</span></p><p class="text-ink/50 text-xs"><span data-lang-en>Squalane — deep hydration</span><span data-lang-zh>角鲨烷 —— 深层保湿</span></p></article>
-      <article><div class="bg-mist aspect-square flex items-center justify-center p-8"><img src="https://placehold.co/400x400/f5f4f2/b7a79c?text=nourish" alt="" class="max-h-full w-auto object-contain" loading="lazy" /></div><p class="mt-3 text-sm font-medium"><span data-lang-en>Nourish</span><span data-lang-zh>滋养</span></p><p class="text-ink/50 text-xs"><span data-lang-en>Shea butter — soft &amp; smooth</span><span data-lang-zh>乳木果油 —— 柔滑顺润</span></p></article>
-      <article><div class="bg-mist aspect-square flex items-center justify-center p-8"><img src="https://placehold.co/400x400/f5f4f2/b7a79c?text=protect" alt="" class="max-h-full w-auto object-contain" loading="lazy" /></div><p class="mt-3 text-sm font-medium"><span data-lang-en>Protect</span><span data-lang-zh>修护</span></p><p class="text-ink/50 text-xs"><span data-lang-en>Ceramides — strengthen &amp; protect</span><span data-lang-zh>神经酰胺 —— 强韧修护</span></p></article>
-      <article><div class="bg-mist aspect-square flex items-center justify-center p-8"><img src="https://placehold.co/400x400/f5f4f2/b7a79c?text=glow" alt="" class="max-h-full w-auto object-contain" loading="lazy" /></div><p class="mt-3 text-sm font-medium"><span data-lang-en>Glow</span><span data-lang-zh>光泽</span></p><p class="text-ink/50 text-xs"><span data-lang-en>One swipe — juicy glow</span><span data-lang-zh>轻轻一抹 —— 水润光泽</span></p></article>
+      <article><div class="bg-mist aspect-square overflow-hidden"><img src="image/ing-squalane.jpg" alt="Squalane" class="w-full h-full object-cover" loading="lazy" /></div><p class="mt-3 text-sm font-medium"><span data-lang-en>Hydrate</span><span data-lang-zh>保湿</span></p><p class="text-ink/50 text-sm"><span data-lang-en>Squalane — deep hydration</span><span data-lang-zh>角鲨烷 —— 深层保湿</span></p></article>
+      <article><div class="bg-mist aspect-square overflow-hidden"><img src="image/ing-shea.jpg" alt="Shea butter" class="w-full h-full object-cover" loading="lazy" /></div><p class="mt-3 text-sm font-medium"><span data-lang-en>Nourish</span><span data-lang-zh>滋养</span></p><p class="text-ink/50 text-sm"><span data-lang-en>Shea butter — soft &amp; smooth</span><span data-lang-zh>乳木果油 —— 柔滑顺润</span></p></article>
+      <article><div class="bg-mist aspect-square overflow-hidden"><img src="image/ing-ceramide.jpg" alt="Ceramide cream" class="w-full h-full object-cover" loading="lazy" /></div><p class="mt-3 text-sm font-medium"><span data-lang-en>Protect</span><span data-lang-zh>修护</span></p><p class="text-ink/50 text-sm"><span data-lang-en>Ceramides — strengthen &amp; protect</span><span data-lang-zh>神经酰胺 —— 强韧修护</span></p></article>
+      <article><div class="bg-mist aspect-square overflow-hidden"><img src="image/ing-swatches.jpg" alt="Tinted lip balm swatches" class="w-full h-full object-cover" loading="lazy" /></div><p class="mt-3 text-sm font-medium"><span data-lang-en>Glow</span><span data-lang-zh>光泽</span></p><p class="text-ink/50 text-sm"><span data-lang-en>One swipe — juicy glow</span><span data-lang-zh>轻轻一抹 —— 水润光泽</span></p></article>
     </div>
   </section>
 
-  <!-- ================= THE DETAILS (5-tile strip) ================= -->
-  <section class="max-w-[1400px] mx-auto px-4 md:px-8 pb-14 md:pb-20">
-    <div class="mb-8">
-      <h2 class="text-2xl md:text-4xl font-semibold uppercase tracking-tight">
-        <span data-lang-en>The feel</span><span data-lang-zh>上唇质感</span>
-      </h2>
+  <!-- ================= @DEWSTICK ON INSTAGRAM ================= -->
+  <section class="max-w-[1400px] mx-auto px-4 md:px-8 pb-20 md:pb-28">
+    <div class="mb-10 md:mb-14 flex flex-wrap items-end justify-between gap-x-8 gap-y-3">
+      <div>
+        <h2 class="text-2xl md:text-4xl font-semibold uppercase tracking-tight">
+          <span data-lang-en>@dewstick on Instagram</span><span data-lang-zh>Instagram @dewstick</span>
+        </h2>
+        <p class="mt-2 text-sm text-ink/60 max-w-md">
+          <span data-lang-en>Tag <span class="text-ink">#dewstick</span> — the first posts get a spot on this wall the week we launch.</span>
+          <span data-lang-zh>带上 <span class="text-ink">#dewstick</span> —— 上市当周，第一批帖子将出现在这面墙上。</span>
+        </p>
+      </div>
     </div>
-    <div class="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4">
-      <div><div class="aspect-[4/5] overflow-hidden bg-mist"><img src="https://placehold.co/400x500/e9ddd8/b7a79c?text=+" alt="" class="w-full h-full object-cover" loading="lazy" /></div><p class="mt-3 text-center text-[11px] u-mini uppercase"><span data-lang-en>Juicy</span><span data-lang-zh>水润</span></p></div>
-      <div><div class="aspect-[4/5] overflow-hidden bg-mist"><img src="https://placehold.co/400x500/e0d3cc/b7a79c?text=+" alt="" class="w-full h-full object-cover" loading="lazy" /></div><p class="mt-3 text-center text-[11px] u-mini uppercase"><span data-lang-en>Glossy</span><span data-lang-zh>亮泽</span></p></div>
-      <div><div class="aspect-[4/5] overflow-hidden bg-mist"><img src="https://placehold.co/400x500/d9c9c2/b7a79c?text=+" alt="" class="w-full h-full object-cover" loading="lazy" /></div><p class="mt-3 text-center text-[11px] u-mini uppercase"><span data-lang-en>Balmy</span><span data-lang-zh>滋润</span></p></div>
-      <div><div class="aspect-[4/5] overflow-hidden bg-mist"><img src="https://placehold.co/400x500/e0d3cc/b7a79c?text=+" alt="" class="w-full h-full object-cover" loading="lazy" /></div><p class="mt-3 text-center text-[11px] u-mini uppercase"><span data-lang-en>Tinted</span><span data-lang-zh>显色</span></p></div>
-      <div><div class="aspect-[4/5] overflow-hidden bg-mist"><img src="https://placehold.co/400x500/e9ddd8/b7a79c?text=+" alt="" class="w-full h-full object-cover" loading="lazy" /></div><p class="mt-3 text-center text-[11px] u-mini uppercase"><span data-lang-en>Effortless</span><span data-lang-zh>轻松</span></p></div>
+    <div class="grid grid-cols-3 gap-6 md:gap-10">
+      <div class="relative block aspect-square overflow-hidden bg-mist">
+        <img src="image/14.jpeg" alt="Mirror selfie holding a dewstick" class="w-full h-full object-cover object-[center_30%]" loading="lazy" />
+      </div>
+      <div class="relative block aspect-square overflow-hidden bg-mist">
+        <img src="image/bb_bullet_macro.webp" alt="Macro of the dewstick bullet, glossy balm swirl" class="w-full h-full object-cover" loading="lazy" />
+      </div>
+      <div class="relative block aspect-square overflow-hidden bg-mist">
+        <img src="image/15.jpeg" alt="Desk flatlay with a dewstick, croissant and a sketch of the tube" class="w-full h-full object-cover object-[center_35%]" loading="lazy" />
+      </div>
+      <div class="relative block aspect-square overflow-hidden bg-mist">
+        <img src="image/12.jpeg" alt="Applying dewstick straight from the stick" class="w-full h-full object-cover object-[center_35%]" loading="lazy" />
+      </div>
+      <div class="relative block aspect-square overflow-hidden bg-mist">
+        <img src="image/bb_lips_macro.webp" alt="Close-up of glossy tinted lips" class="w-full h-full object-cover" loading="lazy" />
+      </div>
+      <div class="relative block aspect-square overflow-hidden bg-mist">
+        <img src="image/16.jpeg" alt="Two dewsticks tucked in a phone case" class="w-full h-full object-cover object-[center_35%]" loading="lazy" />
+      </div>
     </div>
   </section>
 
@@ -284,7 +303,7 @@
           <span data-lang-zh>目前还没有商店 —— 这是有意为之。我们仍在寻找真正想要它的人。</span>
         </p>
         <div class="mt-8 border border-line p-6 max-w-md">
-          <p class="text-[11px] u-mini uppercase text-ink/50">
+          <p class="text-[13px] u-mini uppercase text-ink/50">
             <span data-lang-en>A note from us</span><span data-lang-zh>我们的话</span>
           </p>
           <p class="mt-3 text-sm leading-relaxed text-ink/80">
@@ -295,19 +314,19 @@
         </div>
       </div>
       <div class="relative min-h-[360px] bg-mist">
-        <img src="https://placehold.co/1200x1200/d9c9c2/b19c93?text=texture+image" alt="" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+        <img src="image/11.jpeg" alt="Someone laughing on a bed, dewstick in hand" class="absolute inset-0 w-full h-full object-cover object-[center_25%]" loading="lazy" />
       </div>
     </div>
   </section>
 
   <!-- ================= PHILOSOPHY ================= -->
-  <section class="border-t border-line">
+  <section class="border-t border-line bg-dew">
     <div class="max-w-2xl mx-auto text-center px-4 py-16 md:py-24">
-      <p class="text-lg md:text-xl leading-relaxed text-ink/80">
+      <p class="text-lg md:text-xl leading-relaxed text-white">
         <span data-lang-en>Half the tube is lipstick. The other half does the work of a $30 lip mask — squalane for deep hydration, shea butter for softness, ceramides to strengthen and protect. All the care. All the colour.</span>
         <span data-lang-zh>一半是口红，另一半在做一支 $30 唇膜的工作 —— 角鲨烷深层保湿，乳木果油带来柔软，神经酰胺强韧修护。全部呵护，全部色彩。</span>
       </p>
-      <div class="mt-8 flex items-center justify-center gap-8 text-ink/40">
+      <div class="mt-8 flex items-center justify-center gap-8 text-white/70">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 3c3 4 5 6.5 5 9.5a5 5 0 0 1-10 0C7 9.5 9 7 12 3Z"/></svg>
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="8"/><path d="M8 12h8M12 8v8"/></svg>
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 21s-7-4.35-7-10a4 4 0 0 1 7-2.65A4 4 0 0 1 19 11c0 5.65-7 10-7 10Z"/></svg>
@@ -315,62 +334,55 @@
     </div>
   </section>
 
-  <!-- ================= 4-UP STRIP ================= -->
-  <section class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 px-4 md:px-8 pb-16">
-    <div><div class="aspect-[4/5] overflow-hidden bg-mist"><img src="https://placehold.co/600x750/e9ddd8/b7a79c?text=+" alt="" class="w-full h-full object-cover" loading="lazy" /></div><p class="mt-3 text-center text-[11px] u-mini uppercase"><span data-lang-en>Fragrance-free</span><span data-lang-zh>无香精</span></p></div>
-    <div><div class="aspect-[4/5] overflow-hidden bg-mist"><img src="https://placehold.co/600x750/e0d3cc/b7a79c?text=+" alt="" class="w-full h-full object-cover" loading="lazy" /></div><p class="mt-3 text-center text-[11px] u-mini uppercase"><span data-lang-en>Menthol-free</span><span data-lang-zh>无薄荷醇</span></p></div>
-    <div><div class="aspect-[4/5] overflow-hidden bg-mist"><img src="https://placehold.co/600x750/d9c9c2/b7a79c?text=+" alt="" class="w-full h-full object-cover" loading="lazy" /></div><p class="mt-3 text-center text-[11px] u-mini uppercase"><span data-lang-en>Vegan &amp; cruelty-free</span><span data-lang-zh>纯素 · 零残忍</span></p></div>
-    <div><div class="aspect-[4/5] overflow-hidden bg-mist"><img src="https://placehold.co/600x750/e0d3cc/b7a79c?text=+" alt="" class="w-full h-full object-cover" loading="lazy" /></div><p class="mt-3 text-center text-[11px] u-mini uppercase"><span data-lang-en>Made for daily wear</span><span data-lang-zh>日常可用</span></p></div>
-  </section>
 
   <!-- ================= FOOTER ================= -->
-  <footer class="border-t border-line">
+  <footer class="border-t border-line bg-[#241812]">
     <div class="max-w-[1400px] mx-auto px-4 md:px-8 py-14 grid gap-10 md:grid-cols-4">
       <div>
-        <p class="text-[11px] u-mini uppercase text-ink/50 mb-4"><span data-lang-en>About</span><span data-lang-zh>关于</span></p>
-        <ul class="space-y-2 text-sm text-ink/70">
+        <p class="text-[13px] u-mini uppercase text-white/50 mb-4"><span data-lang-en>About</span><span data-lang-zh>关于</span></p>
+        <ul class="space-y-2 text-sm text-white/80">
           <li><a href="#note" class="hover:text-dew"><span data-lang-en>The idea</span><span data-lang-zh>理念</span></a></li>
           <li><a href="#why" class="hover:text-dew"><span data-lang-en>Ingredients</span><span data-lang-zh>成分</span></a></li>
           <li><a href="#shades" class="hover:text-dew"><span data-lang-en>Shades</span><span data-lang-zh>色号</span></a></li>
         </ul>
       </div>
       <div>
-        <p class="text-[11px] u-mini uppercase text-ink/50 mb-4"><span data-lang-en>Help</span><span data-lang-zh>帮助</span></p>
-        <ul class="space-y-2 text-sm text-ink/70">
+        <p class="text-[13px] u-mini uppercase text-white/50 mb-4"><span data-lang-en>Help</span><span data-lang-zh>帮助</span></p>
+        <ul class="space-y-2 text-sm text-white/80">
           <li><a href="mailto:hello@dewstick.com" class="hover:text-dew"><span data-lang-en>Contact</span><span data-lang-zh>联系我们</span></a></li>
           <li><a href="#waitlist" class="hover:text-dew"><span data-lang-en>Waitlist</span><span data-lang-zh>等候名单</span></a></li>
           <li><a href="#" class="hover:text-dew"><span data-lang-en>Privacy</span><span data-lang-zh>隐私政策</span></a></li>
         </ul>
       </div>
       <div class="md:col-span-2">
-        <p class="text-[11px] u-mini uppercase text-ink/50 mb-4"><span data-lang-en>Join the waitlist</span><span data-lang-zh>加入等候名单</span></p>
+        <p class="text-[13px] u-mini uppercase text-white/50 mb-4"><span data-lang-en>Join the waitlist</span><span data-lang-zh>加入等候名单</span></p>
         <form class="js-capture max-w-sm" novalidate>
-          <div class="js-row flex border border-ink focus-within:outline focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-ink">
+          <div class="js-row flex bg-white focus-within:outline focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-dew">
             <input type="email" name="email" inputmode="email" autocomplete="email" required
                    class="flex-1 min-w-0 bg-transparent px-4 py-3 text-sm outline-none"
                    data-ph-en="your email" data-ph-zh="你的邮箱" placeholder="your email" />
-            <button type="submit" class="flex-none bg-ink text-white text-[11px] u-mini uppercase px-5 hover:bg-dew transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-white">
+            <button type="submit" class="flex-none bg-ink text-white text-[13px] u-mini uppercase px-5 hover:bg-dew transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-white">
               <span data-lang-en>Join</span><span data-lang-zh>加入</span>
             </button>
           </div>
-          <p class="js-note mt-2 text-[11px] text-ink/50">
+          <p class="js-note mt-2 text-[13px] text-white/60">
             <span data-lang-en>We&rsquo;ll only email you about the dewstick launch.</span>
             <span data-lang-zh>我们仅会发送 dewstick 上市相关邮件。</span>
           </p>
-          <p class="js-success mt-2 text-sm font-medium text-dew" hidden>
+          <p class="js-success mt-2 text-sm font-medium text-white" hidden>
             <span data-lang-en>You&rsquo;re in. First to know when it&rsquo;s real.</span>
             <span data-lang-zh>已加入。第一时间获知上市消息。</span>
           </p>
         </form>
       </div>
     </div>
-    <div class="border-t border-line">
-      <div class="max-w-[1400px] mx-auto px-4 md:px-8 py-6 flex items-center justify-between text-[11px] text-ink/50">
+    <div class="border-t border-white/15">
+      <div class="max-w-[1400px] mx-auto px-4 md:px-8 py-6 flex items-center justify-between text-[13px] text-white/50">
         <p>© 2026 dewstick</p>
         <div class="flex items-center gap-1 u-mini uppercase">
-          <button data-set-lang="en" aria-pressed="true" class="px-1 aria-pressed:font-bold aria-pressed:text-ink">EN</button>
-          <span class="text-ink/25">/</span>
-          <button data-set-lang="zh" aria-pressed="false" class="px-1 aria-pressed:font-bold aria-pressed:text-ink">中文</button>
+          <button data-set-lang="en" aria-pressed="true" class="px-1 aria-pressed:font-bold aria-pressed:text-white text-white/50">EN</button>
+          <span class="text-white/25">/</span>
+          <button data-set-lang="zh" aria-pressed="false" class="px-1 aria-pressed:font-bold aria-pressed:text-white text-white/50">中文</button>
         </div>
       </div>
     </div>
