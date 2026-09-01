@@ -4,6 +4,7 @@
   "description": "Bilingual waitlist landing page for Dewstick, a tinted lip balm (case study).",
   "main": "index.html",
   "scripts": {
+    "dev": "npx --yes serve .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "private": true

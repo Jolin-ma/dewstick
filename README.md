@@ -12,9 +12,9 @@ This repo is step 2–3: the site and the front of the funnel.
 
 - **Single self-contained `index.html`** — Tailwind via CDN, inline `<style>` / `<script>`, no build step.
 - **Bilingual** — every string in English and Simplified Chinese, switched by an `EN / 中文` toggle (pure-CSS `html[data-lang]`, persisted to `localStorage`, updates `<title>` / `<html lang>` / input placeholders).
-- **Layout** recreates the [Typology](https://typology.com) homepage structure (announcement bar → full-bleed hero → formula strip → product grids → lifestyle break → ingredient grid → captioned tiles → founder note → philosophy → footer), adapted for a waitlist rather than a store.
-- **Images** are all [`placehold.co`](https://placehold.co) placeholders — drop real transparent product PNGs into the same `<img>` slots.
-- Fonts: Hanken Grotesk (Latin) + Noto Sans SC (Chinese), 15px base.
+- **Layout** recreates the [Typology](https://typology.com) homepage structure (announcement bar → full-bleed hero → formula strip → product grids → lifestyle break → ingredient grid → `@dewstick` Instagram wall → founder note → philosophy → footer), adapted for a waitlist rather than a store. The two closing sections (philosophy, footer) break the flat single-accent system on purpose: a full Dew Red ground and an espresso-brown footer as an end-of-scroll crescendo.
+- **Images** are real product/lifestyle photography in `image/` (per-shade packshots auto-cropped to 4:5 from multi-panel shoots; every well is full-bleed `object-cover`).
+- Fonts: Hanken Grotesk (Latin) + Noto Sans SC (Chinese), **17px base, 13px uppercase micro-labels**.
 
 ## Run locally
 
@@ -25,8 +25,9 @@ npm run dev        # npx serve .
 
 ## Deploy
 
-Static — deploy the repo root on Vercel, no build step. `vercel.json` sets
-clean URLs and image caching.
+Live at **https://dewstick.vercel.app**. Static — the repo root deploys on
+Vercel with no build step; `vercel.json` sets clean URLs and image caching.
+The Vercel project is git-linked, so every push to `main` auto-deploys.
 
 ## Build spec & decisions
 
@@ -48,5 +49,8 @@ is an honest "No reviews yet." + founder note rather than fabricated reviews.
 - `submitToWaitlist()` in `index.html` is a stubbed 400ms resolve. Point it at a
   real list tool (the brief recommends Klaviyo's free tier) and add UTM capture
   so the funnel is measurable.
-- Real Instagram / TikTok URLs in the footer (currently `#`).
+- Social links: footer links are `#`, and the `@dewstick` Instagram wall tiles
+  are deliberately *not* linked (no real account exists yet — the earlier link
+  pointed at someone else's `instagram.com/dewstick`). Wire tile links + a
+  "Follow" CTA back in once the account is real.
 - The "read the results" analytics layer — per-source landing → email conversion.
