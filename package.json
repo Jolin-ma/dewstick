@@ -1,8 +1,8 @@
 {
-  "name": "${PROJECT_NAME}",
+  "name": "dewstick",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Bilingual waitlist landing page for Dewstick, a tinted lip balm (case study).",
+  "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
