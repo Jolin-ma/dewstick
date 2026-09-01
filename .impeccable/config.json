@@ -9,6 +9,18 @@
         "value": "15px",
         "createdAt": "2026-08-31T23:17:51.894Z",
         "reason": "DESIGN.md documents 15px as the type ramp's base size (html font-size); pre-existing base, not an off-ramp value"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "17px",
+        "createdAt": "2026-09-01T16:11:01.686Z",
+        "reason": "user confirmed: asked to increase all font size sitewide 2026-09-01; new root ramp base"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "13px",
+        "createdAt": "2026-09-01T16:11:01.812Z",
+        "reason": "user confirmed: said 11px micro-labels were hard to read; bumped u-mini/caption step to 13px, verified in browser"
       }
     ]
   }
