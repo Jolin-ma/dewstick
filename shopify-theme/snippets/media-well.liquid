@@ -1,0 +1,14 @@
+{%- comment -%}
+  Square image well. Params: image (image object), sizes, loading ('lazy' | 'eager'), class
+{%- endcomment -%}
+<div class="well well--square {{ class }}">
+  {%- if image != blank -%}
+    {{ image | image_url: width: 1000 | image_tag:
+      widths: '360, 500, 720, 1000',
+      sizes: sizes | default: '(min-width: 768px) 50vw, 100vw',
+      loading: loading | default: 'lazy',
+      alt: image.alt | escape }}
+  {%- else -%}
+    {{ 'product-1' | placeholder_svg_tag }}
+  {%- endif -%}
+</div>

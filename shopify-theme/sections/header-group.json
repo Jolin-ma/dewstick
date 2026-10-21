@@ -1,0 +1,15 @@
+{
+  "type": "header",
+  "name": "Header group",
+  "sections": {
+    "announcement": {
+      "type": "announcement-bar",
+      "settings": { "show": true, "link": "shopify://products/the-set-of-five" }
+    },
+    "header": {
+      "type": "header",
+      "settings": { "shop_collection": "shades" }
+    }
+  },
+  "order": ["announcement", "header"]
+}

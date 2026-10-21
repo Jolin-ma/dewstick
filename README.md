@@ -29,6 +29,31 @@ Live at **https://dewstick.vercel.app**. Static — the repo root deploys on
 Vercel with no build step; `vercel.json` sets clean URLs and image caching.
 The Vercel project is git-linked, so every push to `main` auto-deploys.
 
+## Shopify store (`shopify-theme/`)
+
+The site is also rebuilt as a **real, functional shop** on the Shopify development
+store `dewstick.myshopify.com` — no waitlist: add to cart → cart → Shopify checkout
+(Shopify's test payment gateway, so no real money moves).
+
+- **Catalog** — one product, *dewstick tinted lip balm*, with the five shades as
+  variants ($22 CAD), plus *the set of five* ($98 CAD, compare-at $110). Collection `shades`.
+- **Theme** — custom Online Store 2.0 theme, same "Pharmacy Counter" design system
+  in plain CSS (no Tailwind). All copy lives in `locales/en.default.json` and
+  `locales/zh-CN.json`; EN / 中文 uses Shopify's native languages (`/zh-cn/` URLs).
+- **Hero** takes a short looping background video (set in the theme editor).
+- **Newsletter** — Shopify customer form; signups land in Customers tagged
+  `newsletter` + `source:` / `medium:` / `campaign:` from the landing URL's UTMs.
+- Images live in Shopify Files (`dewstick-01.png` … `dewstick-13.png`) and are
+  referenced from the JSON templates.
+
+```bash
+shopify theme check --path shopify-theme                 # lint
+shopify theme dev   --path shopify-theme --store dewstick  # local preview
+shopify theme push  --path shopify-theme --store dewstick --unpublished
+```
+
+`.vercelignore` keeps `shopify-theme/` out of the Vercel deploy.
+
 ## Build spec & decisions
 
 The full brief is in [`docs/dewstick_master_build_brief.md`](docs/dewstick_master_build_brief.md).

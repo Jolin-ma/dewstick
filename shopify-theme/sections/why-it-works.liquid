@@ -1,0 +1,43 @@
+<section id="why" class="border-top">
+  <div class="split split--reverse">
+    <div class="split__media">
+      {%- render 'media-well', image: section.settings.image -%}
+    </div>
+    <div class="split__copy">
+      <h2 class="h2">{{ 'why.title' | t }}</h2>
+      <p class="lede mt-2" style="max-width: 28rem;">{{ 'why.body' | t }}</p>
+      <div class="benefits">
+        <div class="benefit">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c3 4 5 6.5 5 9.5a5 5 0 0 1-10 0C7 9.5 9 7 12 3Z"/></svg>
+          <h3>{{ 'why.hydrate.title' | t }}</h3>
+          <p class="small muted">{{ 'why.hydrate.body' | t }}</p>
+        </div>
+        <div class="benefit">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19c0-8 5-13 14-14-1 9-6 14-14 14Z"/><path d="M5 19 13 11"/></svg>
+          <h3>{{ 'why.nourish.title' | t }}</h3>
+          <p class="small muted">{{ 'why.nourish.body' | t }}</p>
+        </div>
+        <div class="benefit">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 5 6v5c0 4.5 3 8.5 7 10 4-1.5 7-5.5 7-10V6l-7-3Z"/><path d="m9 12 2 2 4-4"/></svg>
+          <h3>{{ 'why.protect.title' | t }}</h3>
+          <p class="small muted">{{ 'why.protect.body' | t }}</p>
+        </div>
+        <div class="benefit">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.35-7-10a4 4 0 0 1 7-2.65A4 4 0 0 1 19 11c0 5.65-7 10-7 10Z"/></svg>
+          <h3>{{ 'why.glow.title' | t }}</h3>
+          <p class="small muted">{{ 'why.glow.body' | t }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Why it works",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Image" }
+  ],
+  "presets": [{ "name": "Why it works" }]
+}
+{% endschema %}

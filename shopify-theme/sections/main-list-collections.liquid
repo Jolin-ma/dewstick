@@ -1,0 +1,17 @@
+<section class="section">
+  <div class="container">
+    <h1 class="h2 section-head">{{ 'collection.all' | t }}</h1>
+    <div class="grid grid--2 grid--md-3">
+      {%- for collection in collections -%}
+        <a class="card" href="{{ collection.url }}">
+          {%- render 'media-well', image: collection.featured_image, sizes: '(min-width: 768px) 33vw, 50vw' -%}
+          <div class="card__body"><p class="medium">{{ collection.title }}</p></div>
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{ "name": "Collections list", "settings": [] }
+{% endschema %}

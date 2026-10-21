@@ -1,0 +1,23 @@
+{%- comment -%}
+  Shopify customer (newsletter) form. Signups land in Admin → Customers, subscribed to email
+  marketing and tagged "newsletter" + utm source/medium/campaign (added by dewstick.js).
+  Params: form_id, note_key
+{%- endcomment -%}
+{%- form 'customer', id: form_id, class: 'js-newsletter', novalidate: 'novalidate' -%}
+  <input type="hidden" name="contact[tags]" value="newsletter">
+  {%- if form.posted_successfully? -%}
+    <p class="small medium" role="status">{{ 'newsletter.success' | t }}</p>
+  {%- else -%}
+    <div class="field-row{% if form.errors %} is-error{% endif %}">
+      <label class="visually-hidden" for="{{ form_id }}-email">{{ 'newsletter.label' | t }}</label>
+      <input id="{{ form_id }}-email" type="email" name="contact[email]" inputmode="email" autocomplete="email" required
+        placeholder="{{ 'newsletter.placeholder' | t }}" value="{{ form.email }}">
+      <button type="submit" class="btn">{{ 'newsletter.submit' | t }}</button>
+    </div>
+    {%- if form.errors -%}
+      <p class="form-note accent" role="alert">{{ form.errors.translated_fields.email | capitalize }} {{ form.errors.messages.email }}</p>
+    {%- else -%}
+      <p class="form-note">{{ note_key | default: 'newsletter.privacy' | t }}</p>
+    {%- endif -%}
+  {%- endif -%}
+{%- endform -%}

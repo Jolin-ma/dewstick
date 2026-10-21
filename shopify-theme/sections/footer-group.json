@@ -1,0 +1,11 @@
+{
+  "type": "footer",
+  "name": "Footer group",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "settings": { "contact_email": "hello@dewstick.com" }
+    }
+  },
+  "order": ["footer"]
+}

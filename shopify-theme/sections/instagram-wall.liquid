@@ -1,0 +1,35 @@
+{%- comment -%}
+  Brand photo wall. Tiles are deliberately NOT links: there is no real @dewstick account yet.
+  Set "Instagram URL" once the account exists and every tile + the heading link up.
+{%- endcomment -%}
+{%- assign ig = section.settings.instagram_url -%}
+<section class="section">
+  <div class="container">
+    <div class="section-head" style="margin-bottom: 48px;">
+      <h2 class="h2">{{ 'insta.title' | t }}</h2>
+      <p class="mt-1 small muted" style="max-width: 28rem;">{{ 'insta.body_html' | t }}</p>
+      {%- if ig != blank -%}<a class="link-cta" href="{{ ig }}" target="_blank" rel="noopener">{{ 'insta.follow' | t }}</a>{%- endif -%}
+    </div>
+    <div class="grid grid--2 grid--md-3 grid--roomy">
+      {%- for block in section.blocks -%}
+        {%- if ig != blank -%}<a href="{{ ig }}" target="_blank" rel="noopener" {{ block.shopify_attributes }}>{%- else -%}<div {{ block.shopify_attributes }}>{%- endif -%}
+          {%- render 'media-well', image: block.settings.image, sizes: '(min-width: 768px) 33vw, 50vw' -%}
+        {%- if ig != blank -%}</a>{%- else -%}</div>{%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Photo wall",
+  "settings": [
+    { "type": "url", "id": "instagram_url", "label": "Instagram URL", "info": "Leave blank until the real @dewstick account exists." }
+  ],
+  "blocks": [
+    { "type": "tile", "name": "Photo", "settings": [ { "type": "image_picker", "id": "image", "label": "Image" } ] }
+  ],
+  "max_blocks": 9,
+  "presets": [{ "name": "Photo wall", "blocks": [ { "type": "tile" }, { "type": "tile" }, { "type": "tile" } ] }]
+}
+{% endschema %}

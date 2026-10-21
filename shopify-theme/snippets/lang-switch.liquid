@@ -1,0 +1,14 @@
+{%- comment -%} EN / 中文 toggle — uses Shopify's localization form, so each language gets its own URL (/zh-cn/...). {%- endcomment -%}
+{%- if localization.available_languages.size > 1 -%}
+  {%- form 'localization', class: 'lang-switch u-mini' -%}
+    <input type="hidden" name="return_to" value="{{ request.path }}">
+    {%- for language in localization.available_languages -%}
+      {%- if forloop.index > 1 -%}<span class="sep" aria-hidden="true">/</span>{%- endif -%}
+      <button type="submit" name="locale_code" value="{{ language.iso_code }}"
+        lang="{{ language.iso_code }}"
+        aria-current="{% if language.iso_code == localization.language.iso_code %}true{% else %}false{% endif %}">
+        {%- if language.iso_code contains 'zh' -%}中文{%- else -%}{{ language.iso_code | split: '-' | first | upcase }}{%- endif -%}
+      </button>
+    {%- endfor -%}
+  {%- endform -%}
+{%- endif -%}

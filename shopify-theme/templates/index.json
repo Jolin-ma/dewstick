@@ -1,0 +1,95 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "scrim": 15,
+        "light_text": false,
+        "collection": "shades"
+      }
+    },
+    "formula": {
+      "type": "formula-strip",
+      "settings": {}
+    },
+    "hero-shades": {
+      "type": "shade-grid",
+      "settings": {
+        "product": "dewstick-tinted-lip-balm",
+        "shades": "nectar, poppy, blush",
+        "heading_key": "hero",
+        "columns": "3",
+        "link": "shopify://collections/shades",
+        "show_footnote": false,
+        "flush_top": false,
+        "anchor": "shades"
+      }
+    },
+    "all-shades": {
+      "type": "shade-grid",
+      "settings": {
+        "product": "dewstick-tinted-lip-balm",
+        "shades": "",
+        "heading_key": "all",
+        "columns": "5",
+        "show_footnote": true,
+        "flush_top": true,
+        "anchor": "all-shades"
+      }
+    },
+    "the-set": {
+      "type": "image-with-text",
+      "settings": {
+        "content": "set",
+        "image": "shopify://shop_images/dewstick-04.png",
+        "product": "the-set-of-five",
+        "scheme": "paper",
+        "image_right": false,
+        "border": true,
+        "anchor": "the-set"
+      }
+    },
+    "the-feel": {
+      "type": "image-with-text",
+      "settings": {
+        "content": "feel",
+        "image": "shopify://shop_images/dewstick-09.png",
+        "link": "shopify://collections/shades",
+        "scheme": "ink",
+        "image_right": true,
+        "border": false,
+        "anchor": "feel"
+      }
+    },
+    "why": {
+      "type": "why-it-works",
+      "settings": {
+        "image": "shopify://shop_images/dewstick-03.png"
+      }
+    },
+    "wall": {
+      "type": "instagram-wall",
+      "blocks": {
+        "t1": { "type": "tile", "settings": { "image": "shopify://shop_images/dewstick-06.png" } },
+        "t2": { "type": "tile", "settings": { "image": "shopify://shop_images/dewstick-12.png" } },
+        "t3": { "type": "tile", "settings": { "image": "shopify://shop_images/dewstick-08.png" } },
+        "t4": { "type": "tile", "settings": { "image": "shopify://shop_images/dewstick-11.png" } },
+        "t5": { "type": "tile", "settings": { "image": "shopify://shop_images/dewstick-02.png" } },
+        "t6": { "type": "tile", "settings": { "image": "shopify://shop_images/dewstick-10.png" } }
+      },
+      "block_order": ["t1", "t2", "t3", "t4", "t5", "t6"],
+      "settings": { "instagram_url": "" }
+    },
+    "note": {
+      "type": "founder-note",
+      "settings": {
+        "image": "shopify://shop_images/dewstick-07.png"
+      }
+    },
+    "philosophy": {
+      "type": "philosophy",
+      "settings": {}
+    }
+  },
+  "order": ["hero", "formula", "hero-shades", "all-shades", "the-set", "the-feel", "why", "wall", "note", "philosophy"]
+}

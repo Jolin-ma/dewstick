@@ -1,0 +1,10 @@
+{%- comment -%} Tube colourway for a shade name. Mapping: nectar→yellow, poppy→red, peony→pink, blush→green, orchid→blue. {%- endcomment -%}
+{%- case shade -%}
+  {%- when 'nectar' -%}{%- assign c = '#f3b52f' -%}
+  {%- when 'poppy' -%}{%- assign c = '#e2392f' -%}
+  {%- when 'peony' -%}{%- assign c = '#f4a9bd' -%}
+  {%- when 'blush' -%}{%- assign c = '#b6c935' -%}
+  {%- when 'orchid' -%}{%- assign c = '#8dbde6' -%}
+  {%- else -%}{%- assign c = '#e4e2dd' -%}
+{%- endcase -%}
+<span class="swatch-dot" style="background: {{ c }}" aria-hidden="true"></span>

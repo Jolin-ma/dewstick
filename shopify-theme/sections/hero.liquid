@@ -1,0 +1,50 @@
+{%- liquid
+  assign has_media = false
+  if section.settings.video != blank or section.settings.image != blank
+    assign has_media = true
+  endif
+-%}
+<section class="hero{% if has_media and section.settings.light_text %} hero--light-text{% endif %}">
+  {%- if section.settings.video != blank -%}
+    <div class="hero__media">
+      {{ section.settings.video | video_tag:
+        autoplay: true, loop: true, muted: true, playsinline: true, controls: false,
+        preload: 'metadata', image_size: '1600x' }}
+    </div>
+  {%- elsif section.settings.image != blank -%}
+    <div class="hero__media">
+      {{ section.settings.image | image_url: width: 2000 | image_tag: widths: '750, 1100, 1500, 2000', sizes: '100vw', loading: 'eager', fetchpriority: 'high' }}
+    </div>
+  {%- endif -%}
+  {%- if has_media and section.settings.scrim > 0 -%}
+    <div class="hero__scrim" style="opacity: {{ section.settings.scrim | divided_by: 100.0 }}"></div>
+  {%- endif -%}
+
+  <div class="container hero__inner">
+    <div class="hero__copy">
+      <p class="u-mini muted hero__eyebrow">{{ 'hero.eyebrow' | t }}</p>
+      <h1 class="h1">{{ 'hero.title_html' | t }}</h1>
+      <p class="lede">{{ 'hero.body' | t }}</p>
+      <div class="hero__actions">
+        {%- if section.settings.collection != blank -%}
+          <a class="btn" href="{{ section.settings.collection.url }}">{{ 'hero.cta' | t }}</a>
+        {%- endif -%}
+        <a class="link-cta" href="#why">{{ 'hero.cta_secondary' | t }}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero",
+  "settings": [
+    { "type": "video", "id": "video", "label": "Background video", "info": "Short loop (~10s). Plays muted, looping and inline on phones." },
+    { "type": "image_picker", "id": "image", "label": "Fallback image", "info": "Used only when no video is set." },
+    { "type": "range", "id": "scrim", "label": "Darken media", "min": 0, "max": 60, "step": 5, "unit": "%", "default": 15 },
+    { "type": "checkbox", "id": "light_text", "label": "White text over media", "default": false },
+    { "type": "collection", "id": "collection", "label": "Shop button links to" }
+  ],
+  "presets": [{ "name": "Hero" }]
+}
+{% endschema %}

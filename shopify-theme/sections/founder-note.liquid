@@ -1,0 +1,27 @@
+{%- comment -%} The reviews slot. Honest by design: no fabricated reviews, ratings or counts. {%- endcomment -%}
+<section id="note" class="border-top">
+  <div class="split">
+    <div class="split__copy">
+      <h2 class="h2 h2--plain">{{ 'note.title' | t }}</h2>
+      <p class="mt-2 small muted" style="max-width: 24rem;">{{ 'note.sub' | t }}</p>
+      <div class="note-card">
+        <p class="u-mini muted">{{ 'note.label' | t }}</p>
+        <p class="small" style="line-height: 1.7;">{{ 'note.body' | t }}</p>
+        <p class="small medium">— dewstick</p>
+      </div>
+    </div>
+    <div class="split__media">
+      {%- render 'media-well', image: section.settings.image -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Founder note",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Image" }
+  ],
+  "presets": [{ "name": "Founder note" }]
+}
+{% endschema %}

@@ -1,0 +1,18 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "settings": {
+        "show_set_upsell": true,
+        "upsell": "the-set-of-five"
+      }
+    },
+    "why": {
+      "type": "why-it-works",
+      "settings": {
+        "image": "shopify://shop_images/dewstick-05.png"
+      }
+    }
+  },
+  "order": ["main", "why"]
+}

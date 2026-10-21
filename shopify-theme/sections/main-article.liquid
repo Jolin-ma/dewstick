@@ -1,0 +1,12 @@
+<section class="section">
+  <article class="container page-narrow">
+    <p class="u-mini muted">{{ article.published_at | date: format: 'date' }}</p>
+    <h1 class="h2 mt-1" style="text-transform: none;">{{ article.title }}</h1>
+    {%- if article.image -%}<div class="mt-3">{%- render 'media-well', image: article.image -%}</div>{%- endif -%}
+    <div class="rte mt-3">{{ article.content }}</div>
+  </article>
+</section>
+
+{% schema %}
+{ "name": "Article", "settings": [] }
+{% endschema %}

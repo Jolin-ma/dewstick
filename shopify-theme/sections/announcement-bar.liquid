@@ -1,0 +1,21 @@
+{%- if section.settings.show -%}
+<div class="announcement u-mini">
+  {%- if section.settings.link != blank -%}
+    <a href="{{ section.settings.link }}">{{ 'announcement.text' | t }}</a>
+  {%- else -%}
+    {{ 'announcement.text' | t }}
+  {%- endif -%}
+</div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Announcement bar",
+  "class": "section-announcement",
+  "settings": [
+    { "type": "checkbox", "id": "show", "label": "Show announcement", "default": true },
+    { "type": "url", "id": "link", "label": "Link" },
+    { "type": "paragraph", "content": "Text lives in the theme's language files (announcement.text) so it ships in English and 中文." }
+  ]
+}
+{% endschema %}

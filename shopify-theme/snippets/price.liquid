@@ -1,0 +1,2 @@
+{%- comment -%} Renders "$22 CAD" — whole-dollar money plus the ISO code, matching the brand's price strings. {%- endcomment -%}
+{{- price | money_without_trailing_zeros }} {{ cart.currency.iso_code -}}

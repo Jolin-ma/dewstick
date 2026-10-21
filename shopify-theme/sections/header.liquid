@@ -1,0 +1,47 @@
+{%- liquid
+  assign home = routes.root_url
+  if home == '/'
+    assign home = ''
+  endif
+-%}
+<header class="site-header">
+  <div class="container site-header__bar">
+    <nav class="site-header__nav u-mini" aria-label="{{ 'general.nav' | t }}">
+      <a href="{{ routes.collections_url }}/{{ section.settings.shop_collection.handle | default: 'all' }}">{{ 'nav.shop' | t }}</a>
+      <a href="{{ home }}/#why">{{ 'nav.ingredients' | t }}</a>
+      <a href="{{ home }}/#note">{{ 'nav.idea' | t }}</a>
+    </nav>
+
+    <button id="menuBtn" class="menu-toggle" aria-label="{{ 'general.menu' | t }}" aria-expanded="false" aria-controls="menuPanel">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+
+    <a href="{{ routes.root_url }}" class="wordmark" aria-label="{{ 'general.home' | t }}">dewstick</a>
+
+    <div class="site-header__tools u-mini">
+      {%- render 'lang-switch' -%}
+      <a href="{{ routes.cart_url }}" class="cart-link" aria-label="{{ 'general.cart_count' | t: count: cart.item_count }}">
+        <span class="hide-mobile">{{ 'general.cart' | t }}</span>
+        <svg class="only-mobile" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 8h14l-1 12H6L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        {%- if cart.item_count > 0 -%}<span class="cart-count">{{ cart.item_count }}</span>{%- endif -%}
+      </a>
+    </div>
+  </div>
+
+  <nav id="menuPanel" class="mobile-nav" hidden aria-label="{{ 'general.nav' | t }}">
+    <a href="{{ routes.collections_url }}/{{ section.settings.shop_collection.handle | default: 'all' }}">{{ 'nav.shop' | t }}</a>
+    <a href="{{ home }}/#why">{{ 'nav.ingredients' | t }}</a>
+    <a href="{{ home }}/#note">{{ 'nav.idea' | t }}</a>
+    <a href="{{ routes.cart_url }}" class="accent">{{ 'general.cart' | t }} ({{ cart.item_count }})</a>
+  </nav>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "class": "section-header",
+  "settings": [
+    { "type": "collection", "id": "shop_collection", "label": "\"Shop\" links to collection" }
+  ]
+}
+{% endschema %}

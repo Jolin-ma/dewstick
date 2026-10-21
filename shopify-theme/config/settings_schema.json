@@ -1,0 +1,28 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Dewstick",
+    "theme_version": "1.0.0",
+    "theme_author": "Jolin Ma",
+    "theme_documentation_url": "https://github.com/Jolin-ma/dewstick",
+    "theme_support_url": "https://github.com/Jolin-ma/dewstick"
+  },
+  {
+    "name": "Colours",
+    "settings": [
+      { "type": "paragraph", "content": "\"The Pharmacy Counter\": one accent (Dew red), used sparingly." },
+      { "type": "color", "id": "color_ink", "label": "Ink (text)", "default": "#1a1a1a" },
+      { "type": "color", "id": "color_dew", "label": "Dew red (accent)", "default": "#E94B3C" },
+      { "type": "color", "id": "color_paper", "label": "Paper (background)", "default": "#ffffff" },
+      { "type": "color", "id": "color_mist", "label": "Mist (image wells)", "default": "#f5f4f2" },
+      { "type": "color", "id": "color_line", "label": "Lines", "default": "#e4e2dd" },
+      { "type": "color", "id": "color_espresso", "label": "Footer (espresso)", "default": "#241812" }
+    ]
+  },
+  {
+    "name": "Favicon",
+    "settings": [
+      { "type": "image_picker", "id": "favicon", "label": "Favicon", "info": "Leave blank for the red dewdrop." }
+    ]
+  }
+]

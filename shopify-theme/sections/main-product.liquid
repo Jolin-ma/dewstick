@@ -1,0 +1,117 @@
+{%- liquid
+  assign current = product.selected_or_first_available_variant
+  assign current_media_id = current.featured_media.id | default: product.featured_media.id
+  assign has_shades = false
+  if product.has_only_default_variant == false
+    assign has_shades = true
+  endif
+-%}
+<section class="section" data-product>
+  <div class="container product">
+    <div class="product__gallery">
+      {%- for media in product.media -%}
+        <div data-media-id="{{ media.id }}" {% unless media.id == current_media_id %}hidden{% endunless %}>
+          {%- render 'media-well', image: media.preview_image, sizes: '(min-width: 900px) 55vw, 100vw', loading: 'eager' -%}
+        </div>
+      {%- else -%}
+        {%- render 'media-well', image: blank -%}
+      {%- endfor -%}
+      {%- if product.media.size > 1 -%}
+        <div class="product__thumbs">
+          {%- for media in product.media -%}
+            <button type="button" data-thumb="{{ media.id }}" aria-label="{{ media.alt | escape }}"
+              aria-current="{% if media.id == current_media_id %}true{% else %}false{% endif %}">
+              {{ media.preview_image | image_url: width: 200 | image_tag: loading: 'lazy', alt: '' }}
+            </button>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+
+    <div class="product__info">
+      <p class="u-mini muted">{{ product.type }}</p>
+      <h1 class="h2 mt-1" style="text-transform: none;">{{ product.title }}</h1>
+      <p class="product__price">
+        <span data-price>{% render 'price', price: current.price %}</span>
+        {%- if current.compare_at_price > current.price -%}
+          <span class="faint card__compare">{% render 'price', price: current.compare_at_price %}</span>
+        {%- endif -%}
+      </p>
+
+      {%- form 'product', product, id: 'ProductForm' -%}
+        <input type="hidden" name="id" value="{{ current.id }}">
+
+        {%- if has_shades -%}
+          {%- assign option = product.options_with_values.first -%}
+          <fieldset class="shade-picker">
+            <legend class="u-mini">{{ 'product.shade' | t }}</legend>
+            <div class="shade-picker__options">
+              {%- for value in option.values -%}
+                {%- assign shade = value | downcase -%}
+                <input type="radio" id="shade-{{ forloop.index }}" name="shade" value="{{ value | escape }}" data-option
+                  {% if option.selected_value == value %}checked{% endif %}>
+                <label for="shade-{{ forloop.index }}">{% render 'shade-swatch', shade: shade %}{{ value }}
+                  <span class="faint">&nbsp;/ {{ shade | prepend: 'shades.' | append: '.tone' | t }}</span></label>
+              {%- endfor -%}
+            </div>
+          </fieldset>
+        {%- endif -%}
+
+        <div class="buy-row">
+          <div class="qty" data-qty>
+            <button type="button" data-step="-1" aria-label="{{ 'product.qty_down' | t }}">−</button>
+            <label class="visually-hidden" for="Quantity">{{ 'product.quantity' | t }}</label>
+            <input id="Quantity" type="number" name="quantity" value="1" min="1" inputmode="numeric">
+            <button type="button" data-step="1" aria-label="{{ 'product.qty_up' | t }}">+</button>
+          </div>
+          <button type="submit" class="btn" data-add
+            data-label-add="{{ 'product.add_to_cart' | t | escape }}" data-label-soldout="{{ 'product.sold_out' | t | escape }}"
+            {% unless current.available %}disabled{% endunless %}>
+            <span>{%- if current.available -%}{{ 'product.add_to_cart' | t }}{%- else -%}{{ 'product.sold_out' | t }}{%- endif -%}</span>
+          </button>
+        </div>
+        {%- if form.errors -%}<p class="product__error" role="alert">{{ form.errors | default_errors }}</p>{%- endif -%}
+      {%- endform -%}
+
+      <div class="product__desc rte">{{ product.description }}</div>
+    </div>
+  </div>
+
+  <script type="application/json" data-variants>
+    [
+      {%- for v in product.variants -%}
+        {
+          "id": {{ v.id }},
+          "option1": {{ v.option1 | json }},
+          "available": {{ v.available | json }},
+          "price_label": {% capture p %}{% render 'price', price: v.price %}{% endcapture %}{{ p | strip | json }},
+          "media_id": {{ v.featured_media.id | default: 'null' }}
+        }{% unless forloop.last %},{% endunless %}
+      {%- endfor -%}
+    ]
+  </script>
+</section>
+
+{%- if section.settings.show_set_upsell and section.settings.upsell != blank and section.settings.upsell.id != product.id -%}
+  {%- assign up = section.settings.upsell -%}
+  <section class="border-top">
+    <div class="split split--mist">
+      <div class="split__media">{%- render 'media-well', image: up.featured_image -%}</div>
+      <div class="split__copy">
+        <h2 class="h2">{{ 'set.title' | t }}</h2>
+        <p class="lede mt-2" style="max-width: 26rem;">{{ 'set.body' | t }}</p>
+        <a class="link-cta mt-3" style="align-self: flex-start;" href="{{ up.url }}">{{ 'set.details' | t }}</a>
+      </div>
+    </div>
+  </section>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Product",
+  "settings": [
+    { "type": "checkbox", "id": "show_set_upsell", "label": "Show \"set of five\" below", "default": true },
+    { "type": "product", "id": "upsell", "label": "Set product" }
+  ]
+}
+{% endschema %}
