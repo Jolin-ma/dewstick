@@ -20,3 +20,16 @@
 
 /* product title is an inline link; without this the set's (swatch-less) line puts the stepper beside it */
 .cart-line > div > a.medium { display: block; }
+
+/* hero: on desktop the 86vh box is much wider than 16:9, so object-fit: cover cropped the top of the
+   tube. Size the box to the video instead so the whole frame shows (phones still crop the sides). */
+@media (min-width: 768px) {
+  .hero { height: auto; min-height: 0; aspect-ratio: 16 / 9; }
+}
+
+/* grid/split columns default to min-width: auto, so a 1000px-wide <img> pushed them past the
+   viewport on tablets and small laptops (sideways scroll). Let them shrink. */
+.split > *, .grid > *, .product > * { min-width: 0; }
+/* .split__media .well is height: 100% + aspect-ratio 1:1, so a tall copy column made it wider than its
+   column. Pin the width; object-fit: cover handles the crop. */
+.split__media .well { width: 100%; }
