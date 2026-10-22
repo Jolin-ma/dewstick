@@ -33,3 +33,15 @@
 /* .split__media .well is height: 100% + aspect-ratio 1:1, so a tall copy column made it wider than its
    column. Pin the width; object-fit: cover handles the crop. */
 .split__media .well { width: 100%; }
+
+/* display type: Bodoni Moda for the wordmark + hero headline, Quicksand for the copy over the video.
+   Noto Serif SC / Noto Sans SC carry the Chinese glyphs those families don't have. */
+:root {
+  --font-display: "Bodoni Moda", "Noto Serif SC", Didot, "Times New Roman", serif;
+  --font-round: "Quicksand", "Noto Sans SC", system-ui, sans-serif;
+}
+.wordmark { font-family: var(--font-display); font-weight: 700; letter-spacing: -.01em; }
+.hero .h1 { font-family: var(--font-display); font-weight: 600; letter-spacing: -.015em; line-height: 1.05; }
+.hero__eyebrow, .hero .lede, .hero .btn, .hero .link-cta { font-family: var(--font-round); }
+.hero .lede { font-weight: 500; }
+.hero__eyebrow, .hero .btn, .hero .link-cta { font-weight: 600; }

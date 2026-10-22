@@ -189,7 +189,7 @@ def page(lang, path, title, body, description=None):
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23E94B3C'/%3E%3Cpath d='M16 7c3 4 5 6.5 5 9.5a5 5 0 0 1-10 0C11 13.5 13 11 16 7Z' fill='%23fff'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=Bodoni+Moda:opsz,wght@6..96,500..800&family=Quicksand:wght@500;600;700&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
   <style>
     :root {{ --ink: #1a1a1a; --dew: #E94B3C; --paper: #ffffff; --mist: #f5f4f2; --line: #e4e2dd; --espresso: #241812;
       --font: "Hanken Grotesk", "Noto Sans SC", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }}
