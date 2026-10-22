@@ -245,3 +245,15 @@ ul { padding: 0; list-style: none; }
 .password { display: grid; place-items: center; text-align: center; padding: 48px 16px; }
 .password .wordmark { font-size: 3rem; }
 .password form { margin: 24px auto 0; max-width: 22rem; }
+
+/* display type: Bodoni Moda for the wordmark + hero headline, Quicksand for the copy over the video.
+   Noto Serif SC / Noto Sans SC carry the Chinese glyphs those families don't have. */
+:root {
+  --font-display: "Bodoni Moda", "Noto Serif SC", Didot, "Times New Roman", serif;
+  --font-round: "Quicksand", "Noto Sans SC", system-ui, sans-serif;
+}
+.wordmark { font-family: var(--font-display); font-weight: 700; letter-spacing: -.01em; }
+.hero .h1 { font-family: var(--font-display); font-weight: 600; letter-spacing: -.015em; line-height: 1.05; }
+.hero__eyebrow, .hero .lede, .hero .btn, .hero .link-cta { font-family: var(--font-round); }
+.hero .lede { font-weight: 500; }
+.hero__eyebrow, .hero .btn, .hero .link-cta { font-weight: 600; }
