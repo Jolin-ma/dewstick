@@ -124,7 +124,16 @@ ul { padding: 0; list-style: none; }
 /* hero — full-bleed video (or image) with copy over it; plain mist ground until media is set */
 .hero { position: relative; min-height: 520px; height: 86vh; overflow: hidden; background: var(--mist); display: flex; align-items: center; }
 .hero__media, .hero__media video, .hero__media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.hero__media--mobile { display: none; }
+@media (max-width: 767px) {
+  .hero__media--desktop { display: none; }
+  .hero__media--mobile { display: block; }
+}
 .hero__scrim { position: absolute; inset: 0; background: #000; }
+.hero__wash { position: absolute; inset: 0; background: color-mix(in srgb, var(--paper) 50%, transparent); }
+@media (min-width: 768px) {
+  .hero__wash { background: linear-gradient(90deg, color-mix(in srgb, var(--paper) 55%, transparent) 0%, color-mix(in srgb, var(--paper) 30%, transparent) 28%, transparent 45%); }
+}
 .hero__inner { position: relative; width: 100%; }
 .hero--light-text { color: #fff; }
 .hero--light-text .lede, .hero--light-text .muted { color: rgba(255,255,255,.9); }

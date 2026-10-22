@@ -3,7 +3,9 @@
     "hero": {
       "type": "hero",
       "settings": {
-        "scrim": 15,
+        "video": "shopify://files/videos/dewstick-hero-loop.mp4",
+        "video_mobile": "shopify://files/videos/dewstick-hero-mobile.mp4",
+        "scrim": 0,
         "light_text": false,
         "collection": "shades"
       }
