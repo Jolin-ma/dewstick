@@ -1,31 +1,52 @@
-# dewstick — bilingual waitlist landing page
+# dewstick — a tinted lip balm store, end to end
 
 A self-directed case study in end-to-end e-commerce coordination: scan live
 marketplaces for a viable product → stand up the store → design the
-content-to-waitlist funnel → read the results. **dewstick** is the fictional
+content-to-purchase funnel → read the results. **dewstick** is the fictional
 product used to run that workflow — a tinted lip balm positioned as "half
 lipstick, half lip mask".
 
-This repo is step 2–3: the site and the front of the funnel.
+## See it
+
+| | |
+|---|---|
+| **Store (public copy)** | **https://dewstick.vercel.app** — every page of the Shopify store, EN / 中文, with a working cart |
+| Shopify store | https://dewstick.myshopify.com — the real one, with Shopify checkout in test mode. Password-protected (Shopify development stores can't be made public) |
+| Waitlist version | https://dewstick.vercel.app/waitlist — the earlier pre-launch landing page |
+
+## Static copy of the store (Vercel)
+
+`index.html`, `collections/`, `products/`, `cart.html`, `404.html` and `zh/` are
+**generated** from the Shopify theme by `scripts/build_shop.py` — same markup and
+CSS (`shop/dewstick.css` is copied from the theme), same copy (the theme's
+`locales/*.json`), product data mirrored from the store. Images and the hero video
+are local copies in `shop/img/` and `shop/video/`.
+
+- Cart lives in `localStorage` (`shop/site.js`): add, change quantity, remove, subtotal.
+- **Check out** explains that this is the portfolio copy and links to the Shopify
+  store, where the real (test-mode) checkout runs.
+- The newsletter form doesn't collect anything here; it says so.
+
+```bash
+python scripts/build_shop.py   # regenerate after changing the theme or its locales
+npm run dev                    # npx serve . — cleanUrls like Vercel
+```
+
+## Waitlist page (`waitlist.html`)
+
+The original pre-launch site, kept at `/waitlist`.
 
 ## What it is
 
-- **Single self-contained `index.html`** — Tailwind via CDN, inline `<style>` / `<script>`, no build step.
+- **Single self-contained `waitlist.html`** — Tailwind via CDN, inline `<style>` / `<script>`, no build step.
 - **Bilingual** — every string in English and Simplified Chinese, switched by an `EN / 中文` toggle (pure-CSS `html[data-lang]`, persisted to `localStorage`, updates `<title>` / `<html lang>` / input placeholders).
 - **Layout** recreates the [Typology](https://typology.com) homepage structure (announcement bar → full-bleed hero → formula strip → product grids → lifestyle break → ingredient grid → `@dewstick` Instagram wall → founder note → philosophy → footer), adapted for a waitlist rather than a store. The two closing sections (philosophy, footer) break the flat single-accent system on purpose: a full Dew Red ground and an espresso-brown footer as an end-of-scroll crescendo.
 - **Images** are real product/lifestyle photography in `image/` (per-shade packshots auto-cropped to 4:5 from multi-panel shoots; every well is full-bleed `object-cover`).
 - Fonts: Hanken Grotesk (Latin) + Noto Sans SC (Chinese), **17px base, 13px uppercase micro-labels**.
 
-## Run locally
-
-```bash
-npm run dev        # npx serve .
-# or open index.html through any static server
-```
-
 ## Deploy
 
-Live at **https://dewstick.vercel.app**. Static — the repo root deploys on
+Live at **https://dewstick.vercel.app** (store copy at `/`, waitlist at `/waitlist`). Static — the repo root deploys on
 Vercel with no build step; `vercel.json` sets clean URLs and image caching.
 The Vercel project is git-linked, so every push to `main` auto-deploys.
 
@@ -52,7 +73,7 @@ shopify theme dev   --path shopify-theme --store dewstick  # local preview
 shopify theme push  --path shopify-theme --store dewstick --unpublished
 ```
 
-`.vercelignore` keeps `shopify-theme/` out of the Vercel deploy.
+`.vercelignore` keeps `shopify-theme/` and `scripts/` out of the Vercel deploy.
 
 ## Build spec & decisions
 
@@ -71,7 +92,7 @@ is an honest "No reviews yet." + founder note rather than fabricated reviews.
 
 ## Still to wire
 
-- `submitToWaitlist()` in `index.html` is a stubbed 400ms resolve. Point it at a
+- `submitToWaitlist()` in `waitlist.html` is a stubbed 400ms resolve. Point it at a
   real list tool (the brief recommends Klaviyo's free tier) and add UTM capture
   so the funnel is measurable.
 - Social links: footer links are `#`, and the `@dewstick` Instagram wall tiles

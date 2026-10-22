@@ -1,0 +1,22 @@
+/* Additions for the static copy — everything else is shop/dewstick.css, copied from the Shopify theme. */
+
+/* language switch uses links here (Shopify uses a localization form with buttons) */
+.lang-switch a { padding: 0 4px; opacity: .4; white-space: nowrap; }
+.lang-switch a[aria-current="true"] { opacity: 1; font-weight: 700; }
+.site-footer .lang-switch a[aria-current="true"] { color: #fff; }
+
+/* the set's add-to-cart sits in a split column */
+.split__copy form { align-self: flex-start; }
+
+/* checkout stand-in */
+.demo-panel { margin-top: 24px; margin-left: auto; max-width: 28rem; border: 1px solid var(--line); background: var(--mist); padding: 20px 24px; text-align: left; }
+.demo-panel:focus { outline: none; }
+.demo-panel:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+
+.copy-note { color: rgba(255,255,255,.35); }
+@media (max-width: 767px) {
+  .site-footer__base .container { flex-direction: column; align-items: flex-start; gap: 12px; }
+}
+
+/* product title is an inline link; without this the set's (swatch-less) line puts the stepper beside it */
+.cart-line > div > a.medium { display: block; }

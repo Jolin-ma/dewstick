@@ -1,11 +1,12 @@
 {
   "name": "dewstick",
   "version": "1.0.0",
-  "description": "Bilingual waitlist landing page for Dewstick, a tinted lip balm (case study).",
+  "description": "Static copy of the Dewstick Shopify store (EN/\u4e2d\u6587) \u2014 tinted lip balm case study.",
   "main": "index.html",
   "scripts": {
     "dev": "npx --yes serve .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "python scripts/build_shop.py"
   },
   "private": true
 }

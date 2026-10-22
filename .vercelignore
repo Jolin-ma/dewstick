@@ -1,2 +1,4 @@
 # Shopify theme source — deployed to Shopify, not part of the static Vercel site
 shopify-theme/
+# generator for the static shop pages; run locally, output is committed
+scripts/
