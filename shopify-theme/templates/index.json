@@ -3,7 +3,7 @@
     "hero": {
       "type": "hero",
       "settings": {
-        "video": "shopify://files/videos/dewstick-hero-mobile.mp4",
+        "video": "shopify://files/videos/dewstick-hero.mp4",
         "scrim": 0,
         "light_text": false,
         "collection": "shades"
