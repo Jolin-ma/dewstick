@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "npx --yes serve .",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "python scripts/build_shop.py"
+    "build:shop": "python scripts/build_shop.py"
   },
   "private": true
 }
