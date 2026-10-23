@@ -60,8 +60,7 @@ payment gateway, so no real money moves).
 - **Catalog** — one product, *dewstick tinted lip balm*, with the five shades as
   variants ($22 CAD), plus *the set of five* ($98 CAD, compare-at $110). Collection `shades`.
 - **Theme** — custom Online Store 2.0 theme in plain CSS, running the redesign
-  ([`DESIGN.md`](DESIGN.md)) in the unpublished theme "Dewstick (redesign)"
-  until it is published. All copy lives in `locales/en.default.json`
+  ([`DESIGN.md`](DESIGN.md)); published as "Dewstick (redesign)". All copy lives in `locales/en.default.json`
   and `locales/zh-CN.json`; EN / 中文 uses Shopify's native languages (`/zh-cn/` URLs).
 - **Hero** takes a short looping background video (set in the theme editor).
 - **Newsletter** — Shopify customer form; signups land in Customers tagged
@@ -91,7 +90,6 @@ Canonical decisions (confirmed 2026-08-31):
 
 ## Still to do
 
-- Publish the "Dewstick (redesign)" theme in Shopify admin.
 - Social links: the photo wall is deliberately *not* linked (no real `@dewstick`
   account exists yet). Wire tile links + a "Follow" CTA once the account is real.
 - The "read the results" analytics layer — per-source landing → purchase / signup conversion.
