@@ -1,6 +1,6 @@
 {
   "sections": {
-    "main": { "type": "main-collection", "settings": {} }
+    "main": { "type": "main-collection", "settings": { "set_product": "the-set-of-five" } }
   },
   "order": ["main"]
 }

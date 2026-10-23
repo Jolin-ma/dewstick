@@ -5,17 +5,29 @@
   endif
 -%}
 <footer class="site-footer">
-  <div class="container site-footer__grid">
-    <div>
-      <p class="u-mini site-footer__label">{{ 'footer.about' | t }}</p>
+  <div class="site-footer__rule"></div>
+  <div class="g12 site-footer__grid">
+    <div class="site-footer__col">
+      <p class="site-footer__label">{{ 'home.footer_shop' | t }}</p>
+      <ul>
+        {%- if section.settings.shop_collection != blank -%}
+          <li><a href="{{ section.settings.shop_collection.url }}">{{ 'home.tile_shades' | t }}</a></li>
+        {%- endif -%}
+        {%- if section.settings.set_product != blank -%}
+          <li><a href="{{ section.settings.set_product.url }}">{{ 'set.title' | t }}</a></li>
+        {%- endif -%}
+        <li><a href="{{ routes.cart_url }}">{{ 'general.cart' | t }}</a></li>
+      </ul>
+    </div>
+    <div class="site-footer__col">
+      <p class="site-footer__label">{{ 'footer.about' | t }}</p>
       <ul>
         <li><a href="{{ home }}/#note">{{ 'nav.idea' | t }}</a></li>
         <li><a href="{{ home }}/#why">{{ 'nav.ingredients' | t }}</a></li>
-        <li><a href="{{ routes.all_products_collection_url }}">{{ 'nav.shop' | t }}</a></li>
       </ul>
     </div>
-    <div>
-      <p class="u-mini site-footer__label">{{ 'footer.help' | t }}</p>
+    <div class="site-footer__col">
+      <p class="site-footer__label">{{ 'footer.help' | t }}</p>
       <ul>
         {%- if section.settings.contact_email != blank -%}
           <li><a href="mailto:{{ section.settings.contact_email }}">{{ 'footer.contact' | t }}</a></li>
@@ -28,16 +40,15 @@
         {%- endfor -%}
       </ul>
     </div>
-    <div>
-      <p class="u-mini site-footer__label">{{ 'newsletter.heading' | t }}</p>
-      {%- render 'newsletter-form', form_id: 'FooterNewsletter' -%}
-    </div>
+    {%- if localization.available_languages.size > 1 -%}
+      <div class="site-footer__switch">
+        <p>{{ 'home.lang_q' | t }}</p>
+        {%- render 'lang-switch' -%}
+      </div>
+    {%- endif -%}
   </div>
   <div class="site-footer__base">
-    <div class="container">
-      <p>© {{ 'now' | date: '%Y' }} dewstick</p>
-      {%- render 'lang-switch' -%}
-    </div>
+    <p>© {{ 'now' | date: '%Y' }} dewstick</p>
   </div>
 </footer>
 
@@ -46,6 +57,8 @@
   "name": "Footer",
   "class": "section-footer",
   "settings": [
+    { "type": "collection", "id": "shop_collection", "label": "Shop column: shades collection" },
+    { "type": "product", "id": "set_product", "label": "Shop column: the set of five" },
     { "type": "text", "id": "contact_email", "label": "Contact email", "default": "hello@dewstick.com" },
     { "type": "link_list", "id": "menu", "label": "Extra help links", "info": "Store policies (Settings → Policies) are listed automatically." }
   ]

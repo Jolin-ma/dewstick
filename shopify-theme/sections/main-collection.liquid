@@ -1,44 +1,38 @@
 {%- comment -%} Collection page. A product with shade variants is expanded into one card per shade. {%- endcomment -%}
-<section class="section">
-  <div class="container">
-    <div class="section-head">
-      <h1 class="h2">{{ collection.title }}</h1>
-      {%- if collection.description != blank -%}<div class="mt-1 small muted rte">{{ collection.description }}</div>{%- endif -%}
-    </div>
-    {%- paginate collection.products by 24 -%}
-      <div class="grid grid--2 grid--md-3">
-        {%- for product in collection.products -%}
-          {%- if product.has_only_default_variant -%}
-            <a class="card" href="{{ product.url }}">
-              {%- render 'media-well', image: product.featured_image, sizes: '(min-width: 768px) 33vw, 50vw' -%}
-              <div class="card__body">
-                <p class="medium">{{ product.title }}</p>
-                <p class="card__price">{% render 'price', price: product.price %}
-                  {%- if product.compare_at_price > product.price -%}<span class="faint card__compare">{% render 'price', price: product.compare_at_price %}</span>{%- endif -%}</p>
-              </div>
-            </a>
-          {%- else -%}
-            {%- for variant in product.variants -%}
-              {%- assign shade = variant.option1 | downcase -%}
-              <a class="card" href="{{ variant.url }}">
-                {%- render 'media-well', image: variant.featured_image, sizes: '(min-width: 768px) 33vw, 50vw' -%}
-                <div class="card__body">
-                  <p class="medium">{% render 'shade-swatch', shade: shade %}{{ variant.option1 }} <span class="faint">/ {{ shade | prepend: 'shades.' | append: '.tone' | t }}</span></p>
-                  <p class="muted">{{ shade | prepend: 'shades.' | append: '.line' | t }}</p>
-                  <p class="card__price">{% render 'price', price: variant.price %}</p>
-                </div>
-              </a>
-            {%- endfor -%}
-          {%- endif -%}
-        {%- else -%}
-          <p class="muted">{{ 'collection.empty' | t }}</p>
-        {%- endfor -%}
-      </div>
-      {%- if paginate.pages > 1 -%}<div class="mt-4 center small">{{ paginate | default_pagination }}</div>{%- endif -%}
-    {%- endpaginate -%}
+<section class="section" style="padding-top: 3.6rem; margin-top: 0;">
+  <div class="sec-head">
+    <h1 class="h2">{{ collection.title }}</h1>
+    {%- if collection.description != blank -%}<div class="muted rte">{{ collection.description }}</div>{%- endif -%}
   </div>
+  {%- paginate collection.products by 24 -%}
+    <div class="g12 pgrid">
+      {%- for product in collection.products -%}
+        {%- if product.has_only_default_variant -%}
+          {%- liquid
+            assign desc_key = blank
+            if product.id == section.settings.set_product.id
+              assign desc_key = 'set.body'
+            endif
+          -%}
+          {%- render 'product-card', product: product, desc_key: desc_key -%}
+        {%- else -%}
+          {%- for variant in product.variants -%}
+            {%- render 'product-card', variant: variant -%}
+          {%- endfor -%}
+        {%- endif -%}
+      {%- else -%}
+        <p class="muted">{{ 'collection.empty' | t }}</p>
+      {%- endfor -%}
+    </div>
+    {%- if paginate.pages > 1 -%}<div class="mt-4 center small">{{ paginate | default_pagination }}</div>{%- endif -%}
+  {%- endpaginate -%}
 </section>
 
 {% schema %}
-{ "name": "Collection", "settings": [] }
+{
+  "name": "Collection",
+  "settings": [
+    { "type": "product", "id": "set_product", "label": "The set of five", "info": "Its card gets the set's one-line description." }
+  ]
+}
 {% endschema %}

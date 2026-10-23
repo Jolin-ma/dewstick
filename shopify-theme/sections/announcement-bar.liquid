@@ -1,10 +1,12 @@
 {%- if section.settings.show -%}
-<div class="announcement u-mini">
-  {%- if section.settings.link != blank -%}
-    <a href="{{ section.settings.link }}">{{ 'announcement.text' | t }}</a>
-  {%- else -%}
-    {{ 'announcement.text' | t }}
-  {%- endif -%}
+<div class="announcement">
+  <p>
+    {%- if section.settings.link != blank -%}
+      <a href="{{ section.settings.link }}">{{ 'announcement.text' | t }}</a>
+    {%- else -%}
+      {{ 'announcement.text' | t }}
+    {%- endif -%}
+  </p>
 </div>
 {%- endif -%}
 

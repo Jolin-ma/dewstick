@@ -22,10 +22,10 @@ lipstick, half lip mask".
   linen ground, Newsreader serif headings and buttons, a 12-column grid, square
   frames, one red. The system is in [`DESIGN.md`](DESIGN.md); the study, decisions
   and what changed during the build are in [`docs/redesign/DESIGN.md`](docs/redesign/DESIGN.md).
-- **Stylesheet** — `shop/dewstick.css` (the website's own; the Shopify theme still has
-  the previous design until the redesign is ported).
-- **Copy** — the theme's `locales/*.json` plus `scripts/site_strings.json` for the
-  redesigned homepage. Every string ships in English and 中文.
+- **Stylesheet** — `shop/dewstick.css`; the Shopify theme's `assets/dewstick.css` is the
+  same file plus two lines for its section layout.
+- **Copy** — the theme's `locales/*.json` (the redesigned homepage is the `home`
+  namespace). Every string ships in English and 中文.
 - **Images** — the store's photo set in `shop/img/` (`dewstick-01…13` at 500 / 1000px,
   plus the ingredient photos and the lips band image) and the hero video in `shop/video/`.
 - **Cart** lives in `localStorage` (`shop/site.js`): add, change quantity, remove,
@@ -59,9 +59,9 @@ payment gateway, so no real money moves).
 
 - **Catalog** — one product, *dewstick tinted lip balm*, with the five shades as
   variants ($22 CAD), plus *the set of five* ($98 CAD, compare-at $110). Collection `shades`.
-- **Theme** — custom Online Store 2.0 theme in plain CSS. It still runs the previous
-  "Pharmacy Counter" design ([`docs/archive/DESIGN-pharmacy-counter.md`](docs/archive/DESIGN-pharmacy-counter.md));
-  porting the redesign is the next step. All copy lives in `locales/en.default.json`
+- **Theme** — custom Online Store 2.0 theme in plain CSS, running the redesign
+  ([`DESIGN.md`](DESIGN.md)) in the unpublished theme "Dewstick (redesign)"
+  until it is published. All copy lives in `locales/en.default.json`
   and `locales/zh-CN.json`; EN / 中文 uses Shopify's native languages (`/zh-cn/` URLs).
 - **Hero** takes a short looping background video (set in the theme editor).
 - **Newsletter** — Shopify customer form; signups land in Customers tagged
@@ -91,7 +91,7 @@ Canonical decisions (confirmed 2026-08-31):
 
 ## Still to do
 
-- Port the redesign to the Shopify theme (`shopify-theme/`).
+- Publish the "Dewstick (redesign)" theme in Shopify admin.
 - Social links: the photo wall is deliberately *not* linked (no real `@dewstick`
   account exists yet). Wire tile links + a "Follow" CTA once the account is real.
 - The "read the results" analytics layer — per-source landing → purchase / signup conversion.

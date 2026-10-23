@@ -21,11 +21,6 @@ LOCALE = {
     "en": json.loads((THEME / "locales/en.default.json").read_text(encoding="utf-8")),
     "zh": json.loads((THEME / "locales/zh-CN.json").read_text(encoding="utf-8")),
 }
-# Copy for the redesigned homepage (docs/redesign/DESIGN.md). It lives with the website until the
-# redesign is ported to the Shopify theme, then moves into the theme's locales as the "home" namespace.
-for _lang, _strings in json.loads((ROOT / "scripts/site_strings.json").read_text(encoding="utf-8")).items():
-    LOCALE[_lang]["home"] = _strings
-
 # Strings the Shopify theme gets from Shopify itself (or that only the static copy needs).
 EXTRA = {
     "en": {
@@ -317,7 +312,7 @@ def shade_card(lang, shade):
 def set_card(lang):
     return product_card(lang, SET["title"][lang], f"{LANGS[lang]}/products/the-set-of-five",
                         "/shop/img/dewstick-04-1000.jpg", SET["price"], t(lang, "set.body"),
-                        badge=t(lang, "home.badge_save"), compare=SET["compare"], alt=ALT["04"])
+                        badge=t(lang, "home.badge_save", amount=money(SET["compare"] - SET["price"]).split()[0]), compare=SET["compare"], alt=ALT["04"])
 
 
 def add_form(lang, key, extra_cls=""):
@@ -619,8 +614,8 @@ def not_found(lang):
 
 
 def main():
-    # shop/dewstick.css is the website's own stylesheet while the redesign lives only here; it no longer
-    # mirrors shopify-theme/assets/dewstick.css.
+    # shop/dewstick.css is the website's stylesheet; shopify-theme/assets/dewstick.css is the same file plus a
+    # few lines at the end for the theme's section layout. Change both together.
     for lang, prefix in LANGS.items():
         out = ROOT / prefix.lstrip("/")
         pages = {

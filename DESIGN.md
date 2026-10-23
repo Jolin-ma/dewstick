@@ -68,7 +68,7 @@ components:
 
 # Design System: Dewstick
 
-> **Status (2026-10-23):** this is the system the website (dewstick.vercel.app, `shop/dewstick.css`) runs. The Shopify theme in `shopify-theme/` still uses the previous system, archived at [`docs/archive/DESIGN-pharmacy-counter.md`](docs/archive/DESIGN-pharmacy-counter.md), until the redesign is ported. How this system was derived (a study of susannekaufmann.com) is in [`docs/redesign/DESIGN.md`](docs/redesign/DESIGN.md).
+> **Status (2026-10-23):** this is the system the website (dewstick.vercel.app, `shop/dewstick.css`) runs. The Shopify theme in `shopify-theme/` was ported to it the same day (the previous system is archived at [`docs/archive/DESIGN-pharmacy-counter.md`](docs/archive/DESIGN-pharmacy-counter.md)). How this system was derived (a study of susannekaufmann.com) is in [`docs/redesign/DESIGN.md`](docs/redesign/DESIGN.md).
 
 ## Overview
 
@@ -166,7 +166,7 @@ Minimal on purpose: the hero video carries the movement. Card images scale 1.01 
 - Keep every corner square and every surface flat.
 - Show store photos whole, in square frames.
 - Use the outline button on the linen page, the light button on photos/video.
-- Ship every string in English and 中文 (`scripts/site_strings.json` or the theme locales).
+- Ship every string in English and 中文 (the theme locales; homepage copy is the `home` namespace).
 - Keep body copy to a ~23rem measure.
 
 **Don't**

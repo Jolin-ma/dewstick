@@ -1,0 +1,47 @@
+{%- comment -%}
+  Square product card. Pass either
+    variant — one shade of the tinted lip balm (swatch, tone and line come from the language files), or
+    product — any other product (the set); desc_key picks a language-file line for it.
+  Params: variant, product, desc_key, sizes
+{%- endcomment -%}
+{%- liquid
+  if variant != blank
+    assign shade = variant.option1 | downcase
+    assign url = variant.url
+    assign image = variant.featured_image | default: variant.product.featured_image
+    assign price = variant.price
+    assign compare = variant.compare_at_price
+  else
+    assign url = product.url
+    assign image = product.featured_image
+    assign price = product.price
+    assign compare = product.compare_at_price
+  endif
+-%}
+<a class="pcard" href="{{ url }}">
+  <div class="pcard__media">
+    {%- if image != blank -%}
+      {{ image | image_url: width: 1000 | image_tag:
+        widths: '360, 500, 720, 1000', sizes: sizes | default: '(min-width: 768px) 25vw, 50vw',
+        loading: 'lazy', alt: image.alt | escape }}
+    {%- else -%}
+      {{ 'product-1' | placeholder_svg_tag }}
+    {%- endif -%}
+    {%- if compare > price -%}
+      {%- assign saving = compare | minus: price | money_without_trailing_zeros -%}
+      <span class="pcard__badge">{{ 'home.badge_save' | t: amount: saving }}</span>
+    {%- endif -%}
+  </div>
+  {%- if variant != blank -%}
+    <h3 class="pcard__title t-xl">{% render 'shade-swatch', shade: shade %}{{ variant.option1 }} <span class="faint">/ {{ shade | prepend: 'shades.' | append: '.tone' | t }}</span></h3>
+  {%- else -%}
+    <h3 class="pcard__title t-xl">{{ product.title }}</h3>
+  {%- endif -%}
+  <p class="pcard__price">{% render 'price', price: price %}
+    {%- if compare > price -%}<span class="faint pcard__compare">{% render 'price', price: compare %}</span>{%- endif -%}</p>
+  {%- if variant != blank -%}
+    <p class="pcard__desc">{{ shade | prepend: 'shades.' | append: '.line' | t }}</p>
+  {%- elsif desc_key != blank -%}
+    <p class="pcard__desc">{{ desc_key | t }}</p>
+  {%- endif -%}
+</a>

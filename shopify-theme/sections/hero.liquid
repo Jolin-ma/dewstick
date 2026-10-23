@@ -9,13 +9,13 @@
     <div class="hero__media{% if section.settings.video_mobile != blank %} hero__media--desktop{% endif %}">
       {{ section.settings.video | video_tag:
         autoplay: true, loop: true, muted: true, playsinline: true, controls: false,
-        preload: 'metadata', image_size: '1600x' }}
+        preload: 'metadata', image_size: '1600x', aria-hidden: 'true' }}
     </div>
     {%- if section.settings.video_mobile != blank -%}
       <div class="hero__media hero__media--mobile">
         {{ section.settings.video_mobile | video_tag:
           autoplay: true, loop: true, muted: true, playsinline: true, controls: false,
-          preload: 'metadata', image_size: '800x' }}
+          preload: 'metadata', image_size: '800x', aria-hidden: 'true' }}
       </div>
     {%- endif -%}
   {%- elsif section.settings.image != blank -%}
@@ -26,20 +26,17 @@
   {%- if has_media and section.settings.scrim > 0 -%}
     <div class="hero__scrim" style="opacity: {{ section.settings.scrim | divided_by: 100.0 }}"></div>
   {%- endif -%}
-  {%- if has_media and section.settings.light_text == false -%}
-    <div class="hero__wash"></div>
-  {%- endif -%}
 
-  <div class="container hero__inner">
+  <div class="hero__content">
+    <h1 class="h1">{{ 'hero.title_html' | t | replace: '<br>', '<br> ' }}</h1>
     <div class="hero__copy">
-      <p class="u-mini muted hero__eyebrow">{{ 'hero.eyebrow' | t }}</p>
-      <h1 class="h1">{{ 'hero.title_html' | t }}</h1>
-      <p class="lede">{{ 'hero.body' | t }}</p>
-      <div class="hero__actions">
+      <p>{{ 'home.hero_p1' | t }}</p>
+      <p>{{ 'home.hero_p2' | t }}</p>
+      <div class="btn-stack">
         {%- if section.settings.collection != blank -%}
-          <a class="btn" href="{{ section.settings.collection.url }}">{{ 'hero.cta' | t }}</a>
+          <a class="btn btn--light" href="{{ section.settings.collection.url }}">{{ 'hero.cta' | t }}</a>
         {%- endif -%}
-        <a class="link-cta" href="#why">{{ 'hero.cta_secondary' | t }}</a>
+        <a class="btn btn--outline" href="#why">{{ 'hero.cta_secondary' | t }}</a>
       </div>
     </div>
   </div>
@@ -49,10 +46,10 @@
 {
   "name": "Hero",
   "settings": [
-    { "type": "video", "id": "video", "label": "Background video", "info": "Short loop (~10s). Plays muted, looping and inline on phones." },
-    { "type": "video", "id": "video_mobile", "label": "Mobile background video", "info": "Optional. Replaces the background video on screens under 768px; keep the subject centred." },
+    { "type": "video", "id": "video", "label": "Background video", "info": "Short loop (~10s), 16:9. Plays muted, looping and inline on phones." },
+    { "type": "video", "id": "video_mobile", "label": "Mobile background video", "info": "Optional. Replaces the background video on screens under 768px (the box is 4:5 there); keep the subject centred." },
     { "type": "image_picker", "id": "image", "label": "Fallback image", "info": "Used only when no video is set." },
-    { "type": "range", "id": "scrim", "label": "Darken media", "min": 0, "max": 60, "step": 5, "unit": "%", "default": 0, "info": "With dark text, a soft paper wash sits behind the copy instead." },
+    { "type": "range", "id": "scrim", "label": "Darken media", "min": 0, "max": 60, "step": 5, "unit": "%", "default": 0 },
     { "type": "checkbox", "id": "light_text", "label": "White text over media", "default": false },
     { "type": "collection", "id": "collection", "label": "Shop button links to" }
   ],

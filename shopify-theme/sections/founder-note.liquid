@@ -1,18 +1,24 @@
 {%- comment -%} The reviews slot. Honest by design: no fabricated reviews, ratings or counts. {%- endcomment -%}
-<section id="note" class="border-top">
-  <div class="split">
-    <div class="split__copy">
-      <h2 class="h2 h2--plain">{{ 'note.title' | t }}</h2>
-      <p class="mt-2 small muted" style="max-width: 24rem;">{{ 'note.sub' | t }}</p>
-      <div class="note-card">
-        <p class="u-mini muted">{{ 'note.label' | t }}</p>
-        <p class="small" style="line-height: 1.7;">{{ 'note.body' | t }}</p>
-        <p class="small medium">— dewstick</p>
-      </div>
+<section id="note" class="section g12 founder">
+  <h2 class="h2 founder__head">{{ 'note.title' | t }}</h2>
+  <div class="founder__body">
+    <div class="prose measure">
+      <p>{{ 'note.sub' | t }}</p>
+      <p>{{ 'note.body' | t }}</p>
+      <p>{{ 'home.note_sign' | t }}</p>
     </div>
-    <div class="split__media">
-      {%- render 'media-well', image: section.settings.image -%}
-    </div>
+    {%- if section.settings.collection != blank -%}
+      <a class="btn btn--outline" href="{{ section.settings.collection.url }}">{{ 'hero.cta' | t }}</a>
+    {%- endif -%}
+  </div>
+  <div class="founder__img">
+    {%- if section.settings.image != blank -%}
+      {{ section.settings.image | image_url: width: 1000 | image_tag:
+        widths: '500, 720, 1000', sizes: '(min-width: 768px) 33vw, 100vw',
+        loading: 'lazy', alt: section.settings.image.alt | escape }}
+    {%- else -%}
+      {{ 'image' | placeholder_svg_tag }}
+    {%- endif -%}
   </div>
 </section>
 
@@ -20,7 +26,8 @@
 {
   "name": "Founder note",
   "settings": [
-    { "type": "image_picker", "id": "image", "label": "Image" }
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "collection", "id": "collection", "label": "Button links to" }
   ],
   "presets": [{ "name": "Founder note" }]
 }

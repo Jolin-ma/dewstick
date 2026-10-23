@@ -1,0 +1,64 @@
+{%- comment -%} "Why it works" on the homepage: a horizontal scroller of ingredient cards with prev / next. {%- endcomment -%}
+<section id="why" class="section" aria-labelledby="why-title">
+  <div class="sec-head">
+    <h2 id="why-title" class="h2">{{ 'why.title' | t }}</h2>
+    <div class="scroller__nav">
+      <button type="button" class="link-u" data-scroll="-1" aria-controls="whyTrack">{{ 'home.why_prev' | t }}</button>
+      <button type="button" class="link-u" data-scroll="1" aria-controls="whyTrack">{{ 'home.why_next' | t }}</button>
+    </div>
+  </div>
+  <div id="whyTrack" class="scroller" tabindex="0" aria-label="{{ 'why.title' | t }}">
+    {%- for block in section.blocks -%}
+      {%- liquid
+        assign k = block.settings.ingredient
+        case k
+          when 'squalane'
+            assign benefit = 'hydrate'
+          when 'shea'
+            assign benefit = 'nourish'
+          when 'ceramides'
+            assign benefit = 'protect'
+          else
+            assign benefit = 'glow'
+        endcase
+        assign name_key = 'home.why_' | append: k
+        assign body_key = name_key | append: '_body'
+        assign label_key = 'why.' | append: benefit | append: '.title'
+      -%}
+      <article class="scard" {{ block.shopify_attributes }}>
+        <h3 class="t-xl">{{ name_key | t }}</h3>
+        <p class="scard__label">{{ label_key | t }}</p>
+        <p class="scard__body">{{ body_key | t }}</p>
+        {%- if block.settings.image != blank -%}
+          {{ block.settings.image | image_url: width: 600 | image_tag:
+            class: 'scard__img', widths: '300, 450, 600', sizes: '(min-width: 768px) 15vw, 50vw',
+            loading: 'lazy', alt: block.settings.image.alt | escape }}
+        {%- endif -%}
+      </article>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Ingredient cards",
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Ingredient",
+      "settings": [
+        { "type": "select", "id": "ingredient", "label": "Ingredient", "default": "squalane",
+          "options": [
+            { "value": "squalane", "label": "Squalane (hydrate)" },
+            { "value": "shea", "label": "Shea butter (nourish)" },
+            { "value": "ceramides", "label": "Ceramides (protect)" },
+            { "value": "colour", "label": "Real colour (glow)" }
+          ] },
+        { "type": "image_picker", "id": "image", "label": "Image (3:4)" }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [{ "name": "Ingredient cards", "blocks": [ { "type": "card" } ] }]
+}
+{% endschema %}

@@ -1,0 +1,35 @@
+{%- comment -%} One square image docked left, sticky copy on the right ("Juicy. Glossy. Balmy."). {%- endcomment -%}
+<section id="{{ section.settings.anchor | default: section.id }}" class="section g12 gallery">
+  <div class="gallery__text">
+    <h2 class="t-xl">{{ 'feel.title' | t }}</h2>
+    <div class="prose measure" style="margin-top: 1.3rem;">
+      <p>{{ 'home.feel_lead' | t }}</p>
+      <p>{{ 'home.feel_p1' | t }}</p>
+      <p>{{ 'home.feel_p2' | t }}</p>
+    </div>
+    {%- if section.settings.link != blank -%}
+      <a class="btn btn--outline" href="{{ section.settings.link }}">{{ 'home.feel_cta' | t }}</a>
+    {%- endif -%}
+  </div>
+  <div class="gallery__img gallery__img--a">
+    {%- if section.settings.image != blank -%}
+      {{ section.settings.image | image_url: width: 1500 | image_tag:
+        widths: '500, 750, 1000, 1500', sizes: '(min-width: 768px) 50vw, 100vw',
+        loading: 'lazy', alt: section.settings.image.alt | escape }}
+    {%- else -%}
+      {{ 'image' | placeholder_svg_tag }}
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Image + sticky text",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Image (square)" },
+    { "type": "url", "id": "link", "label": "Button link" },
+    { "type": "text", "id": "anchor", "label": "Anchor id", "default": "feel" }
+  ],
+  "presets": [{ "name": "Image + sticky text" }]
+}
+{% endschema %}

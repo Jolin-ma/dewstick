@@ -1,10 +1,9 @@
 {
   "current": {
-    "color_ink": "#1a1a1a",
-    "color_dew": "#E94B3C",
+    "color_linen": "#f4efe9",
     "color_paper": "#ffffff",
-    "color_mist": "#f5f4f2",
-    "color_line": "#e4e2dd",
-    "color_espresso": "#241812"
+    "color_ink": "#1e1a17",
+    "color_studio": "#f6f5f3",
+    "color_dew": "#e94b3c"
   }
 }

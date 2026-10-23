@@ -3,36 +3,44 @@
   if home == '/'
     assign home = ''
   endif
+  assign shop_url = routes.collections_url | append: '/' | append: section.settings.shop_collection.handle
+  if section.settings.shop_collection == blank
+    assign shop_url = routes.all_products_collection_url
+  endif
 -%}
 <header class="site-header">
-  <div class="container site-header__bar">
-    <nav class="site-header__nav u-mini" aria-label="{{ 'general.nav' | t }}">
-      <a href="{{ routes.collections_url }}/{{ section.settings.shop_collection.handle | default: 'all' }}">{{ 'nav.shop' | t }}</a>
+  <div class="g12 site-header__bar">
+    <a href="{{ routes.root_url }}" class="wordmark" aria-label="{{ 'general.home' | t }}">dewstick</a>
+    <nav class="site-header__nav u-caps" aria-label="{{ 'general.nav' | t }}">
+      <a href="{{ shop_url }}">{{ 'nav.shop' | t }}</a>
+      {%- if section.settings.set_product != blank -%}
+        <a href="{{ section.settings.set_product.url }}">{{ 'set.title' | t }}</a>
+      {%- endif -%}
       <a href="{{ home }}/#why">{{ 'nav.ingredients' | t }}</a>
       <a href="{{ home }}/#note">{{ 'nav.idea' | t }}</a>
     </nav>
-
-    <button id="menuBtn" class="menu-toggle" aria-label="{{ 'general.menu' | t }}" aria-expanded="false" aria-controls="menuPanel">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-    </button>
-
-    <a href="{{ routes.root_url }}" class="wordmark" aria-label="{{ 'general.home' | t }}">dewstick</a>
-
-    <div class="site-header__tools u-mini">
-      {%- render 'lang-switch' -%}
+    <div class="site-header__tools u-caps">
+      <span class="hide-mobile">{%- render 'lang-switch' -%}</span>
       <a href="{{ routes.cart_url }}" class="cart-link" aria-label="{{ 'general.cart_count' | t: count: cart.item_count }}">
         <span class="hide-mobile">{{ 'general.cart' | t }}</span>
-        <svg class="only-mobile" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 8h14l-1 12H6L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        <svg class="only-mobile" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M5 8h14l-1 12H6L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
         {%- if cart.item_count > 0 -%}<span class="cart-count">{{ cart.item_count }}</span>{%- endif -%}
       </a>
+      <button id="menuBtn" class="menu-toggle" aria-label="{{ 'general.menu' | t }}" aria-expanded="false" aria-controls="menuPanel">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
+      </button>
     </div>
   </div>
 
   <nav id="menuPanel" class="mobile-nav" hidden aria-label="{{ 'general.nav' | t }}">
-    <a href="{{ routes.collections_url }}/{{ section.settings.shop_collection.handle | default: 'all' }}">{{ 'nav.shop' | t }}</a>
+    <a href="{{ shop_url }}">{{ 'nav.shop' | t }}</a>
+    {%- if section.settings.set_product != blank -%}
+      <a href="{{ section.settings.set_product.url }}">{{ 'set.title' | t }}</a>
+    {%- endif -%}
     <a href="{{ home }}/#why">{{ 'nav.ingredients' | t }}</a>
     <a href="{{ home }}/#note">{{ 'nav.idea' | t }}</a>
-    <a href="{{ routes.cart_url }}" class="accent">{{ 'general.cart' | t }} ({{ cart.item_count }})</a>
+    <a href="{{ routes.cart_url }}">{{ 'general.cart' | t }} ({{ cart.item_count }})</a>
+    <div class="u-caps">{%- render 'lang-switch' -%}</div>
   </nav>
 </header>
 
@@ -41,7 +49,8 @@
   "name": "Header",
   "class": "section-header",
   "settings": [
-    { "type": "collection", "id": "shop_collection", "label": "\"Shop\" links to collection" }
+    { "type": "collection", "id": "shop_collection", "label": "\"Shop\" links to collection" },
+    { "type": "product", "id": "set_product", "label": "\"The set of five\" links to product" }
   ]
 }
 {% endschema %}

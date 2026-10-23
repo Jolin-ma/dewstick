@@ -1,0 +1,26 @@
+{%- comment -%} Full-bleed band: the square lips photo docked right at full height, the line on the page ground. {%- endcomment -%}
+<section class="band">
+  {%- if section.settings.image != blank -%}
+    {{ section.settings.image | image_url: width: 1600 | image_tag:
+      class: 'band__img', widths: '600, 900, 1200, 1600', sizes: '(min-width: 768px) 50vw, 100vw',
+      loading: 'lazy', alt: section.settings.image.alt | escape }}
+  {%- else -%}
+    {{ 'image' | placeholder_svg_tag }}
+  {%- endif -%}
+  <div class="g12">
+    <div class="band__copy">
+      <p class="t-3xl">{{ 'home.story' | t }}</p>
+      <a class="btn btn--outline" href="#why">{{ 'hero.cta_secondary' | t }}</a>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Story band",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Image (square, docks right)" }
+  ],
+  "presets": [{ "name": "Story band" }]
+}
+{% endschema %}

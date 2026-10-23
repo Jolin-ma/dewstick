@@ -84,6 +84,25 @@
     });
   }
 
+  /* ---------- header tint once the page scrolls ---------- */
+  var header = document.querySelector('.site-header');
+  if (header) {
+    var onScroll = function () { header.classList.toggle('is-scrolled', window.scrollY > 8); };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
+  /* ---------- card scroller prev / next ---------- */
+  Array.prototype.forEach.call(document.querySelectorAll('[data-scroll]'), function (btn) {
+    var track = document.getElementById(btn.getAttribute('aria-controls'));
+    if (!track) return;
+    btn.addEventListener('click', function () {
+      var card = track.firstElementChild;
+      var step = card ? card.getBoundingClientRect().width + parseFloat(getComputedStyle(track).columnGap || 0) : track.clientWidth;
+      track.scrollBy({ left: step * Number(btn.getAttribute('data-scroll')), behavior: 'smooth' });
+    });
+  });
+
   /* ---------- quantity steppers ---------- */
   Array.prototype.forEach.call(document.querySelectorAll('[data-qty]'), function (wrap) {
     var input = wrap.querySelector('input');

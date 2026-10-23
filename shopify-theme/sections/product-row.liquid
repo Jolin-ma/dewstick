@@ -1,0 +1,44 @@
+{%- comment -%}
+  Homepage product row: chosen shades of the lip balm (each shade is a variant), then the set.
+{%- endcomment -%}
+{%- liquid
+  assign product = section.settings.product
+  assign wanted = section.settings.shades | downcase | remove: ' ' | split: ','
+-%}
+<section id="{{ section.settings.anchor | default: section.id }}" class="section">
+  <div class="sec-head">
+    <h2 class="h2">{{ 'home.shop_title' | t }}</h2>
+    {%- if section.settings.link != blank -%}
+      <a class="link-u" href="{{ section.settings.link }}">{{ 'shades.see_all' | t }}</a>
+    {%- endif -%}
+  </div>
+  <div class="g12 pgrid">
+    {%- if product != blank -%}
+      {%- for shade in wanted -%}
+        {%- for variant in product.variants -%}
+          {%- assign name = variant.option1 | downcase -%}
+          {%- if name == shade -%}
+            {%- render 'product-card', variant: variant -%}
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endfor -%}
+    {%- endif -%}
+    {%- if section.settings.set_product != blank -%}
+      {%- render 'product-card', product: section.settings.set_product, desc_key: 'set.body' -%}
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product row",
+  "settings": [
+    { "type": "product", "id": "product", "label": "Product (shades are its variants)" },
+    { "type": "text", "id": "shades", "label": "Shades, in order", "default": "nectar, poppy, blush", "info": "Comma-separated. Three fills the row next to the set." },
+    { "type": "product", "id": "set_product", "label": "Last card: the set" },
+    { "type": "url", "id": "link", "label": "\"Shop all\" link" },
+    { "type": "text", "id": "anchor", "label": "Anchor id", "default": "shades" }
+  ],
+  "presets": [{ "name": "Product row" }]
+}
+{% endschema %}

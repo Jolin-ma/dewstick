@@ -1,7 +1,7 @@
 {%- comment -%}
   Shopify customer (newsletter) form. Signups land in Admin → Customers, subscribed to email
   marketing and tagged "newsletter" + utm source/medium/campaign (added by dewstick.js).
-  Params: form_id, note_key
+  Params: form_id, note_key, quiet (true = no privacy note under the field; the caller shows it)
 {%- endcomment -%}
 {%- form 'customer', id: form_id, class: 'js-newsletter', novalidate: 'novalidate' -%}
   <input type="hidden" name="contact[tags]" value="newsletter">
@@ -16,7 +16,7 @@
     </div>
     {%- if form.errors -%}
       <p class="form-note accent" role="alert">{{ form.errors.translated_fields.email | capitalize }} {{ form.errors.messages.email }}</p>
-    {%- else -%}
+    {%- elsif quiet != true -%}
       <p class="form-note">{{ note_key | default: 'newsletter.privacy' | t }}</p>
     {%- endif -%}
   {%- endif -%}

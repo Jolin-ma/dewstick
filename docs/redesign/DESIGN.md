@@ -3,7 +3,7 @@
 > Source: **susannekaufmann.com** homepage, captured 2026-10-23 with Firecrawl (desktop 1920px full page, mobile 360px full page, branding extraction, raw HTML, and the live `theme.css`).
 > Screenshots: [`../reference/susanne-kaufmann/desktop-full.jpg`](../reference/susanne-kaufmann/desktop-full.jpg) · [`mobile-full.jpg`](../reference/susanne-kaufmann/mobile-full.jpg)
 >
-> **Status (2026-10-23): implemented on the website** (`scripts/build_shop.py`, `shop/dewstick.css`, `scripts/site_strings.json`). The as-built system is the root [`/DESIGN.md`](../../DESIGN.md). The Shopify theme (`shopify-theme/`) is **not** ported yet; it still follows the previous system, archived at [`../archive/DESIGN-pharmacy-counter.md`](../archive/DESIGN-pharmacy-counter.md). Parts 2–6 below are the original proposal; **Part 0** lists where the build differs from it.
+> **Status (2026-10-23): implemented on the website** (`scripts/build_shop.py`, `shop/dewstick.css`). The as-built system is the root [`/DESIGN.md`](../../DESIGN.md). Ported to the Shopify theme (`shopify-theme/`) the same day; the previous system is archived at [`../archive/DESIGN-pharmacy-counter.md`](../archive/DESIGN-pharmacy-counter.md). Parts 2–6 below are the original proposal; **Part 0** lists where the build differs from it.
 
 ---
 
@@ -20,7 +20,7 @@ Built and compared against the reference at 1920px and 360px with headless Chrom
 | Sticky gallery | Text left, two staggered images | **One image** (asmr macro, 09) docked **left** (cols 1–6), sticky text right | Owner moved the second image to the story band |
 | Story band | Full-bleed photo, white text over it | Full lips photo **docked right** at full height; copy + outline button on the plain linen page; no fade, no colour ground | Owner's direction, step by step |
 | Waitlist | — | `waitlist.html` and the `image/` folder deleted | Owner no longer uses the waitlist version |
-| Shopify | Port sections to Liquid | **Deferred** — theme restored untouched | Owner: "keep the design in website first" |
+| Shopify | Port sections to Liquid | **Done after the website** — one section per homepage band (`hero`, `usp-strip`, `product-row`, `gallery`, `story-band`, `tiles`, `ingredients`, `founder-note`, `newsletter-wall`) | Owner: "keep the design in website first", then ported |
 
 ---
 

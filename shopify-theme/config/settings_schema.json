@@ -10,19 +10,51 @@
   {
     "name": "Colours",
     "settings": [
-      { "type": "paragraph", "content": "\"The Pharmacy Counter\": one accent (Dew red), used sparingly." },
-      { "type": "color", "id": "color_ink", "label": "Ink (text)", "default": "#1a1a1a" },
-      { "type": "color", "id": "color_dew", "label": "Dew red (accent)", "default": "#E94B3C" },
-      { "type": "color", "id": "color_paper", "label": "Paper (background)", "default": "#ffffff" },
-      { "type": "color", "id": "color_mist", "label": "Mist (image wells)", "default": "#f5f4f2" },
-      { "type": "color", "id": "color_line", "label": "Lines", "default": "#e4e2dd" },
-      { "type": "color", "id": "color_espresso", "label": "Footer (espresso)", "default": "#241812" }
+      {
+        "type": "paragraph",
+        "content": "\"The Morning Ritual\": linen ground, ink type, Dew red only as a seal."
+      },
+      {
+        "type": "color",
+        "id": "color_linen",
+        "label": "Linen (page ground)",
+        "default": "#f4efe9"
+      },
+      {
+        "type": "color",
+        "id": "color_paper",
+        "label": "Paper (cards)",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "color_ink",
+        "label": "Ink (text, lines)",
+        "default": "#1e1a17"
+      },
+      {
+        "type": "color",
+        "id": "color_studio",
+        "label": "Studio (image wells)",
+        "default": "#f6f5f3"
+      },
+      {
+        "type": "color",
+        "id": "color_dew",
+        "label": "Dew red (accent)",
+        "default": "#e94b3c"
+      }
     ]
   },
   {
     "name": "Favicon",
     "settings": [
-      { "type": "image_picker", "id": "favicon", "label": "Favicon", "info": "Leave blank for the red dewdrop." }
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon",
+        "info": "Leave blank for the red dewdrop."
+      }
     ]
   }
 ]

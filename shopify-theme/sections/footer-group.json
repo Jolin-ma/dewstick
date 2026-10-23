@@ -2,10 +2,25 @@
   "type": "footer",
   "name": "Footer group",
   "sections": {
+    "news": {
+      "type": "newsletter-wall",
+      "blocks": {
+        "t1": { "type": "tile", "settings": { "image": "shopify://shop_images/dewstick-06.png" } },
+        "t2": { "type": "tile", "settings": { "image": "shopify://shop_images/dewstick-02.png" } },
+        "t3": { "type": "tile", "settings": { "image": "shopify://shop_images/dewstick-01.png" } },
+        "t4": { "type": "tile", "settings": { "image": "shopify://shop_images/dewstick-13.png" } }
+      },
+      "block_order": ["t1", "t2", "t3", "t4"],
+      "settings": {}
+    },
     "footer": {
       "type": "footer",
-      "settings": { "contact_email": "hello@dewstick.com" }
+      "settings": {
+        "shop_collection": "shades",
+        "set_product": "the-set-of-five",
+        "contact_email": "hello@dewstick.com"
+      }
     }
   },
-  "order": ["footer"]
+  "order": ["news", "footer"]
 }

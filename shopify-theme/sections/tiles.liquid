@@ -1,0 +1,44 @@
+{%- comment -%} "Start here": four square tiles with serif captions. Captions come from the language files. {%- endcomment -%}
+<section class="section">
+  <div class="sec-head"><h2 class="h2">{{ 'home.tiles_title' | t }}</h2></div>
+  <div class="tiles">
+    {%- for block in section.blocks -%}
+      <a class="tile" href="{{ block.settings.link | default: '#' | replace_first: '/#', '#' }}" {{ block.shopify_attributes }}>
+        <div class="tile__media">
+          {%- if block.settings.image != blank -%}
+            {{ block.settings.image | image_url: width: 1000 | image_tag:
+              widths: '360, 500, 720, 1000', sizes: '(min-width: 768px) 25vw, 70vw', loading: 'lazy', alt: '' }}
+          {%- else -%}
+            {{ 'image' | placeholder_svg_tag }}
+          {%- endif -%}
+        </div>
+        <p class="tile__caption">{{ block.settings.caption | t }}</p>
+      </a>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Tiles",
+  "blocks": [
+    {
+      "type": "tile",
+      "name": "Tile",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "url", "id": "link", "label": "Link" },
+        { "type": "select", "id": "caption", "label": "Caption", "default": "home.tile_shades",
+          "options": [
+            { "value": "home.tile_shades", "label": "The shades" },
+            { "value": "nav.ingredients", "label": "Ingredients" },
+            { "value": "set.title", "label": "The set of five" },
+            { "value": "nav.idea", "label": "The idea" }
+          ] }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [{ "name": "Tiles", "blocks": [ { "type": "tile" }, { "type": "tile" }, { "type": "tile" }, { "type": "tile" } ] }]
+}
+{% endschema %}

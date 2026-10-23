@@ -4,11 +4,11 @@
   "sections": {
     "announcement": {
       "type": "announcement-bar",
-      "settings": { "show": true, "link": "shopify://products/the-set-of-five" }
+      "settings": { "show": true, "link": "shopify://collections/shades" }
     },
     "header": {
       "type": "header",
-      "settings": { "shop_collection": "shades" }
+      "settings": { "shop_collection": "shades", "set_product": "the-set-of-five" }
     }
   },
   "order": ["announcement", "header"]
