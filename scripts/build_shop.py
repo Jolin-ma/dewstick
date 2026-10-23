@@ -9,7 +9,6 @@ The cart lives in localStorage; checkout explains that the real one runs on Shop
 import html
 import json
 import re
-import shutil
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -22,6 +21,10 @@ LOCALE = {
     "en": json.loads((THEME / "locales/en.default.json").read_text(encoding="utf-8")),
     "zh": json.loads((THEME / "locales/zh-CN.json").read_text(encoding="utf-8")),
 }
+# Copy for the redesigned homepage (docs/redesign/DESIGN.md). It lives with the website until the
+# redesign is ported to the Shopify theme, then moves into the theme's locales as the "home" namespace.
+for _lang, _strings in json.loads((ROOT / "scripts/site_strings.json").read_text(encoding="utf-8")).items():
+    LOCALE[_lang]["home"] = _strings
 
 # Strings the Shopify theme gets from Shopify itself (or that only the static copy needs).
 EXTRA = {
@@ -31,7 +34,6 @@ EXTRA = {
         "footer.project": "This project",
         "footer.store": "Live Shopify store",
         "footer.source": "Source on GitHub",
-        "footer.waitlist": "Waitlist version",
         "footer.copy_note": "A static copy of the Shopify store, for the portfolio.",
         "demo.title": "This is the portfolio copy",
         "demo.body": "This site mirrors the dewstick Shopify store so anyone can browse it. The real checkout — "
@@ -48,7 +50,6 @@ EXTRA = {
         "footer.project": "关于本项目",
         "footer.store": "Shopify 线上店铺",
         "footer.source": "GitHub 源代码",
-        "footer.waitlist": "预约版网站",
         "footer.copy_note": "Shopify 店铺的静态副本，用于作品集展示。",
         "demo.title": "这是作品集副本",
         "demo.body": "本网站是 dewstick Shopify 店铺的副本，方便所有人浏览。真正的结账流程（Shopify 测试模式，不会产生真实付款）"
@@ -175,7 +176,7 @@ def page(lang, path, title, body, description=None):
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#ffffff">
+  <meta name="theme-color" content="#f4efe9">
   <title>{html.escape(title)}</title>
   <meta name="description" content="{html.escape(desc)}">
   <link rel="alternate" hreflang="en" href="{alt_href['en']}">
@@ -191,11 +192,7 @@ def page(lang, path, title, body, description=None):
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23E94B3C'/%3E%3Cpath d='M16 7c3 4 5 6.5 5 9.5a5 5 0 0 1-10 0C11 13.5 13 11 16 7Z' fill='%23fff'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=Bodoni+Moda:opsz,wght@6..96,500..800&family=Quicksand:wght@500;600;700&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {{ --ink: #1a1a1a; --dew: #E94B3C; --paper: #ffffff; --mist: #f5f4f2; --line: #e4e2dd; --espresso: #241812;
-      --font: "Hanken Grotesk", "Noto Sans SC", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }}
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Hanken+Grotesk:wght@400;500&family=Noto+Sans+SC:wght@400;500&family=Bodoni+Moda:opsz,wght@6..96,700&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/shop/dewstick.css">
   <link rel="stylesheet" href="/shop/site.css">
   <script type="application/json" id="catalog">{json.dumps(catalog(lang), ensure_ascii=False)}</script>
@@ -203,72 +200,74 @@ def page(lang, path, title, body, description=None):
 </head>
 <body>
   <a class="skip-link" href="#main">{t(lang, 'general.skip')}</a>
-  <div class="announcement u-mini"><a href="{shop}">{t(lang, 'announcement.text')}</a></div>
+  <div class="announcement"><p><a href="{shop}">{t(lang, 'announcement.text')}</a></p></div>
   <header class="site-header">
-    <div class="container site-header__bar">
-      <nav class="site-header__nav u-mini" aria-label="{t(lang, 'general.nav')}">
+    <div class="g12 site-header__bar">
+      <a href="{home}" class="wordmark" aria-label="{t(lang, 'general.home')}">dewstick</a>
+      <nav class="site-header__nav u-caps" aria-label="{t(lang, 'general.nav')}">
         <a href="{shop}">{t(lang, 'nav.shop')}</a>
+        <a href="{p}/products/the-set-of-five">{t(lang, 'set.title')}</a>
         <a href="{home}#why">{t(lang, 'nav.ingredients')}</a>
         <a href="{home}#note">{t(lang, 'nav.idea')}</a>
       </nav>
-      <button id="menuBtn" class="menu-toggle" aria-label="{t(lang, 'general.menu')}" aria-expanded="false" aria-controls="menuPanel">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-      </button>
-      <a href="{home}" class="wordmark" aria-label="{t(lang, 'general.home')}">dewstick</a>
-      <div class="site-header__tools u-mini">
-        {lang_switch()}
+      <div class="site-header__tools u-caps">
+        <span class="hide-mobile">{lang_switch()}</span>
         <a href="{p}/cart" class="cart-link" data-cart-link>
           <span class="hide-mobile">{t(lang, 'general.cart')}</span>
-          <svg class="only-mobile" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 8h14l-1 12H6L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+          <svg class="only-mobile" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M5 8h14l-1 12H6L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
           <span class="cart-count" data-cart-count hidden></span>
         </a>
+        <button id="menuBtn" class="menu-toggle" aria-label="{t(lang, 'general.menu')}" aria-expanded="false" aria-controls="menuPanel">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
+        </button>
       </div>
     </div>
     <nav id="menuPanel" class="mobile-nav" hidden aria-label="{t(lang, 'general.nav')}">
       <a href="{shop}">{t(lang, 'nav.shop')}</a>
+      <a href="{p}/products/the-set-of-five">{t(lang, 'set.title')}</a>
       <a href="{home}#why">{t(lang, 'nav.ingredients')}</a>
       <a href="{home}#note">{t(lang, 'nav.idea')}</a>
-      <a href="{p}/cart" class="accent">{t(lang, 'general.cart')} (<span data-cart-total>0</span>)</a>
+      <a href="{p}/cart">{t(lang, 'general.cart')} (<span data-cart-total>0</span>)</a>
+      <div class="u-caps">{lang_switch()}</div>
     </nav>
   </header>
   <main id="main" tabindex="-1">
 {body}
   </main>
   <footer class="site-footer">
-    <div class="container site-footer__grid">
-      <div>
-        <p class="u-mini site-footer__label">{t(lang, 'footer.about')}</p>
+    {news_wall(lang)}
+    <div class="site-footer__rule" style="margin-top: var(--section);"></div>
+    <div class="g12 site-footer__grid">
+      <div class="site-footer__col">
+        <p class="site-footer__label">{t(lang, 'home.footer_shop')}</p>
+        <ul>
+          <li><a href="{shop}">{t(lang, 'home.tile_shades')}</a></li>
+          <li><a href="{p}/products/the-set-of-five">{t(lang, 'set.title')}</a></li>
+          <li><a href="{p}/cart">{t(lang, 'general.cart')}</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__col">
+        <p class="site-footer__label">{t(lang, 'footer.about')}</p>
         <ul>
           <li><a href="{home}#note">{t(lang, 'nav.idea')}</a></li>
           <li><a href="{home}#why">{t(lang, 'nav.ingredients')}</a></li>
-          <li><a href="{shop}">{t(lang, 'nav.shop')}</a></li>
         </ul>
       </div>
-      <div>
-        <p class="u-mini site-footer__label">{t(lang, 'footer.project')}</p>
+      <div class="site-footer__col">
+        <p class="site-footer__label">{t(lang, 'footer.project')}</p>
         <ul>
           <li><a href="{SHOPIFY_URL}" target="_blank" rel="noopener">{t(lang, 'footer.store')}</a></li>
           <li><a href="{GITHUB_URL}" target="_blank" rel="noopener">{t(lang, 'footer.source')}</a></li>
-          <li><a href="/waitlist">{t(lang, 'footer.waitlist')}</a></li>
         </ul>
       </div>
-      <div>
-        <p class="u-mini site-footer__label">{t(lang, 'newsletter.heading')}</p>
-        <form class="js-newsletter" novalidate>
-          <div class="field-row">
-            <label class="visually-hidden" for="FooterNewsletter-email">{t(lang, 'newsletter.label')}</label>
-            <input id="FooterNewsletter-email" type="email" name="email" inputmode="email" autocomplete="email" required placeholder="{t(lang, 'newsletter.placeholder')}">
-            <button type="submit" class="btn">{t(lang, 'newsletter.submit')}</button>
-          </div>
-          <p class="form-note" data-note>{t(lang, 'newsletter.privacy')}</p>
-        </form>
+      <div class="site-footer__switch">
+        <p>{t(lang, 'home.lang_q')}</p>
+        {lang_switch()}
       </div>
     </div>
     <div class="site-footer__base">
-      <div class="container">
-        <p>© 2026 dewstick · <span class="copy-note">{t(lang, 'footer.copy_note')}</span></p>
-        {lang_switch()}
-      </div>
+      <p>© 2026 dewstick</p>
+      <p class="muted">{t(lang, 'footer.copy_note')}</p>
     </div>
   </footer>
 </body>
@@ -277,37 +276,48 @@ def page(lang, path, title, body, description=None):
 
 
 # ---------- sections ----------
-def shade_card(lang, shade, cols):
-    p = LANGS[lang]
-    line = "" if cols == 5 else f'<p class="muted">{t(lang, f"shades.{shade}.line")}</p>'
-    return f"""<a class="card" href="{p}/products/dewstick-tinted-lip-balm?variant={shade}">
-          {well(BALM['variants'][shade], '(min-width: 768px) 33vw, 50vw')}
-          <div class="card__body">
-            <p class="medium">{swatch(shade)}{shade} <span class="faint">/ {t(lang, f'shades.{shade}.tone')}</span></p>
-            {line}
-            <p class="card__price{' muted' if cols == 5 else ''}">{money(BALM['price'])}</p>
-          </div>
+CHECK = '<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 5.2 4 7.6 8.6 2.4"/></svg>'
+# Store photography only (dewstick-01…13, the same set the Shopify store uses).
+PACKSHOT = {s: f"/shop/img/dewstick-{n}-1000.jpg" for s, n in BALM["variants"].items()}
+
+
+def img(src, alt="", sizes="100vw", loading="lazy", cls=""):
+    """A plain <img> from /image or /shop/img. Product photos get a 500/1000 srcset."""
+    m = re.fullmatch(r"/shop/img/dewstick-(\d+)-1000\.jpg", src)
+    srcset = (f' srcset="/shop/img/dewstick-{m[1]}-500.jpg 500w, {src} 1000w" sizes="{sizes}"' if m else "")
+    c = f' class="{cls}"' if cls else ""
+    return f'<img{c} src="{src}"{srcset} loading="{loading}" alt="{html.escape(alt)}">'
+
+
+def placeholder(label, cls=""):
+    """Stand-in where the store has no suitable photo yet; says what belongs there."""
+    return f'<div class="ph {cls}" aria-hidden="true"><span>{html.escape(label)}</span></div>'
+
+
+def product_card(lang, title, href, image, price, desc="", badge="", compare=None, alt=""):
+    badge = f'<span class="pcard__badge">{badge}</span>' if badge else ""
+    compare = f'<span class="faint pcard__compare">{money(compare)}</span>' if compare else ""
+    desc = f'<p class="pcard__desc">{desc}</p>' if desc else ""
+    return f"""<a class="pcard" href="{href}">
+          <div class="pcard__media">{img(image, alt or title, "(min-width: 768px) 25vw, 50vw")}{badge}</div>
+          <h3 class="pcard__title t-xl">{title}</h3>
+          <p class="pcard__price">{money(price)}{compare}</p>
+          {desc}
         </a>"""
 
 
-def shade_grid(lang, shades, heading, cols, link=False, footnote=False, flush=False, anchor=""):
+def shade_card(lang, shade):
     p = LANGS[lang]
-    grid = "grid--2 grid--md-5" if cols == 5 else "grid--md-3"
-    see = f'<a class="link-cta" href="{p}/collections/shades">{t(lang, "shades.see_all")}</a>' if link else ""
-    note = f'<p class="mt-3 small muted">{t(lang, "shades.footnote")}</p>' if footnote else ""
-    cards = "\n        ".join(shade_card(lang, s, cols) for s in shades)
-    return f"""<section id="{anchor}" class="section{' section--flush-top' if flush else ''}">
-  <div class="container">
-    <div class="section-head">
-      <h2 class="h2">{t(lang, f'shades.{heading}_title')}</h2>
-      {see}
-    </div>
-    <div class="grid {grid}">
-        {cards}
-    </div>
-    {note}
-  </div>
-</section>"""
+    return product_card(
+        lang, f"{swatch(shade)}{shade} <span class=\"faint\">/ {t(lang, f'shades.{shade}.tone')}</span>",
+        f"{p}/products/dewstick-tinted-lip-balm?variant={shade}", PACKSHOT[shade], BALM["price"],
+        t(lang, f"shades.{shade}.line"), alt=ALT[BALM["variants"][shade]])
+
+
+def set_card(lang):
+    return product_card(lang, SET["title"][lang], f"{LANGS[lang]}/products/the-set-of-five",
+                        "/shop/img/dewstick-04-1000.jpg", SET["price"], t(lang, "set.body"),
+                        badge=t(lang, "home.badge_save"), compare=SET["compare"], alt=ALT["04"])
 
 
 def add_form(lang, key, extra_cls=""):
@@ -315,112 +325,143 @@ def add_form(lang, key, extra_cls=""):
             f'<button type="submit" class="btn">{t(lang, "product.add_to_cart")}</button></form>')
 
 
+def news_wall(lang):
+    """Newsletter + four photo tiles — sits above the footer on every page."""
+    # the store photos carry their own type, so no overlay line on these
+    wall = "\n      ".join(
+        f'<div class="wall__tile">{img(f"/shop/img/dewstick-{n}-1000.jpg", ALT[n], "(min-width: 768px) 20vw, 33vw")}</div>'
+        for n in ["06", "02", "01", "13"])
+    return f"""<section class="g12 news" aria-labelledby="news-title">
+    <div class="news__form">
+      <h2 id="news-title" class="h2">{t(lang, 'newsletter.heading')}</h2>
+      <p class="mt-3 measure">{t(lang, 'newsletter.privacy')}</p>
+      <form class="js-newsletter" novalidate>
+      <div class="field-row">
+        <label class="visually-hidden" for="Newsletter-email">{t(lang, 'newsletter.label')}</label>
+        <input id="Newsletter-email" type="email" name="email" inputmode="email" autocomplete="email" required placeholder="{t(lang, 'newsletter.placeholder')}">
+        <button type="submit" class="btn">{t(lang, 'newsletter.submit')}</button>
+      </div>
+      <p class="form-note" data-note aria-live="polite"></p>
+      </form>
+    </div>
+    <div class="wall" aria-label="@dewstick">
+      {wall}
+    </div>
+  </section>"""
+
+
 def home(lang):
     p = LANGS[lang]
-    shades = list(BALM["variants"])
-    saving = f"${SET['compare'] - SET['price']}"
-    wall = "\n      ".join(f"<div>{well(n, '(min-width: 768px) 33vw, 50vw')}</div>" for n in ["06", "12", "08", "11", "02", "10"])
+    shop = f"{p}/collections/shades"
+    usp = "".join(f"<li>{CHECK}{t(lang, f'home.{k}')}</li>" for k in ["usp_formula", "usp_shades", "usp_set"])
+    cards = "\n        ".join([shade_card(lang, s) for s in ["nectar", "poppy", "blush"]] + [set_card(lang)])
+    tiles = [(shop, "/shop/img/dewstick-11-1000.jpg", t(lang, "home.tile_shades")),
+             (f"{p or '/'}#why", "/shop/img/dewstick-03-1000.jpg", t(lang, "nav.ingredients")),
+             (f"{p}/products/the-set-of-five", "/shop/img/dewstick-10-1000.jpg", t(lang, "set.title")),
+             (f"{p or '/'}#note", "/shop/img/dewstick-08-1000.jpg", t(lang, "nav.idea"))]
+    tiles = "\n    ".join(
+        f'<a class="tile" href="{href}"><div class="tile__media">{img(src, "", "(min-width: 768px) 25vw, 70vw")}</div>'
+        f'<p class="tile__caption">{cap}</p></a>' for href, src, cap in tiles)
+    why_cards = "\n    ".join(
+        f"""<article class="scard">
+      <h3 class="t-xl">{t(lang, f'home.why_{k}')}</h3>
+      <p class="scard__label">{t(lang, f'why.{benefit}.title')}</p>
+      <p class="scard__body">{t(lang, f'home.why_{k}_body')}</p>
+      {img(f'/shop/img/{src}.jpg', alt, '(min-width: 768px) 15vw, 50vw', cls='scard__img')}
+    </article>""" for k, benefit, src, alt in [  # ingredient photos (from the retired waitlist page)
+        ("squalane", "hydrate", "ing-squalane", "Squalane"), ("shea", "nourish", "ing-shea", "Shea butter"),
+        ("ceramides", "protect", "ing-ceramide", "Ceramide cream"), ("colour", "glow", "ing-swatches", "Tinted lip balm swatches")])
     body = f"""<section class="hero">
   <div class="hero__media">
     <video autoplay loop muted playsinline preload="metadata" poster="/shop/video/hero-poster.jpg" aria-hidden="true">
       <source src="/shop/video/hero.mp4" type="video/mp4">
     </video>
   </div>
-  <div class="hero__wash"></div>
-  <div class="container hero__inner">
+  <div class="hero__content">
+    <h1 class="h1">{t(lang, 'hero.title_html').replace('<br>', '<br> ')}</h1>
     <div class="hero__copy">
-      <p class="u-mini muted hero__eyebrow">{t(lang, 'hero.eyebrow')}</p>
-      <h1 class="h1">{t(lang, 'hero.title_html')}</h1>
-      <p class="lede">{t(lang, 'hero.body')}</p>
-      <div class="hero__actions">
-        <a class="btn" href="{p}/collections/shades">{t(lang, 'hero.cta')}</a>
-        <a class="link-cta" href="#why">{t(lang, 'hero.cta_secondary')}</a>
+      <p>{t(lang, 'home.hero_p1')}</p>
+      <p>{t(lang, 'home.hero_p2')}</p>
+      <div class="btn-stack">
+        <a class="btn btn--light" href="{shop}">{t(lang, 'hero.cta')}</a>
+        <a class="btn btn--outline" href="#why">{t(lang, 'hero.cta_secondary')}</a>
       </div>
     </div>
   </div>
 </section>
 
-<div class="formula-strip">
-  <p class="container u-mini">{t(lang, 'formula.text')}</p>
-</div>
+<ul class="usp">{usp}</ul>
 
-{shade_grid(lang, ['nectar', 'poppy', 'blush'], 'hero', 3, link=True, anchor='shades')}
-
-{shade_grid(lang, shades, 'all', 5, footnote=True, flush=True, anchor='all-shades')}
-
-<section id="the-set" class="border-top">
-  <div class="container" style="padding: 0; max-width: 1400px;">
-    <div class="split split--paper">
-      <div class="split__media">{well('04')}</div>
-      <div class="split__copy">
-        <h2 class="h2 mt-1">{t(lang, 'set.title')}</h2>
-        <p class="lede mt-2" style="max-width: 26rem;">{t(lang, 'set.body')}</p>
-        <p class="mt-2 small"><span class="medium">{money(SET['price'])}</span><span class="accent"> — {t(lang, 'set.save', amount=saving)}</span></p>
-        {add_form(lang, 'the-set-of-five', 'mt-3')}
-        <a class="link-cta mt-2" style="align-self: flex-start;" href="{p}/products/the-set-of-five">{t(lang, 'set.details')}</a>
-      </div>
-    </div>
+<section id="shades" class="section">
+  <div class="sec-head">
+    <h2 class="h2">{t(lang, 'home.shop_title')}</h2>
+    <a class="link-u" href="{shop}">{t(lang, 'shades.see_all')}</a>
+  </div>
+  <div class="g12 pgrid">
+        {cards}
   </div>
 </section>
 
-<section id="feel">
-  <div class="container" style="padding: 0; max-width: 1400px;">
-    <div class="split split--ink split--reverse">
-      <div class="split__media">{well('09')}</div>
-      <div class="split__copy">
-        <p class="u-mini muted">{t(lang, 'feel.eyebrow')}</p>
-        <h2 class="h2 mt-1">{t(lang, 'feel.title')}</h2>
-        <p class="lede mt-2" style="max-width: 26rem;">{t(lang, 'feel.body')}</p>
-        <a class="link-cta mt-3" style="align-self: flex-start;" href="{p}/collections/shades">{t(lang, 'feel.cta')}</a>
-      </div>
+<section id="feel" class="section g12 gallery">
+  <div class="gallery__text">
+    <h2 class="t-xl">{t(lang, 'feel.title')}</h2>
+    <div class="prose measure" style="margin-top: 1.3rem;">
+      <p>{t(lang, 'home.feel_lead')}</p>
+      <p>{t(lang, 'home.feel_p1')}</p>
+      <p>{t(lang, 'home.feel_p2')}</p>
+    </div>
+    <a class="btn btn--outline" href="{shop}">{t(lang, 'home.feel_cta')}</a>
+  </div>
+  <div class="gallery__img gallery__img--a">{img('/shop/img/dewstick-09-1000.jpg', ALT['09'], '(min-width: 768px) 50vw, 100vw')}</div>
+</section>
+
+<section class="band">
+  <img class="band__img" src="/shop/img/band-lips-square.jpg" loading="lazy" alt="{html.escape(ALT['12'])}">
+  <div class="g12">
+    <div class="band__copy">
+      <p class="t-3xl">{t(lang, 'home.story')}</p>
+      <a class="btn btn--outline" href="#why">{t(lang, 'hero.cta_secondary')}</a>
     </div>
   </div>
 </section>
-
-{why(lang, '03')}
 
 <section class="section">
-  <div class="container">
-    <div class="section-head" style="margin-bottom: 48px;">
-      <h2 class="h2">{t(lang, 'insta.title')}</h2>
-      <p class="mt-1 small muted" style="max-width: 28rem;">{t(lang, 'insta.body_html')}</p>
-    </div>
-    <div class="grid grid--2 grid--md-3 grid--roomy">
-      {wall}
-    </div>
+  <div class="sec-head"><h2 class="h2">{t(lang, 'home.tiles_title')}</h2></div>
+  <div class="tiles">
+    {tiles}
   </div>
 </section>
 
-<section id="note" class="border-top">
-  <div class="split">
-    <div class="split__copy">
-      <h2 class="h2 h2--plain">{t(lang, 'note.title')}</h2>
-      <p class="mt-2 small muted" style="max-width: 24rem;">{t(lang, 'note.sub')}</p>
-      <div class="note-card">
-        <p class="u-mini muted">{t(lang, 'note.label')}</p>
-        <p class="small" style="line-height: 1.7;">{t(lang, 'note.body')}</p>
-        <p class="small medium">— dewstick</p>
-      </div>
+<section id="why" class="section" aria-labelledby="why-title">
+  <div class="sec-head">
+    <h2 id="why-title" class="h2">{t(lang, 'why.title')}</h2>
+    <div class="scroller__nav">
+      <button type="button" class="link-u" data-scroll="-1" aria-controls="whyTrack">{t(lang, 'home.why_prev')}</button>
+      <button type="button" class="link-u" data-scroll="1" aria-controls="whyTrack">{t(lang, 'home.why_next')}</button>
     </div>
-    <div class="split__media">{well('07')}</div>
+  </div>
+  <div id="whyTrack" class="scroller" tabindex="0" aria-label="{t(lang, 'why.title')}">
+    {why_cards}
   </div>
 </section>
 
-<section class="philosophy">
-  <div class="philosophy__inner">
-    <p>{t(lang, 'philosophy.text')}</p>
-    <div class="philosophy__icons" aria-hidden="true">
-      <svg viewBox="0 0 24 24"><path d="M12 3c3 4 5 6.5 5 9.5a5 5 0 0 1-10 0C7 9.5 9 7 12 3Z"/></svg>
-      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M8 12h8M12 8v8"/></svg>
-      <svg viewBox="0 0 24 24"><path d="M12 21s-7-4.35-7-10a4 4 0 0 1 7-2.65A4 4 0 0 1 19 11c0 5.65-7 10-7 10Z"/></svg>
+<section id="note" class="section g12 founder">
+  <h2 class="h2 founder__head">{t(lang, 'note.title')}</h2>
+  <div class="founder__body">
+    <div class="prose measure">
+      <p>{t(lang, 'note.sub')}</p>
+      <p>{t(lang, 'note.body')}</p>
+      <p>{t(lang, 'home.note_sign')}</p>
     </div>
+    <a class="btn btn--outline" href="{shop}">{t(lang, 'hero.cta')}</a>
   </div>
+  <div class="founder__img">{img('/shop/img/dewstick-07-1000.jpg', ALT['07'], '(min-width: 768px) 33vw, 100vw')}</div>
 </section>"""
     title = "dewstick — " + re.sub(r"<br>", " ", t(lang, "hero.title_html"))
     return page(lang, "", title, body)
 
 
-def why(lang, img):
+def why(lang, image):
     icons = {
         "hydrate": '<path d="M12 3c3 4 5 6.5 5 9.5a5 5 0 0 1-10 0C7 9.5 9 7 12 3Z"/>',
         "nourish": '<path d="M5 19c0-8 5-13 14-14-1 9-6 14-14 14Z"/><path d="M5 19 13 11"/>',
@@ -433,7 +474,7 @@ def why(lang, img):
         for k, svg in icons.items())
     return f"""<section id="why" class="border-top">
   <div class="split split--reverse">
-    <div class="split__media">{well(img)}</div>
+    <div class="split__media">{well(image)}</div>
     <div class="split__copy">
       <h2 class="h2">{t(lang, 'why.title')}</h2>
       <p class="lede mt-2" style="max-width: 28rem;">{t(lang, 'why.body')}</p>
@@ -447,23 +488,14 @@ def why(lang, img):
 
 def collection(lang):
     p = LANGS[lang]
-    cards = [shade_card(lang, s, 3) for s in BALM["variants"]]
-    cards.append(f"""<a class="card" href="{p}/products/the-set-of-five">
-          {well('04', '(min-width: 768px) 33vw, 50vw')}
-          <div class="card__body">
-            <p class="medium">{SET['title'][lang]}</p>
-            <p class="card__price">{money(SET['price'])}<span class="faint card__compare">{money(SET['compare'])}</span></p>
-          </div>
-        </a>""")
-    body = f"""<section class="section">
-  <div class="container">
-    <div class="section-head">
-      <h1 class="h2">{t(lang, 'collection.title')}</h1>
-      <div class="mt-1 small muted rte"><p>{t(lang, 'collection.desc')}</p></div>
-    </div>
-    <div class="grid grid--2 grid--md-3">
+    cards = [shade_card(lang, s) for s in BALM["variants"]] + [set_card(lang)]
+    body = f"""<section class="section" style="padding-top: 3.6rem;">
+  <div class="sec-head">
+    <h1 class="h2">{t(lang, 'collection.title')}</h1>
+    <p class="muted">{t(lang, 'collection.desc')}</p>
+  </div>
+  <div class="g12 pgrid">
         {chr(10).join(cards)}
-    </div>
   </div>
 </section>"""
     return page(lang, "/collections/shades", f"{t(lang, 'collection.title', raw=True)} — dewstick", body,
@@ -587,7 +619,8 @@ def not_found(lang):
 
 
 def main():
-    shutil.copyfile(THEME / "assets/dewstick.css", ROOT / "shop/dewstick.css")
+    # shop/dewstick.css is the website's own stylesheet while the redesign lives only here; it no longer
+    # mirrors shopify-theme/assets/dewstick.css.
     for lang, prefix in LANGS.items():
         out = ROOT / prefix.lstrip("/")
         pages = {

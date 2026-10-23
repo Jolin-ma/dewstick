@@ -4,7 +4,7 @@
   "trailingSlash": false,
   "headers": [
     {
-      "source": "/(image|shop/img|shop/video)/(.*)",
+      "source": "/shop/(img|video)/(.*)",
       "headers": [
         {
           "key": "Cache-Control",

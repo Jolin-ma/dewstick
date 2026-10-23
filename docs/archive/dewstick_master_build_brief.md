@@ -1,5 +1,7 @@
 # Dewstick — Waitlist Site Master Build Brief
 
+> **Archived (2026-10-23).** This brief was for the pre-launch waitlist landing page, which has been retired and deleted. The site is now a store (Shopify + a static copy on Vercel). The positioning, pricing ($22 / $98 CAD) and shade names it settled are still canonical — see [`PRODUCT.md`](../../PRODUCT.md).
+
 **Prepared:** August 30, 2026
 **Status:** Draft for review — see "Open decisions" before build starts
 

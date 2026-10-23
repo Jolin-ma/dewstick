@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#ffffff">
+  <meta name="theme-color" content="#f4efe9">
   <title>dewstick — half lipstick. half lip balm.</title>
   <meta name="description" content="A luxury lip mask, in a stick — real colour over squalane, shea butter and ceramides.">
   <link rel="alternate" hreflang="en" href="/">
@@ -19,11 +19,7 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23E94B3C'/%3E%3Cpath d='M16 7c3 4 5 6.5 5 9.5a5 5 0 0 1-10 0C11 13.5 13 11 16 7Z' fill='%23fff'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=Bodoni+Moda:opsz,wght@6..96,500..800&family=Quicksand:wght@500;600;700&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
-  <style>
-    :root { --ink: #1a1a1a; --dew: #E94B3C; --paper: #ffffff; --mist: #f5f4f2; --line: #e4e2dd; --espresso: #241812;
-      --font: "Hanken Grotesk", "Noto Sans SC", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Hanken+Grotesk:wght@400;500&family=Noto+Sans+SC:wght@400;500&family=Bodoni+Moda:opsz,wght@6..96,700&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/shop/dewstick.css">
   <link rel="stylesheet" href="/shop/site.css">
   <script type="application/json" id="catalog">{"lang": "en", "prefix": "", "currency": "CAD", "shop": "/collections/shades", "items": {"dewstick-tinted-lip-balm:nectar": {"title": "dewstick tinted lip balm", "variant": "nectar", "swatch": "#f3b52f", "price": 22, "img": "/shop/img/dewstick-13-500.jpg", "url": "/products/dewstick-tinted-lip-balm?variant=nectar"}, "dewstick-tinted-lip-balm:poppy": {"title": "dewstick tinted lip balm", "variant": "poppy", "swatch": "#e2392f", "price": 22, "img": "/shop/img/dewstick-01-500.jpg", "url": "/products/dewstick-tinted-lip-balm?variant=poppy"}, "dewstick-tinted-lip-balm:peony": {"title": "dewstick tinted lip balm", "variant": "peony", "swatch": "#f4a9bd", "price": 22, "img": "/shop/img/dewstick-02-500.jpg", "url": "/products/dewstick-tinted-lip-balm?variant=peony"}, "dewstick-tinted-lip-balm:blush": {"title": "dewstick tinted lip balm", "variant": "blush", "swatch": "#b6c935", "price": 22, "img": "/shop/img/dewstick-05-500.jpg", "url": "/products/dewstick-tinted-lip-balm?variant=blush"}, "dewstick-tinted-lip-balm:orchid": {"title": "dewstick tinted lip balm", "variant": "orchid", "swatch": "#8dbde6", "price": 22, "img": "/shop/img/dewstick-03-500.jpg", "url": "/products/dewstick-tinted-lip-balm?variant=orchid"}, "the-set-of-five": {"title": "the set of five", "variant": null, "swatch": null, "price": 98, "img": "/shop/img/dewstick-04-500.jpg", "url": "/products/the-set-of-five"}}, "strings": {"cart.empty": "Your cart is empty.", "cart.continue": "Shop the shades →", "cart.remove": "Remove", "product.qty_up": "Increase quantity", "product.qty_down": "Decrease quantity", "product.quantity": "Quantity", "product.added": "Added to cart", "newsletter.invalid": "Please enter a valid email.", "demo.newsletter": "Demo copy — signups are collected on the Shopify store, not here.", "cart_count_one": "Cart, {{ count }} item", "cart_count_other": "Cart, {{ count }} items"}}</script>
@@ -31,32 +27,35 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <div class="announcement u-mini"><a href="/collections/shades">New — five shades of tinted lip balm. The set of five saves $12.</a></div>
+  <div class="announcement"><p><a href="/collections/shades">New — five shades of tinted lip balm. The set of five saves $12.</a></p></div>
   <header class="site-header">
-    <div class="container site-header__bar">
-      <nav class="site-header__nav u-mini" aria-label="Main">
+    <div class="g12 site-header__bar">
+      <a href="/" class="wordmark" aria-label="dewstick home">dewstick</a>
+      <nav class="site-header__nav u-caps" aria-label="Main">
         <a href="/collections/shades">Shop</a>
+        <a href="/products/the-set-of-five">The set of five</a>
         <a href="/#why">Ingredients</a>
         <a href="/#note">The idea</a>
       </nav>
-      <button id="menuBtn" class="menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="menuPanel">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-      </button>
-      <a href="/" class="wordmark" aria-label="dewstick home">dewstick</a>
-      <div class="site-header__tools u-mini">
-        <div class="lang-switch u-mini"><a href="/" lang="en" aria-current="true" data-lang-link>EN</a><span class="sep" aria-hidden="true">/</span><a href="/zh" lang="zh-CN" aria-current="false" data-lang-link>中文</a></div>
+      <div class="site-header__tools u-caps">
+        <span class="hide-mobile"><div class="lang-switch u-mini"><a href="/" lang="en" aria-current="true" data-lang-link>EN</a><span class="sep" aria-hidden="true">/</span><a href="/zh" lang="zh-CN" aria-current="false" data-lang-link>中文</a></div></span>
         <a href="/cart" class="cart-link" data-cart-link>
           <span class="hide-mobile">Cart</span>
-          <svg class="only-mobile" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 8h14l-1 12H6L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+          <svg class="only-mobile" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M5 8h14l-1 12H6L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
           <span class="cart-count" data-cart-count hidden></span>
         </a>
+        <button id="menuBtn" class="menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="menuPanel">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
+        </button>
       </div>
     </div>
     <nav id="menuPanel" class="mobile-nav" hidden aria-label="Main">
       <a href="/collections/shades">Shop</a>
+      <a href="/products/the-set-of-five">The set of five</a>
       <a href="/#why">Ingredients</a>
       <a href="/#note">The idea</a>
-      <a href="/cart" class="accent">Cart (<span data-cart-total>0</span>)</a>
+      <a href="/cart">Cart (<span data-cart-total>0</span>)</a>
+      <div class="u-caps"><div class="lang-switch u-mini"><a href="/" lang="en" aria-current="true" data-lang-link>EN</a><span class="sep" aria-hidden="true">/</span><a href="/zh" lang="zh-CN" aria-current="false" data-lang-link>中文</a></div></div>
     </nav>
   </header>
   <main id="main" tabindex="-1">
@@ -66,235 +65,189 @@
       <source src="/shop/video/hero.mp4" type="video/mp4">
     </video>
   </div>
-  <div class="hero__wash"></div>
-  <div class="container hero__inner">
+  <div class="hero__content">
+    <h1 class="h1">half lipstick.<br> half lip balm.</h1>
     <div class="hero__copy">
-      <p class="u-mini muted hero__eyebrow">New — tinted lip balm</p>
-      <h1 class="h1">half lipstick.<br>half lip balm.</h1>
-      <p class="lede">A luxury lip mask, in a stick — real colour over squalane, shea butter and ceramides.</p>
-      <div class="hero__actions">
-        <a class="btn" href="/collections/shades">Shop the shades</a>
-        <a class="link-cta" href="#why">Why it works</a>
+      <p>A luxury lip mask, in a stick.</p>
+      <p>Real colour over squalane, shea butter and ceramides. One swipe, juicy glow.</p>
+      <div class="btn-stack">
+        <a class="btn btn--light" href="/collections/shades">Shop the shades</a>
+        <a class="btn btn--outline" href="#why">Why it works</a>
       </div>
     </div>
   </div>
 </section>
 
-<div class="formula-strip">
-  <p class="container u-mini">The formula is: squalane · shea butter · ceramides</p>
-</div>
+<ul class="usp"><li><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 5.2 4 7.6 8.6 2.4"/></svg>Squalane, shea butter &amp; ceramides</li><li><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 5.2 4 7.6 8.6 2.4"/></svg>Five shades, one formula</li><li><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 5.2 4 7.6 8.6 2.4"/></svg>The set of five saves $12</li></ul>
 
 <section id="shades" class="section">
-  <div class="container">
-    <div class="section-head">
-      <h2 class="h2">The hero shades</h2>
-      <a class="link-cta" href="/collections/shades">Shop all</a>
-    </div>
-    <div class="grid grid--md-3">
-        <a class="card" href="/products/dewstick-tinted-lip-balm?variant=nectar">
-          <div class="well well--square "><img src="/shop/img/dewstick-13-1000.jpg" srcset="/shop/img/dewstick-13-500.jpg 500w, /shop/img/dewstick-13-1000.jpg 1000w" sizes="(min-width: 768px) 33vw, 50vw" loading="lazy" width="1000" height="1000" alt="dewstick in nectar — a luxury lip mask in a stick: hydrate, nourish, protect, glow"></div>
-          <div class="card__body">
-            <p class="medium"><span class="swatch-dot" style="background: #f3b52f" aria-hidden="true"></span>nectar <span class="faint">/ coral</span></p>
-            <p class="muted">Tinted lip balm — sun-warm coral</p>
-            <p class="card__price">$22 CAD</p>
-          </div>
+  <div class="sec-head">
+    <h2 class="h2">Find your shade</h2>
+    <a class="link-u" href="/collections/shades">Shop all</a>
+  </div>
+  <div class="g12 pgrid">
+        <a class="pcard" href="/products/dewstick-tinted-lip-balm?variant=nectar">
+          <div class="pcard__media"><img src="/shop/img/dewstick-13-1000.jpg" srcset="/shop/img/dewstick-13-500.jpg 500w, /shop/img/dewstick-13-1000.jpg 1000w" sizes="(min-width: 768px) 25vw, 50vw" loading="lazy" alt="dewstick in nectar — a luxury lip mask in a stick: hydrate, nourish, protect, glow"></div>
+          <h3 class="pcard__title t-xl"><span class="swatch-dot" style="background: #f3b52f" aria-hidden="true"></span>nectar <span class="faint">/ coral</span></h3>
+          <p class="pcard__price">$22 CAD</p>
+          <p class="pcard__desc">Tinted lip balm — sun-warm coral</p>
         </a>
-        <a class="card" href="/products/dewstick-tinted-lip-balm?variant=poppy">
-          <div class="well well--square "><img src="/shop/img/dewstick-01-1000.jpg" srcset="/shop/img/dewstick-01-500.jpg 500w, /shop/img/dewstick-01-1000.jpg 1000w" sizes="(min-width: 768px) 33vw, 50vw" loading="lazy" width="1000" height="1000" alt="dewstick in poppy — red tube beside its box, with squalane, shea butter and ceramides"></div>
-          <div class="card__body">
-            <p class="medium"><span class="swatch-dot" style="background: #e2392f" aria-hidden="true"></span>poppy <span class="faint">/ true red</span></p>
-            <p class="muted">Tinted lip balm — a bright red for every day</p>
-            <p class="card__price">$22 CAD</p>
-          </div>
+        <a class="pcard" href="/products/dewstick-tinted-lip-balm?variant=poppy">
+          <div class="pcard__media"><img src="/shop/img/dewstick-01-1000.jpg" srcset="/shop/img/dewstick-01-500.jpg 500w, /shop/img/dewstick-01-1000.jpg 1000w" sizes="(min-width: 768px) 25vw, 50vw" loading="lazy" alt="dewstick in poppy — red tube beside its box, with squalane, shea butter and ceramides"></div>
+          <h3 class="pcard__title t-xl"><span class="swatch-dot" style="background: #e2392f" aria-hidden="true"></span>poppy <span class="faint">/ true red</span></h3>
+          <p class="pcard__price">$22 CAD</p>
+          <p class="pcard__desc">Tinted lip balm — a bright red for every day</p>
         </a>
-        <a class="card" href="/products/dewstick-tinted-lip-balm?variant=blush">
-          <div class="well well--square "><img src="/shop/img/dewstick-05-1000.jpg" srcset="/shop/img/dewstick-05-500.jpg 500w, /shop/img/dewstick-05-1000.jpg 1000w" sizes="(min-width: 768px) 33vw, 50vw" loading="lazy" width="1000" height="1000" alt="dewstick in blush — green tube beside squalane, shea butter and ceramide swatches"></div>
-          <div class="card__body">
-            <p class="medium"><span class="swatch-dot" style="background: #b6c935" aria-hidden="true"></span>blush <span class="faint">/ soft pink</span></p>
-            <p class="muted">Tinted lip balm — barely there, always right</p>
-            <p class="card__price">$22 CAD</p>
-          </div>
+        <a class="pcard" href="/products/dewstick-tinted-lip-balm?variant=blush">
+          <div class="pcard__media"><img src="/shop/img/dewstick-05-1000.jpg" srcset="/shop/img/dewstick-05-500.jpg 500w, /shop/img/dewstick-05-1000.jpg 1000w" sizes="(min-width: 768px) 25vw, 50vw" loading="lazy" alt="dewstick in blush — green tube beside squalane, shea butter and ceramide swatches"></div>
+          <h3 class="pcard__title t-xl"><span class="swatch-dot" style="background: #b6c935" aria-hidden="true"></span>blush <span class="faint">/ soft pink</span></h3>
+          <p class="pcard__price">$22 CAD</p>
+          <p class="pcard__desc">Tinted lip balm — barely there, always right</p>
         </a>
-    </div>
-    
+        <a class="pcard" href="/products/the-set-of-five">
+          <div class="pcard__media"><img src="/shop/img/dewstick-04-1000.jpg" srcset="/shop/img/dewstick-04-500.jpg 500w, /shop/img/dewstick-04-1000.jpg 1000w" sizes="(min-width: 768px) 25vw, 50vw" loading="lazy" alt="The set of five in its red gift box: happy shades, happy days"><span class="pcard__badge">Save $12</span></div>
+          <h3 class="pcard__title t-xl">the set of five</h3>
+          <p class="pcard__price">$98 CAD<span class="faint pcard__compare">$110 CAD</span></p>
+          <p class="pcard__desc">All five shades in one box — one formula, every mood. Happy shades, happy days.</p>
+        </a>
   </div>
 </section>
 
-<section id="all-shades" class="section section--flush-top">
-  <div class="container">
-    <div class="section-head">
-      <h2 class="h2">All five shades</h2>
-      
+<section id="feel" class="section g12 gallery">
+  <div class="gallery__text">
+    <h2 class="t-xl">Juicy. Glossy. Balmy.</h2>
+    <div class="prose measure" style="margin-top: 1.3rem;">
+      <p>One swipe, juicy glow.</p>
+      <p>Real colour that melts in like a balm and keeps working like a mask.</p>
+      <p>Underneath it: squalane, shea butter and ceramides, so every swipe is also a treatment.</p>
     </div>
-    <div class="grid grid--2 grid--md-5">
-        <a class="card" href="/products/dewstick-tinted-lip-balm?variant=nectar">
-          <div class="well well--square "><img src="/shop/img/dewstick-13-1000.jpg" srcset="/shop/img/dewstick-13-500.jpg 500w, /shop/img/dewstick-13-1000.jpg 1000w" sizes="(min-width: 768px) 33vw, 50vw" loading="lazy" width="1000" height="1000" alt="dewstick in nectar — a luxury lip mask in a stick: hydrate, nourish, protect, glow"></div>
-          <div class="card__body">
-            <p class="medium"><span class="swatch-dot" style="background: #f3b52f" aria-hidden="true"></span>nectar <span class="faint">/ coral</span></p>
-            
-            <p class="card__price muted">$22 CAD</p>
-          </div>
-        </a>
-        <a class="card" href="/products/dewstick-tinted-lip-balm?variant=poppy">
-          <div class="well well--square "><img src="/shop/img/dewstick-01-1000.jpg" srcset="/shop/img/dewstick-01-500.jpg 500w, /shop/img/dewstick-01-1000.jpg 1000w" sizes="(min-width: 768px) 33vw, 50vw" loading="lazy" width="1000" height="1000" alt="dewstick in poppy — red tube beside its box, with squalane, shea butter and ceramides"></div>
-          <div class="card__body">
-            <p class="medium"><span class="swatch-dot" style="background: #e2392f" aria-hidden="true"></span>poppy <span class="faint">/ true red</span></p>
-            
-            <p class="card__price muted">$22 CAD</p>
-          </div>
-        </a>
-        <a class="card" href="/products/dewstick-tinted-lip-balm?variant=peony">
-          <div class="well well--square "><img src="/shop/img/dewstick-02-1000.jpg" srcset="/shop/img/dewstick-02-500.jpg 500w, /shop/img/dewstick-02-1000.jpg 1000w" sizes="(min-width: 768px) 33vw, 50vw" loading="lazy" width="1000" height="1000" alt="dewstick in peony — pink tube over a swatch: half lipstick, half lip balm"></div>
-          <div class="card__body">
-            <p class="medium"><span class="swatch-dot" style="background: #f4a9bd" aria-hidden="true"></span>peony <span class="faint">/ rosy nude</span></p>
-            
-            <p class="card__price muted">$22 CAD</p>
-          </div>
-        </a>
-        <a class="card" href="/products/dewstick-tinted-lip-balm?variant=blush">
-          <div class="well well--square "><img src="/shop/img/dewstick-05-1000.jpg" srcset="/shop/img/dewstick-05-500.jpg 500w, /shop/img/dewstick-05-1000.jpg 1000w" sizes="(min-width: 768px) 33vw, 50vw" loading="lazy" width="1000" height="1000" alt="dewstick in blush — green tube beside squalane, shea butter and ceramide swatches"></div>
-          <div class="card__body">
-            <p class="medium"><span class="swatch-dot" style="background: #b6c935" aria-hidden="true"></span>blush <span class="faint">/ soft pink</span></p>
-            
-            <p class="card__price muted">$22 CAD</p>
-          </div>
-        </a>
-        <a class="card" href="/products/dewstick-tinted-lip-balm?variant=orchid">
-          <div class="well well--square "><img src="/shop/img/dewstick-03-1000.jpg" srcset="/shop/img/dewstick-03-500.jpg 500w, /shop/img/dewstick-03-1000.jpg 1000w" sizes="(min-width: 768px) 33vw, 50vw" loading="lazy" width="1000" height="1000" alt="dewstick in orchid — blue tube beside squalane, shea butter and ceramide swatches"></div>
-          <div class="card__body">
-            <p class="medium"><span class="swatch-dot" style="background: #8dbde6" aria-hidden="true"></span>orchid <span class="faint">/ berry rose</span></p>
-            
-            <p class="card__price muted">$22 CAD</p>
-          </div>
-        </a>
-    </div>
-    <p class="mt-3 small muted">One formula, five moods. Want them all? The set of five saves $12.</p>
+    <a class="btn btn--outline" href="/collections/shades">Find your shade</a>
   </div>
+  <div class="gallery__img gallery__img--a"><img src="/shop/img/dewstick-09-1000.jpg" srcset="/shop/img/dewstick-09-500.jpg 500w, /shop/img/dewstick-09-1000.jpg 1000w" sizes="(min-width: 768px) 50vw, 100vw" loading="lazy" alt="Macro of a dewy red bullet: the sound, the texture, the dew"></div>
 </section>
 
-<section id="the-set" class="border-top">
-  <div class="container" style="padding: 0; max-width: 1400px;">
-    <div class="split split--paper">
-      <div class="split__media"><div class="well well--square "><img src="/shop/img/dewstick-04-1000.jpg" srcset="/shop/img/dewstick-04-500.jpg 500w, /shop/img/dewstick-04-1000.jpg 1000w" sizes="(min-width: 768px) 50vw, 100vw" loading="lazy" width="1000" height="1000" alt="The set of five in its red gift box: happy shades, happy days"></div></div>
-      <div class="split__copy">
-        <h2 class="h2 mt-1">The set of five</h2>
-        <p class="lede mt-2" style="max-width: 26rem;">All five shades in one box — one formula, every mood. Happy shades, happy days.</p>
-        <p class="mt-2 small"><span class="medium">$98 CAD</span><span class="accent"> — save $12 vs. singles</span></p>
-        <form class="mt-3" data-add-form><input type="hidden" name="id" value="the-set-of-five"><button type="submit" class="btn">Add to cart</button></form>
-        <a class="link-cta mt-2" style="align-self: flex-start;" href="/products/the-set-of-five">See the set →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="feel">
-  <div class="container" style="padding: 0; max-width: 1400px;">
-    <div class="split split--ink split--reverse">
-      <div class="split__media"><div class="well well--square "><img src="/shop/img/dewstick-09-1000.jpg" srcset="/shop/img/dewstick-09-500.jpg 500w, /shop/img/dewstick-09-1000.jpg 1000w" sizes="(min-width: 768px) 50vw, 100vw" loading="lazy" width="1000" height="1000" alt="Macro of a dewy red bullet: the sound, the texture, the dew"></div></div>
-      <div class="split__copy">
-        <p class="u-mini muted">asmr — the sound. the texture. the dew.</p>
-        <h2 class="h2 mt-1">Juicy. Glossy. Balmy.</h2>
-        <p class="lede mt-2" style="max-width: 26rem;">One swipe, juicy glow. Real colour that melts in like a balm and keeps working like a mask.</p>
-        <a class="link-cta mt-3" style="align-self: flex-start;" href="/collections/shades">Find your shade →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="why" class="border-top">
-  <div class="split split--reverse">
-    <div class="split__media"><div class="well well--square "><img src="/shop/img/dewstick-03-1000.jpg" srcset="/shop/img/dewstick-03-500.jpg 500w, /shop/img/dewstick-03-1000.jpg 1000w" sizes="(min-width: 768px) 50vw, 100vw" loading="lazy" width="1000" height="1000" alt="dewstick in orchid — blue tube beside squalane, shea butter and ceramide swatches"></div></div>
-    <div class="split__copy">
-      <h2 class="h2">Why it works</h2>
-      <p class="lede mt-2" style="max-width: 28rem;">Half the tube is a lip treatment — three skincare ingredients doing the work of a lip mask.</p>
-      <div class="benefits">
-        <div class="benefit"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c3 4 5 6.5 5 9.5a5 5 0 0 1-10 0C7 9.5 9 7 12 3Z"/></svg><h3>Hydrate</h3><p class="small muted">Squalane — deep hydration</p></div>
-        <div class="benefit"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19c0-8 5-13 14-14-1 9-6 14-14 14Z"/><path d="M5 19 13 11"/></svg><h3>Nourish</h3><p class="small muted">Shea butter — soft &amp; smooth</p></div>
-        <div class="benefit"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 5 6v5c0 4.5 3 8.5 7 10 4-1.5 7-5.5 7-10V6l-7-3Z"/><path d="m9 12 2 2 4-4"/></svg><h3>Protect</h3><p class="small muted">Ceramides — strengthen &amp; protect</p></div>
-        <div class="benefit"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.35-7-10a4 4 0 0 1 7-2.65A4 4 0 0 1 19 11c0 5.65-7 10-7 10Z"/></svg><h3>Glow</h3><p class="small muted">One swipe — juicy glow</p></div>
-      </div>
+<section class="band">
+  <img class="band__img" src="/shop/img/band-lips-square.jpg" loading="lazy" alt="Close-up of glossy tinted lips with a dewstick">
+  <div class="g12">
+    <div class="band__copy">
+      <p class="t-3xl">Half the tube is lipstick. The other half does the work of a $30 lip mask.</p>
+      <a class="btn btn--outline" href="#why">Why it works</a>
     </div>
   </div>
 </section>
 
 <section class="section">
-  <div class="container">
-    <div class="section-head" style="margin-bottom: 48px;">
-      <h2 class="h2">@dewstick on Instagram</h2>
-      <p class="mt-1 small muted" style="max-width: 28rem;">Tag <strong>#dewstick</strong> — your posts could end up on this wall.</p>
-    </div>
-    <div class="grid grid--2 grid--md-3 grid--roomy">
-      <div><div class="well well--square "><img src="/shop/img/dewstick-06-1000.jpg" srcset="/shop/img/dewstick-06-500.jpg 500w, /shop/img/dewstick-06-1000.jpg 1000w" sizes="(min-width: 768px) 33vw, 50vw" loading="lazy" width="1000" height="1000" alt="A red dewstick over balm swatches: juicy, glossy, balmy"></div></div>
-      <div><div class="well well--square "><img src="/shop/img/dewstick-12-1000.jpg" srcset="/shop/img/dewstick-12-500.jpg 500w, /shop/img/dewstick-12-1000.jpg 1000w" sizes="(min-width: 768px) 33vw, 50vw" loading="lazy" width="1000" height="1000" alt="Close-up of glossy tinted lips with a dewstick"></div></div>
-      <div><div class="well well--square "><img src="/shop/img/dewstick-08-1000.jpg" srcset="/shop/img/dewstick-08-500.jpg 500w, /shop/img/dewstick-08-1000.jpg 1000w" sizes="(min-width: 768px) 33vw, 50vw" loading="lazy" width="1000" height="1000" alt="Unboxing a dewstick from its shipping box"></div></div>
-      <div><div class="well well--square "><img src="/shop/img/dewstick-11-1000.jpg" srcset="/shop/img/dewstick-11-500.jpg 500w, /shop/img/dewstick-11-1000.jpg 1000w" sizes="(min-width: 768px) 33vw, 50vw" loading="lazy" width="1000" height="1000" alt="All five dewstick shades lined up with their swatches"></div></div>
-      <div><div class="well well--square "><img src="/shop/img/dewstick-02-1000.jpg" srcset="/shop/img/dewstick-02-500.jpg 500w, /shop/img/dewstick-02-1000.jpg 1000w" sizes="(min-width: 768px) 33vw, 50vw" loading="lazy" width="1000" height="1000" alt="dewstick in peony — pink tube over a swatch: half lipstick, half lip balm"></div></div>
-      <div><div class="well well--square "><img src="/shop/img/dewstick-10-1000.jpg" srcset="/shop/img/dewstick-10-500.jpg 500w, /shop/img/dewstick-10-1000.jpg 1000w" sizes="(min-width: 768px) 33vw, 50vw" loading="lazy" width="1000" height="1000" alt="A pile of dewsticks in every colourway"></div></div>
-    </div>
+  <div class="sec-head"><h2 class="h2">Start here</h2></div>
+  <div class="tiles">
+    <a class="tile" href="/collections/shades"><div class="tile__media"><img src="/shop/img/dewstick-11-1000.jpg" srcset="/shop/img/dewstick-11-500.jpg 500w, /shop/img/dewstick-11-1000.jpg 1000w" sizes="(min-width: 768px) 25vw, 70vw" loading="lazy" alt=""></div><p class="tile__caption">The shades</p></a>
+    <a class="tile" href="/#why"><div class="tile__media"><img src="/shop/img/dewstick-03-1000.jpg" srcset="/shop/img/dewstick-03-500.jpg 500w, /shop/img/dewstick-03-1000.jpg 1000w" sizes="(min-width: 768px) 25vw, 70vw" loading="lazy" alt=""></div><p class="tile__caption">Ingredients</p></a>
+    <a class="tile" href="/products/the-set-of-five"><div class="tile__media"><img src="/shop/img/dewstick-10-1000.jpg" srcset="/shop/img/dewstick-10-500.jpg 500w, /shop/img/dewstick-10-1000.jpg 1000w" sizes="(min-width: 768px) 25vw, 70vw" loading="lazy" alt=""></div><p class="tile__caption">The set of five</p></a>
+    <a class="tile" href="/#note"><div class="tile__media"><img src="/shop/img/dewstick-08-1000.jpg" srcset="/shop/img/dewstick-08-500.jpg 500w, /shop/img/dewstick-08-1000.jpg 1000w" sizes="(min-width: 768px) 25vw, 70vw" loading="lazy" alt=""></div><p class="tile__caption">The idea</p></a>
   </div>
 </section>
 
-<section id="note" class="border-top">
-  <div class="split">
-    <div class="split__copy">
-      <h2 class="h2 h2--plain">No reviews yet.</h2>
-      <p class="mt-2 small muted" style="max-width: 24rem;">We're brand new. Reviews will live here once real people have worn it — we won't make any up.</p>
-      <div class="note-card">
-        <p class="u-mini muted">A note from us</p>
-        <p class="small" style="line-height: 1.7;">We made dewstick because we wanted a lip mask we could actually wear out the door: squalane, shea butter and ceramides underneath, real colour on top. Try it and tell us what you think — your words will be the first this space holds.</p>
-        <p class="small medium">— dewstick</p>
-      </div>
+<section id="why" class="section" aria-labelledby="why-title">
+  <div class="sec-head">
+    <h2 id="why-title" class="h2">Why it works</h2>
+    <div class="scroller__nav">
+      <button type="button" class="link-u" data-scroll="-1" aria-controls="whyTrack">Previous</button>
+      <button type="button" class="link-u" data-scroll="1" aria-controls="whyTrack">Next</button>
     </div>
-    <div class="split__media"><div class="well well--square "><img src="/shop/img/dewstick-07-1000.jpg" srcset="/shop/img/dewstick-07-500.jpg 500w, /shop/img/dewstick-07-1000.jpg 1000w" sizes="(min-width: 768px) 50vw, 100vw" loading="lazy" width="1000" height="1000" alt="Get ready with me: applying dewstick — hydrating, tinted, effortless"></div></div>
+  </div>
+  <div id="whyTrack" class="scroller" tabindex="0" aria-label="Why it works">
+    <article class="scard">
+      <h3 class="t-xl">Squalane</h3>
+      <p class="scard__label">Hydrate</p>
+      <p class="scard__body">A skin-identical oil that sinks in fast and holds moisture where lips lose it first.</p>
+      <img class="scard__img" src="/shop/img/ing-squalane.jpg" loading="lazy" alt="Squalane">
+    </article>
+    <article class="scard">
+      <h3 class="t-xl">Shea butter</h3>
+      <p class="scard__label">Nourish</p>
+      <p class="scard__body">Rich fatty acids that soften dry patches and keep lips smooth for hours.</p>
+      <img class="scard__img" src="/shop/img/ing-shea.jpg" loading="lazy" alt="Shea butter">
+    </article>
+    <article class="scard">
+      <h3 class="t-xl">Ceramides</h3>
+      <p class="scard__label">Protect</p>
+      <p class="scard__body">The lipids your skin barrier is built from. They help lips hold on to their own moisture.</p>
+      <img class="scard__img" src="/shop/img/ing-ceramide.jpg" loading="lazy" alt="Ceramide cream">
+    </article>
+    <article class="scard">
+      <h3 class="t-xl">Real colour</h3>
+      <p class="scard__label">Glow</p>
+      <p class="scard__body">A sheer-to-buildable tint in five shades, with a juicy, balmy finish.</p>
+      <img class="scard__img" src="/shop/img/ing-swatches.jpg" loading="lazy" alt="Tinted lip balm swatches">
+    </article>
   </div>
 </section>
 
-<section class="philosophy">
-  <div class="philosophy__inner">
-    <p>Half the tube is lipstick. The other half does the work of a $30 lip mask — squalane for deep hydration, shea butter for softness, ceramides to strengthen and protect. All the care. All the colour.</p>
-    <div class="philosophy__icons" aria-hidden="true">
-      <svg viewBox="0 0 24 24"><path d="M12 3c3 4 5 6.5 5 9.5a5 5 0 0 1-10 0C7 9.5 9 7 12 3Z"/></svg>
-      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M8 12h8M12 8v8"/></svg>
-      <svg viewBox="0 0 24 24"><path d="M12 21s-7-4.35-7-10a4 4 0 0 1 7-2.65A4 4 0 0 1 19 11c0 5.65-7 10-7 10Z"/></svg>
+<section id="note" class="section g12 founder">
+  <h2 class="h2 founder__head">No reviews yet.</h2>
+  <div class="founder__body">
+    <div class="prose measure">
+      <p>We're brand new. Reviews will live here once real people have worn it — we won't make any up.</p>
+      <p>We made dewstick because we wanted a lip mask we could actually wear out the door: squalane, shea butter and ceramides underneath, real colour on top. Try it and tell us what you think — your words will be the first this space holds.</p>
+      <p>— the dewstick team</p>
     </div>
+    <a class="btn btn--outline" href="/collections/shades">Shop the shades</a>
   </div>
+  <div class="founder__img"><img src="/shop/img/dewstick-07-1000.jpg" srcset="/shop/img/dewstick-07-500.jpg 500w, /shop/img/dewstick-07-1000.jpg 1000w" sizes="(min-width: 768px) 33vw, 100vw" loading="lazy" alt="Get ready with me: applying dewstick — hydrating, tinted, effortless"></div>
 </section>
   </main>
   <footer class="site-footer">
-    <div class="container site-footer__grid">
-      <div>
-        <p class="u-mini site-footer__label">About</p>
+    <section class="g12 news" aria-labelledby="news-title">
+    <div class="news__form">
+      <h2 id="news-title" class="h2">Stay in the dew</h2>
+      <p class="mt-3 measure">New shades and news only. No spam, unsubscribe anytime.</p>
+      <form class="js-newsletter" novalidate>
+      <div class="field-row">
+        <label class="visually-hidden" for="Newsletter-email">Email</label>
+        <input id="Newsletter-email" type="email" name="email" inputmode="email" autocomplete="email" required placeholder="your email">
+        <button type="submit" class="btn">Join</button>
+      </div>
+      <p class="form-note" data-note aria-live="polite"></p>
+      </form>
+    </div>
+    <div class="wall" aria-label="@dewstick">
+      <div class="wall__tile"><img src="/shop/img/dewstick-06-1000.jpg" srcset="/shop/img/dewstick-06-500.jpg 500w, /shop/img/dewstick-06-1000.jpg 1000w" sizes="(min-width: 768px) 20vw, 33vw" loading="lazy" alt="A red dewstick over balm swatches: juicy, glossy, balmy"></div>
+      <div class="wall__tile"><img src="/shop/img/dewstick-02-1000.jpg" srcset="/shop/img/dewstick-02-500.jpg 500w, /shop/img/dewstick-02-1000.jpg 1000w" sizes="(min-width: 768px) 20vw, 33vw" loading="lazy" alt="dewstick in peony — pink tube over a swatch: half lipstick, half lip balm"></div>
+      <div class="wall__tile"><img src="/shop/img/dewstick-01-1000.jpg" srcset="/shop/img/dewstick-01-500.jpg 500w, /shop/img/dewstick-01-1000.jpg 1000w" sizes="(min-width: 768px) 20vw, 33vw" loading="lazy" alt="dewstick in poppy — red tube beside its box, with squalane, shea butter and ceramides"></div>
+      <div class="wall__tile"><img src="/shop/img/dewstick-13-1000.jpg" srcset="/shop/img/dewstick-13-500.jpg 500w, /shop/img/dewstick-13-1000.jpg 1000w" sizes="(min-width: 768px) 20vw, 33vw" loading="lazy" alt="dewstick in nectar — a luxury lip mask in a stick: hydrate, nourish, protect, glow"></div>
+    </div>
+  </section>
+    <div class="site-footer__rule" style="margin-top: var(--section);"></div>
+    <div class="g12 site-footer__grid">
+      <div class="site-footer__col">
+        <p class="site-footer__label">Shop</p>
+        <ul>
+          <li><a href="/collections/shades">The shades</a></li>
+          <li><a href="/products/the-set-of-five">The set of five</a></li>
+          <li><a href="/cart">Cart</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__col">
+        <p class="site-footer__label">About</p>
         <ul>
           <li><a href="/#note">The idea</a></li>
           <li><a href="/#why">Ingredients</a></li>
-          <li><a href="/collections/shades">Shop</a></li>
         </ul>
       </div>
-      <div>
-        <p class="u-mini site-footer__label">This project</p>
+      <div class="site-footer__col">
+        <p class="site-footer__label">This project</p>
         <ul>
           <li><a href="https://dewstick.myshopify.com" target="_blank" rel="noopener">Live Shopify store</a></li>
           <li><a href="https://github.com/Jolin-ma/dewstick" target="_blank" rel="noopener">Source on GitHub</a></li>
-          <li><a href="/waitlist">Waitlist version</a></li>
         </ul>
       </div>
-      <div>
-        <p class="u-mini site-footer__label">Stay in the dew</p>
-        <form class="js-newsletter" novalidate>
-          <div class="field-row">
-            <label class="visually-hidden" for="FooterNewsletter-email">Email</label>
-            <input id="FooterNewsletter-email" type="email" name="email" inputmode="email" autocomplete="email" required placeholder="your email">
-            <button type="submit" class="btn">Join</button>
-          </div>
-          <p class="form-note" data-note>New shades and news only. No spam, unsubscribe anytime.</p>
-        </form>
+      <div class="site-footer__switch">
+        <p>You are browsing in English. Switch language?</p>
+        <div class="lang-switch u-mini"><a href="/" lang="en" aria-current="true" data-lang-link>EN</a><span class="sep" aria-hidden="true">/</span><a href="/zh" lang="zh-CN" aria-current="false" data-lang-link>中文</a></div>
       </div>
     </div>
     <div class="site-footer__base">
-      <div class="container">
-        <p>© 2026 dewstick · <span class="copy-note">A static copy of the Shopify store, for the portfolio.</span></p>
-        <div class="lang-switch u-mini"><a href="/" lang="en" aria-current="true" data-lang-link>EN</a><span class="sep" aria-hidden="true">/</span><a href="/zh" lang="zh-CN" aria-current="false" data-lang-link>中文</a></div>
-      </div>
+      <p>© 2026 dewstick</p>
+      <p class="muted">A static copy of the Shopify store, for the portfolio.</p>
     </div>
   </footer>
 </body>
