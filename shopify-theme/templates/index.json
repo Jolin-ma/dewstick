@@ -41,7 +41,7 @@
       "type": "tiles",
       "blocks": {
         "t1": { "type": "tile", "settings": { "image": "shopify://shop_images/dewstick-11.png", "link": "shopify://collections/shades", "caption": "home.tile_shades" } },
-        "t2": { "type": "tile", "settings": { "image": "shopify://shop_images/dewstick-orchid.png", "link": "/#why", "caption": "nav.ingredients" } },
+        "t2": { "type": "tile", "settings": { "image": "shopify://shop_images/dewstick-03.png", "link": "/#why", "caption": "nav.ingredients" } },
         "t3": { "type": "tile", "settings": { "image": "shopify://shop_images/dewstick-10.png", "link": "shopify://products/the-set-of-five", "caption": "set.title" } },
         "t4": { "type": "tile", "settings": { "image": "shopify://shop_images/dewstick-08.png", "link": "/#note", "caption": "nav.idea" } }
       },

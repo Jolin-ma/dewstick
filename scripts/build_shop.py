@@ -356,7 +356,7 @@ def home(lang):
     usp = "".join(f"<li>{CHECK}{t(lang, f'home.{k}')}</li>" for k in ["usp_formula", "usp_shades", "usp_set"])
     cards = "\n        ".join([shade_card(lang, s) for s in ["nectar", "poppy", "blush"]] + [set_card(lang)])
     tiles = [(shop, "/shop/img/dewstick-11-1000.jpg", t(lang, "home.tile_shades")),
-             (f"{p or '/'}#why", "/shop/img/dewstick-orchid-1000.jpg", t(lang, "nav.ingredients")),
+             (f"{p or '/'}#why", "/shop/img/dewstick-03-1000.jpg", t(lang, "nav.ingredients")),
              (f"{p}/products/the-set-of-five", "/shop/img/dewstick-10-1000.jpg", t(lang, "set.title")),
              (f"{p or '/'}#note", "/shop/img/dewstick-08-1000.jpg", t(lang, "nav.idea"))]
     tiles = "\n    ".join(
