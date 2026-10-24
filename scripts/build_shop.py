@@ -69,6 +69,11 @@ ALT = {
     "10": "A pile of dewsticks in every colourway",
     "11": "All five dewstick shades lined up with their swatches",
     "12": "Close-up of glossy tinted lips with a dewstick",
+    "nectar": "dewstick in nectar — yellow tube with a red bullet",
+    "poppy": "dewstick in poppy — red tube with a red bullet",
+    "peony": "dewstick in peony — pink tube with a berry bullet",
+    "blush": "dewstick in blush — green tube with a lime bullet",
+    "orchid": "dewstick in orchid — blue tube with a blue bullet",
     "13": "dewstick in nectar — a luxury lip mask in a stick: hydrate, nourish, protect, glow",
 }
 
@@ -79,8 +84,8 @@ PRODUCTS = {
         "title": {"en": "dewstick tinted lip balm", "zh": "dewstick 有色润唇膏"},
         "type": {"en": "Tinted lip balm", "zh": "有色润唇膏"},
         "price": 22, "compare": None,
-        "media": ["13", "01", "02", "05", "03", "11", "06", "12"],
-        "variants": {"nectar": "13", "poppy": "01", "peony": "02", "blush": "05", "orchid": "03"},
+        "media": ["nectar", "poppy", "peony", "blush", "orchid", "11", "06", "12"],
+        "variants": {"nectar": "nectar", "poppy": "poppy", "peony": "peony", "blush": "blush", "orchid": "orchid"},
         "desc": {
             "en": "<p><strong>half lipstick. half lip balm.</strong></p><p>A luxury lip mask, in a stick — real colour over squalane, shea butter and ceramides.</p><ul><li><strong>Hydrate</strong> — squalane for deep hydration</li><li><strong>Nourish</strong> — shea butter, soft &amp; smooth</li><li><strong>Protect</strong> — ceramides to strengthen &amp; protect</li><li><strong>Glow</strong> — one swipe, juicy glow</li></ul><p>Twist-up bullet, 4 g / 0.14 oz.</p>",
             "zh": "<p><strong>半支口红，半支润唇膏。</strong></p><p>一支棒状的奢华唇膜 —— 真实色彩，融合角鲨烷、乳木果油与神经酰胺。</p><ul><li><strong>保湿</strong> —— 角鲨烷深层保湿</li><li><strong>滋养</strong> —— 乳木果油，柔滑顺润</li><li><strong>修护</strong> —— 神经酰胺强韧修护</li><li><strong>光泽</strong> —— 轻轻一抹，水润光泽</li></ul><p>旋转式唇膏管，4 克 / 0.14 盎司。</p>",
@@ -272,13 +277,13 @@ def page(lang, path, title, body, description=None):
 
 # ---------- sections ----------
 CHECK = '<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 5.2 4 7.6 8.6 2.4"/></svg>'
-# Store photography only (dewstick-01…13, the same set the Shopify store uses).
+# Store photography only (dewstick-01…13 + the per-shade packshots, the same set the Shopify store uses).
 PACKSHOT = {s: f"/shop/img/dewstick-{n}-1000.jpg" for s, n in BALM["variants"].items()}
 
 
 def img(src, alt="", sizes="100vw", loading="lazy", cls=""):
     """A plain <img> from /image or /shop/img. Product photos get a 500/1000 srcset."""
-    m = re.fullmatch(r"/shop/img/dewstick-(\d+)-1000\.jpg", src)
+    m = re.fullmatch(r"/shop/img/dewstick-(\w+)-1000\.jpg", src)
     srcset = (f' srcset="/shop/img/dewstick-{m[1]}-500.jpg 500w, {src} 1000w" sizes="{sizes}"' if m else "")
     c = f' class="{cls}"' if cls else ""
     return f'<img{c} src="{src}"{srcset} loading="{loading}" alt="{html.escape(alt)}">'
