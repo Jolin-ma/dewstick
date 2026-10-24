@@ -6,9 +6,9 @@
       "type": "newsletter-wall",
       "blocks": {
         "t1": { "type": "tile", "settings": { "image": "shopify://shop_images/dewstick-06.png" } },
-        "t2": { "type": "tile", "settings": { "image": "shopify://shop_images/dewstick-peony.png" } },
-        "t3": { "type": "tile", "settings": { "image": "shopify://shop_images/dewstick-poppy.png" } },
-        "t4": { "type": "tile", "settings": { "image": "shopify://shop_images/dewstick-nectar.png" } }
+        "t2": { "type": "tile", "settings": { "image": "shopify://shop_images/dewstick-02.png" } },
+        "t3": { "type": "tile", "settings": { "image": "shopify://shop_images/dewstick-01.png" } },
+        "t4": { "type": "tile", "settings": { "image": "shopify://shop_images/dewstick-13.png" } }
       },
       "block_order": ["t1", "t2", "t3", "t4"],
       "settings": {}

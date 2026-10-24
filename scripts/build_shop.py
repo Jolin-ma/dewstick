@@ -330,7 +330,7 @@ def news_wall(lang):
     # the store photos carry their own type, so no overlay line on these
     wall = "\n      ".join(
         f'<div class="wall__tile">{img(f"/shop/img/dewstick-{n}-1000.jpg", ALT[n], "(min-width: 768px) 20vw, 33vw")}</div>'
-        for n in ["06", "peony", "poppy", "nectar"])
+        for n in ["06", "02", "01", "13"])
     return f"""<section class="g12 news" aria-labelledby="news-title">
     <div class="news__form">
       <h2 id="news-title" class="h2">{t(lang, 'newsletter.heading')}</h2>
