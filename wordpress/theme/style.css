@@ -1,0 +1,13 @@
+/*
+Theme Name: dewstick
+Theme URI: https://dewstick.vercel.app
+Description: The dewstick store as a classic WordPress + WooCommerce theme. Same design as the static site and the Shopify theme (linen ground, serif voice, 12-column grid, one red), with English / 中文.
+Version: 1.0.0
+Requires at least: 6.5
+Requires PHP: 8.0
+Author: Jolin Ma
+Text Domain: dewstick
+WC requires at least: 9.0
+*/
+
+/* The stylesheets live in assets/css: dewstick.css is shop/dewstick.css unchanged, wp.css adapts WordPress and WooCommerce markup. */

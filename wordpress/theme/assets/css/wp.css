@@ -1,0 +1,55 @@
+/* WordPress + WooCommerce markup in the dewstick design. dewstick.css is shop/dewstick.css unchanged. */
+
+/* the admin bar sits above the sticky header when logged in */
+.admin-bar .site-header { top: var(--wp-admin--admin-bar--height, 0px); }
+.page-wide { max-width: 72rem; margin: 0 auto; }
+
+/* thumbnails WordPress outputs with their own width/height */
+.product__thumbs img, .cart-line img { width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; }
+.cart-line .well img { height: 100%; }
+.product__thumbs button { background: var(--studio); }
+.cart-footer .btn { width: auto; }
+.cart-line__remove { display: inline-block; }
+
+/* ---------- notices ---------- */
+.woocommerce-notices-wrapper:empty { display: none; }
+.woocommerce-message, .woocommerce-info, .woocommerce-error, .woocommerce-notice {
+  list-style: none; margin: 0 0 1.5rem; padding: .9rem 1rem; border: 1px solid var(--line); background: var(--paper);
+  font-size: var(--text-base); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: .6rem 1.2rem;
+}
+.woocommerce-error { border-color: var(--dew); }
+.woocommerce-error li { list-style: none; }
+.woocommerce-message .button, .woocommerce-info .button {
+  order: 2; font: 400 var(--text-lg)/1.2 var(--serif); letter-spacing: 0; border-bottom: 1px solid currentColor;
+}
+.woocommerce-message::before, .woocommerce-info::before, .woocommerce-error::before { content: none !important; }
+
+/* ---------- checkout + account (on top of WooCommerce's own layout css) ---------- */
+.woocommerce, .woocommerce-page { color: var(--ink); }
+.page-content { font-size: var(--text-lg); }
+.woocommerce h3, .woocommerce-checkout h3, .woocommerce-account h2 { font: 400 var(--text-xl)/1.2 var(--serif); letter-spacing: 0; margin: 2rem 0 1rem; }
+.woocommerce form .form-row { padding: 0; margin: 0 0 1rem; }
+.woocommerce form .form-row label { font-size: var(--text-base); text-transform: uppercase; margin-bottom: .35rem; display: block; }
+.woocommerce form .form-row .input-text, .woocommerce form .form-row select, .woocommerce form .form-row textarea,
+.select2-container--default .select2-selection--single {
+  border: 1px solid var(--line); border-radius: 0; background: var(--paper); padding: .65rem .75rem; font: 400 var(--text-lg)/1.3 var(--sans);
+  min-height: 2.75rem;
+}
+.select2-container--default .select2-selection--single .select2-selection__rendered { line-height: 1.4; padding: 0; }
+.select2-container--default .select2-selection--single .select2-selection__arrow { height: 100%; }
+.woocommerce form .form-row .input-text:focus, .woocommerce form .form-row select:focus { outline: 2px solid var(--ink); outline-offset: 0; }
+.woocommerce table.shop_table { border: 0; border-collapse: collapse; border-radius: 0; }
+.woocommerce table.shop_table th, .woocommerce table.shop_table td { border-top: 1px solid var(--line); padding: .8rem 0; font-weight: 400; }
+.woocommerce table.shop_table thead th { font-size: var(--text-base); text-transform: uppercase; }
+.woocommerce-checkout #payment, .woocommerce-checkout-review-order #payment { background: var(--paper); border-radius: 0; }
+.woocommerce-checkout #payment div.payment_box { background: var(--studio); color: var(--ink); border-radius: 0; }
+.woocommerce-checkout #payment div.payment_box::before { border-bottom-color: var(--studio); }
+.woocommerce #respond input#submit, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button,
+.woocommerce #payment #place_order {
+  border: 1px solid var(--ink); background: var(--ink); color: var(--linen); border-radius: 0;
+  font: 400 var(--text-lg)/1 var(--serif); letter-spacing: 0; padding: .9rem 1.2rem; min-height: 2.9rem;
+}
+.woocommerce #respond input#submit:hover, .woocommerce a.button:hover, .woocommerce button.button:hover,
+.woocommerce input.button:hover, .woocommerce #payment #place_order:hover { background: var(--dew); border-color: var(--dew); color: #fff; }
+.woocommerce-order-overview { padding: 0; display: grid; gap: .5rem; }
+.woocommerce ul.order_details li { border-right-color: var(--line); }

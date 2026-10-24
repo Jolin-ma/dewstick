@@ -74,6 +74,17 @@ shopify theme dev   --path shopify-theme --store dewstick  # local preview
 shopify theme push  --path shopify-theme --store dewstick --unpublished
 ```
 
+## WordPress + WooCommerce (`wordpress/`)
+
+The same store as a classic WordPress theme on WooCommerce: same design, copy, catalog and EN / 中文, with a real
+WooCommerce cart and checkout (test payment, no charge). Runs locally on WordPress Playground, no PHP or MySQL install:
+
+```bash
+cd wordpress && npm install && npm start   # http://127.0.0.1:9400
+```
+
+Details in [`wordpress/README.md`](wordpress/README.md).
+
 ## Docs
 
 - [`PRODUCT.md`](PRODUCT.md) — users, positioning, constraints, brand commitments.

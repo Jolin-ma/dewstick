@@ -12,3 +12,6 @@ Thumbs.db
 # logs & temp
 *.log
 _shot*.mjs
+
+# WordPress build — downloaded WordPress + its database, recreated by `npm start`
+wordpress/site/

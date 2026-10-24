@@ -1,0 +1,17 @@
+{
+  "$schema": "https://playground.wordpress.net/blueprint-schema.json",
+  "landingPage": "/",
+  "preferredVersions": { "php": "8.3", "wp": "latest" },
+  "features": { "networking": true },
+  "login": true,
+  "steps": [
+    {
+      "step": "installPlugin",
+      "pluginData": { "resource": "wordpress.org/plugins", "slug": "woocommerce" },
+      "options": { "activate": true },
+      "ifAlreadyInstalled": "skip"
+    },
+    { "step": "activateTheme", "themeFolderName": "dewstick" },
+    { "step": "runPHP", "code": "<?php require '/wordpress/wp-load.php'; echo dewstick_seed();" }
+  ]
+}

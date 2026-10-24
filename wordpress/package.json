@@ -1,0 +1,11 @@
+{
+  "name": "dewstick-wordpress",
+  "private": true,
+  "description": "The dewstick store on WordPress + WooCommerce, run locally with WordPress Playground.",
+  "scripts": {
+    "start": "node start.mjs"
+  },
+  "devDependencies": {
+    "@wp-playground/cli": "3.1.57"
+  }
+}

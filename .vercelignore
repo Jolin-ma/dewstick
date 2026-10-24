@@ -2,3 +2,5 @@
 shopify-theme/
 # generator for the static shop pages; run locally, output is committed
 scripts/
+# WordPress + WooCommerce build — runs locally, not part of the static site
+wordpress/
