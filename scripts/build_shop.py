@@ -330,7 +330,7 @@ def news_wall(lang):
     # the store photos carry their own type, so no overlay line on these
     wall = "\n      ".join(
         f'<div class="wall__tile">{img(f"/shop/img/dewstick-{n}-1000.jpg", ALT[n], "(min-width: 768px) 20vw, 33vw")}</div>'
-        for n in ["06", "02", "01", "13"])
+        for n in ["06", "peony", "poppy", "nectar"])
     return f"""<section class="g12 news" aria-labelledby="news-title">
     <div class="news__form">
       <h2 id="news-title" class="h2">{t(lang, 'newsletter.heading')}</h2>
@@ -356,7 +356,7 @@ def home(lang):
     usp = "".join(f"<li>{CHECK}{t(lang, f'home.{k}')}</li>" for k in ["usp_formula", "usp_shades", "usp_set"])
     cards = "\n        ".join([shade_card(lang, s) for s in ["nectar", "poppy", "blush"]] + [set_card(lang)])
     tiles = [(shop, "/shop/img/dewstick-11-1000.jpg", t(lang, "home.tile_shades")),
-             (f"{p or '/'}#why", "/shop/img/dewstick-03-1000.jpg", t(lang, "nav.ingredients")),
+             (f"{p or '/'}#why", "/shop/img/dewstick-orchid-1000.jpg", t(lang, "nav.ingredients")),
              (f"{p}/products/the-set-of-five", "/shop/img/dewstick-10-1000.jpg", t(lang, "set.title")),
              (f"{p or '/'}#note", "/shop/img/dewstick-08-1000.jpg", t(lang, "nav.idea"))]
     tiles = "\n    ".join(
