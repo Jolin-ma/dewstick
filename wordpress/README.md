@@ -4,6 +4,13 @@ The dewstick store as a classic WordPress theme on WooCommerce — the third bui
 static copy (Vercel) and the Shopify theme. Same design (`../DESIGN.md`), same copy (the Shopify theme's language
 files), same catalog, English / 中文.
 
+## Live demo (no server)
+
+[Open the store in WordPress Playground](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/Jolin-ma/dewstick/main/wordpress/playground.json)
+— `playground.json` boots WordPress, WooCommerce and this theme (pulled from GitHub) in the visitor's browser and
+seeds the store. Takes ~30 s to load; each visitor gets a fresh store, nothing is saved. It installs the theme from
+`main` on GitHub, so push theme changes before they show up there.
+
 ## Run it
 
 ```bash

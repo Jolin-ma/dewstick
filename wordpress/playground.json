@@ -1,0 +1,30 @@
+{
+  "$schema": "https://playground.wordpress.net/blueprint-schema.json",
+  "meta": {
+    "title": "dewstick on WordPress + WooCommerce",
+    "description": "The dewstick store, booted in the browser from the theme on GitHub.",
+    "author": "Jolin-ma"
+  },
+  "landingPage": "/",
+  "preferredVersions": { "php": "8.3", "wp": "latest" },
+  "features": { "networking": true },
+  "login": false,
+  "steps": [
+    {
+      "step": "installPlugin",
+      "pluginData": { "resource": "wordpress.org/plugins", "slug": "woocommerce" },
+      "options": { "activate": true }
+    },
+    {
+      "step": "installTheme",
+      "themeData": {
+        "resource": "git:directory",
+        "url": "https://github.com/Jolin-ma/dewstick",
+        "ref": "main",
+        "path": "wordpress/theme"
+      },
+      "options": { "activate": true, "targetFolderName": "dewstick" }
+    },
+    { "step": "runPHP", "code": "<?php require '/wordpress/wp-load.php'; echo dewstick_seed();" }
+  ]
+}
