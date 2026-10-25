@@ -57,11 +57,36 @@ add_action(
 	'wp_head',
 	function () {
 		echo '<meta name="theme-color" content="#f4efe9">' . "\n";
-		echo '<meta name="description" content="' . esc_attr( dewstick_t_raw( 'hero.body' ) ) . '">' . "\n";
+		echo '<meta name="description" content="' . esc_attr( dewstick_meta_description() ) . '">' . "\n";
 		echo '<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 32 32\'%3E%3Crect width=\'32\' height=\'32\' rx=\'9\' fill=\'%23E94B3C\'/%3E%3Cpath d=\'M16 7c3 4 5 6.5 5 9.5a5 5 0 0 1-10 0C11 13.5 13 11 16 7Z\' fill=\'%23fff\'/%3E%3C/svg%3E">' . "\n";
 	},
 	1
 );
+
+/*
+ * Meta description per page: a product's own copy (led by the shade's line when one is preselected),
+ * the collection footnote on the shop and collection pages, the hero copy everywhere else.
+ */
+function dewstick_meta_description() {
+	if ( function_exists( 'is_product' ) && is_product() ) {
+		$zh      = 'zh' === dewstick_lang();
+		$stop    = $zh ? '。' : '. ';
+		$product = wc_get_product( get_queried_object_id() );
+		$text    = wp_strip_all_tags( str_replace( array( '</p>', '</li>' ), $stop, dewstick_product_description( $product ) ) );
+		$shade   = sanitize_key( $_GET['attribute_shade'] ?? '' );
+		if ( in_array( $shade, DEWSTICK_SHADES, true ) ) {
+			$text = dewstick_t_raw( "shades.$shade.line" ) . $stop . $text;
+		}
+		// Collapse doubled full stops ("days.." / "。。") and whitespace, then cut to what search results show.
+		$text = trim( preg_replace( array( '/([.。])\s*[.。]/u', '/\s+/u' ), array( '$1', ' ' ), $text ) );
+		$max  = $zh ? 80 : 160;
+		return mb_strlen( $text ) > $max ? rtrim( mb_substr( $text, 0, $max - 1 ) ) . '…' : $text;
+	}
+	if ( function_exists( 'is_product_category' ) && ( is_product_category() || is_shop() ) ) {
+		return dewstick_t_raw( 'shades.all_title' ) . ' — ' . dewstick_t_raw( 'shades.footnote' );
+	}
+	return dewstick_t_raw( 'hero.body' );
+}
 
 add_filter(
 	'document_title_parts',
