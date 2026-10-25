@@ -177,6 +177,8 @@ function dewstick_seed() {
 	if ( ! class_exists( 'WooCommerce' ) ) {
 		return 'WooCommerce is not active.';
 	}
+	// The blueprint's runPHP step has no user, and Elementor checks capabilities when it syncs the site name into its kit.
+	wp_set_current_user( 1 );
 	dewstick_seed_settings();
 	dewstick_seed_catalog();
 	$builders = dewstick_seed_builder_pages();

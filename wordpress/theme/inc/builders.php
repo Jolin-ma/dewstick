@@ -8,8 +8,6 @@
 defined( 'ABSPATH' ) || exit;
 
 function dewstick_seed_builder_pages() {
-	// The builders check capabilities on save, and the blueprint's runPHP step has no user.
-	wp_set_current_user( 1 );
 	$done = array();
 	if ( did_action( 'elementor/loaded' ) && ! get_page_by_path( 'ingredients' ) ) {
 		dewstick_seed_elementor_kit();
