@@ -11,6 +11,20 @@
       "options": { "activate": true },
       "ifAlreadyInstalled": "skip"
     },
+    {
+      "step": "installPlugin",
+      "pluginData": { "resource": "wordpress.org/plugins", "slug": "elementor" },
+      "options": { "activate": true },
+      "ifAlreadyInstalled": "skip"
+    },
+    {
+      "step": "installPlugin",
+      "pluginData": { "resource": "wordpress.org/plugins", "slug": "kadence-blocks" },
+      "options": { "activate": true },
+      "ifAlreadyInstalled": "skip"
+    },
+    { "step": "activatePlugin", "pluginPath": "elementor/elementor.php" },
+    { "step": "activatePlugin", "pluginPath": "kadence-blocks/kadence-blocks.php" },
     { "step": "activateTheme", "themeFolderName": "dewstick" },
     { "step": "runPHP", "code": "<?php require '/wordpress/wp-load.php'; echo dewstick_seed();" }
   ]

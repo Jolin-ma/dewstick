@@ -1,0 +1,40 @@
+{
+  "$schema": "https://playground.wordpress.net/blueprint-schema.json",
+  "meta": {
+    "title": "dewstick page-builder pages",
+    "description": "The dewstick store with /ingredients/ built in Elementor and /the-idea/ in Kadence Blocks.",
+    "author": "Jolin-ma"
+  },
+  "landingPage": "/ingredients/",
+  "preferredVersions": { "php": "8.3", "wp": "latest" },
+  "features": { "networking": true },
+  "login": true,
+  "steps": [
+    {
+      "step": "installPlugin",
+      "pluginData": { "resource": "wordpress.org/plugins", "slug": "woocommerce" },
+      "options": { "activate": true }
+    },
+    {
+      "step": "installPlugin",
+      "pluginData": { "resource": "wordpress.org/plugins", "slug": "elementor" },
+      "options": { "activate": true }
+    },
+    {
+      "step": "installPlugin",
+      "pluginData": { "resource": "wordpress.org/plugins", "slug": "kadence-blocks" },
+      "options": { "activate": true }
+    },
+    {
+      "step": "installTheme",
+      "themeData": {
+        "resource": "git:directory",
+        "url": "https://github.com/Jolin-ma/dewstick",
+        "ref": "main",
+        "path": "wordpress/theme"
+      },
+      "options": { "activate": true, "targetFolderName": "dewstick" }
+    },
+    { "step": "runPHP", "code": "<?php require '/wordpress/wp-load.php'; echo dewstick_seed();" }
+  ]
+}

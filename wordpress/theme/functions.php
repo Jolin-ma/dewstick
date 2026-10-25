@@ -15,6 +15,7 @@ require get_template_directory() . '/inc/i18n.php';
 require get_template_directory() . '/inc/template.php';
 require get_template_directory() . '/inc/newsletter.php';
 require get_template_directory() . '/inc/seed.php';
+require get_template_directory() . '/inc/builders.php';
 
 add_action(
 	'after_setup_theme',
@@ -23,6 +24,19 @@ add_action(
 		add_theme_support( 'post-thumbnails' );
 		add_theme_support( 'html5', array( 'search-form', 'gallery', 'caption', 'style', 'script' ) );
 		add_theme_support( 'woocommerce' );
+		add_theme_support( 'editor-styles' );
+		add_editor_style( array( 'https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Hanken+Grotesk:wght@400;500&display=swap', 'assets/css/editor.css' ) );
+		// The brand palette in the block editor's colour pickers, Kadence Blocks' included.
+		add_theme_support(
+			'editor-color-palette',
+			array(
+				array( 'name' => 'Ink', 'slug' => 'ink', 'color' => '#1e1a17' ),
+				array( 'name' => 'Linen', 'slug' => 'linen', 'color' => '#f4efe9' ),
+				array( 'name' => 'Paper', 'slug' => 'paper', 'color' => '#ffffff' ),
+				array( 'name' => 'Dew red', 'slug' => 'dew', 'color' => '#e94b3c' ),
+				array( 'name' => 'Studio', 'slug' => 'studio', 'color' => '#f6f5f3' ),
+			)
+		);
 	}
 );
 
@@ -48,7 +62,10 @@ add_action(
 		}
 		// The cart form posts normally; WooCommerce's ajax cart script expects its own markup.
 		wp_dequeue_script( 'wc-cart' );
-		wp_dequeue_style( 'wp-block-library' );
+		// Core block styles only where a page is laid out in blocks.
+		if ( ! is_page_template( 'template-builder.php' ) ) {
+			wp_dequeue_style( 'wp-block-library' );
+		}
 	},
 	20
 );
@@ -84,6 +101,10 @@ function dewstick_meta_description() {
 	}
 	if ( function_exists( 'is_product_category' ) && ( is_product_category() || is_shop() ) ) {
 		return dewstick_t_raw( 'shades.all_title' ) . ' — ' . dewstick_t_raw( 'shades.footnote' );
+	}
+	// Pages with their own excerpt (the page-builder pages) use it.
+	if ( is_page() && has_excerpt() ) {
+		return wp_strip_all_tags( get_the_excerpt() );
 	}
 	return dewstick_t_raw( 'hero.body' );
 }

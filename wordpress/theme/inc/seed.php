@@ -33,7 +33,8 @@ function dewstick_seed_image( $name ) {
 		return $found[0];
 	}
 	require_once ABSPATH . 'wp-admin/includes/image.php';
-	$file   = "dewstick-$name-1000.jpg";
+	// A product photo by its number or shade ("09", "poppy"), or any other theme photo by file name.
+	$file   = str_contains( $name, '.' ) ? $name : "dewstick-$name-1000.jpg";
 	$upload = wp_upload_bits( $file, null, file_get_contents( get_template_directory() . "/assets/img/$file" ) );
 	if ( $upload['error'] ) {
 		return 0;
@@ -178,9 +179,10 @@ function dewstick_seed() {
 	}
 	dewstick_seed_settings();
 	dewstick_seed_catalog();
+	$builders = dewstick_seed_builder_pages();
 	// WooCommerce registered its post types with the old bases this request, so let the next request rebuild the rules.
 	global $wp_rewrite;
 	$wp_rewrite->set_permalink_structure( '/%postname%/' );
 	delete_option( 'rewrite_rules' );
-	return 'dewstick store ready.';
+	return 'dewstick store ready.' . ( $builders ? ' Builder pages: ' . implode( ', ', $builders ) . '.' : '' );
 }
