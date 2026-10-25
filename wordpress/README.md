@@ -8,7 +8,9 @@ files), same catalog, English / 中文.
 
 [Open the store in WordPress Playground](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/Jolin-ma/dewstick/main/wordpress/playground.json)
 — `playground.json` boots WordPress, WooCommerce and this theme (pulled from GitHub) in the visitor's browser and
-seeds the store. Takes ~30 s to load; each visitor gets a fresh store, nothing is saved. It installs the theme from
+seeds the store. Takes ~30 s to load; each visitor gets a fresh store, nothing is saved. The portfolio links the
+same blueprint base64-encoded in the URL (`https://playground.wordpress.net/#<base64 JSON>`), because some networks
+block raw.githubusercontent.com — regenerate that link if you change `playground.json`. It installs the theme from
 `main` on GitHub, so push theme changes before they show up there.
 
 ## Run it
