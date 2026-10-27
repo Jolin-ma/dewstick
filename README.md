@@ -1,8 +1,8 @@
-# dewstick: one storefront, built on three platforms
+# dewstick: one storefront, built four ways
 
 **dewstick** is a bilingual (English / 中文) storefront for a tinted lip balm,
 "half lipstick, half lip mask". The product is fictional. The store is real:
-I designed it once and built it three ways, so each version shows a
+I designed it once and built it four ways, so each version shows a
 different part of web development.
 
 | Build | Stack | What it shows |
@@ -10,15 +10,14 @@ different part of web development.
 | [Static site](#website-vercel) | HTML, CSS, vanilla JS, Python page generator | Responsive layout, a localStorage cart, EN / 中文 pages generated from one source |
 | [Shopify theme](#shopify-store-shopify-theme) | Liquid, Online Store 2.0 sections | A custom theme with real cart and test-mode checkout, Shopify's native languages |
 | [WordPress + WooCommerce](#wordpress--woocommerce-wordpress) | PHP theme, WooCommerce, Elementor, Kadence | The same store as a classic WordPress theme with Woo cart and checkout |
-
-**Next up:** a Next.js + TypeScript rebuild using the Shopify Storefront API,
-which will replace the static site at dewstick.vercel.app.
+| [Next.js + React](#nextjs--react-dewstick-next) | Next.js 16, React 19, TypeScript, Shopify Storefront API | A headless storefront: live catalog and cart from Shopify, server actions, cache revalidated by webhook, tested, Lighthouse 92–100 |
 
 ## See it
 
 | | |
 |---|---|
 | **Store (public copy)** | **https://dewstick.vercel.app** — every page of the store, EN / 中文, with a working cart |
+| Next.js build | https://dewstick-next.vercel.app — the headless version, catalog and cart live from Shopify |
 | Shopify store | https://dewstick.myshopify.com — the real one, with Shopify checkout in test mode. Password-protected because Shopify development stores can't be made public; the password is on my portfolio |
 
 ## Website (Vercel)
@@ -93,6 +92,22 @@ cd wordpress && npm install && npm start   # http://127.0.0.1:9400
 
 Details in [`wordpress/README.md`](wordpress/README.md).
 
+## Next.js + React (`dewstick-next`)
+
+The headless build lives in its own repo, **[Jolin-ma/dewstick-next](https://github.com/Jolin-ma/dewstick-next)**,
+so the static site here stays live until the new one takes over the domain.
+
+- **Data** — products, prices, photos and the 中文 product copy come from the Shopify
+  Storefront API; the cart is a Storefront API cart, and checkout is Shopify's.
+- **Rendering** — App Router with Cache Components: pages are prerendered, the catalog
+  is cached and refreshed by a Shopify product webhook; only the cart streams per visitor.
+- **Same design** — the copy and stylesheet come from this repo's theme locales and
+  `dewstick.css`. Two deliberate differences: 中文 uses the device's CJK fonts instead of
+  Noto SC web fonts, and the light greys are darker to pass WCAG AA contrast.
+- **Tests** — Vitest unit tests and Playwright end-to-end tests (both languages, cart flow,
+  404 status, 320px phone width); CI on every push.
+- **Lighthouse** — mobile 92–96, desktop 100; accessibility, best practices and SEO 100.
+
 ## Docs
 
 - [`PRODUCT.md`](PRODUCT.md) — users, positioning, constraints, brand commitments.
@@ -111,5 +126,4 @@ Canonical decisions (confirmed 2026-08-31):
 
 - Social links: the photo wall is deliberately *not* linked (no real `@dewstick`
   account exists yet). Wire tile links + a "Follow" CTA once the account is real.
-- Next.js + TypeScript rebuild on the Shopify Storefront API, with tests and
-  Lighthouse numbers, replacing the static site on Vercel.
+- Move dewstick.vercel.app from the static site to the Next.js build.
