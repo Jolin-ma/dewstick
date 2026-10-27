@@ -42,6 +42,10 @@ npm install    # once — installs WordPress Playground's CLI
 npm start      # http://127.0.0.1:9400, logged in as admin
 ```
 
+On Windows, `open-wordpress.ps1` does both in one step: it starts the server if it isn't running, waits
+until WordPress answers and opens the browser. Point a desktop shortcut at it (`wordpress.ico` is its icon);
+closing the minimized "dewstick WordPress" window stops the server.
+
 No PHP, MySQL or Docker needed: [WordPress Playground](https://wordpress.github.io/wordpress-playground/) runs
 WordPress in Node with SQLite.
 
