@@ -16,8 +16,8 @@ different part of web development.
 
 | | |
 |---|---|
-| **Store (public copy)** | **https://dewstick.vercel.app** — every page of the store, EN / 中文, with a working cart |
-| Next.js build | https://dewstick-next.vercel.app — the headless version, catalog and cart live from Shopify |
+| **Store** | **https://dewstick.vercel.app** — the Next.js build: every page, EN / 中文, catalog and cart live from Shopify |
+| Static site | https://dewstick-static.vercel.app — the original static build, with a localStorage cart |
 | Shopify store | https://dewstick.myshopify.com — the real one, with Shopify checkout in test mode. Password-protected because Shopify development stores can't be made public; the password is on my portfolio |
 
 ## Website (Vercel)
@@ -53,7 +53,7 @@ photo wall → footer.
 
 ## Deploy
 
-Live at **https://dewstick.vercel.app**. Static — the repo root deploys on Vercel
+Live at **https://dewstick-static.vercel.app** (dewstick.vercel.app moved to the Next.js build on 2026-10-27). Static — the repo root deploys on Vercel
 with no build step; `vercel.json` sets clean URLs and caching for `shop/img` and
 `shop/video`. The Vercel project is git-linked, so every push to `main` auto-deploys.
 `.vercelignore` keeps `shopify-theme/` and `scripts/` out of the deploy.
@@ -95,7 +95,7 @@ Details in [`wordpress/README.md`](wordpress/README.md).
 ## Next.js + React (`dewstick-next`)
 
 The headless build lives in its own repo, **[Jolin-ma/dewstick-next](https://github.com/Jolin-ma/dewstick-next)**,
-so the static site here stays live until the new one takes over the domain.
+and serves **https://dewstick.vercel.app**. The static site moved to dewstick-static.vercel.app.
 
 - **Data** — products, prices, photos and the 中文 product copy come from the Shopify
   Storefront API; the cart is a Storefront API cart, and checkout is Shopify's.
@@ -126,4 +126,3 @@ Canonical decisions (confirmed 2026-08-31):
 
 - Social links: the photo wall is deliberately *not* linked (no real `@dewstick`
   account exists yet). Wire tile links + a "Follow" CTA once the account is real.
-- Move dewstick.vercel.app from the static site to the Next.js build.
