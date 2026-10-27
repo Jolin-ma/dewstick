@@ -1,17 +1,25 @@
-# dewstick — a tinted lip balm store, end to end
+# dewstick: one storefront, built on three platforms
 
-A self-directed case study in end-to-end e-commerce coordination: scan live
-marketplaces for a viable product → stand up the store → design the
-content-to-purchase funnel → read the results. **dewstick** is the fictional
-product used to run that workflow — a tinted lip balm positioned as "half
-lipstick, half lip mask".
+**dewstick** is a bilingual (English / 中文) storefront for a tinted lip balm,
+"half lipstick, half lip mask". The product is fictional. The store is real:
+I designed it once and built it three ways, so each version shows a
+different part of web development.
+
+| Build | Stack | What it shows |
+|---|---|---|
+| [Static site](#website-vercel) | HTML, CSS, vanilla JS, Python page generator | Responsive layout, a localStorage cart, EN / 中文 pages generated from one source |
+| [Shopify theme](#shopify-store-shopify-theme) | Liquid, Online Store 2.0 sections | A custom theme with real cart and test-mode checkout, Shopify's native languages |
+| [WordPress + WooCommerce](#wordpress--woocommerce-wordpress) | PHP theme, WooCommerce, Elementor, Kadence | The same store as a classic WordPress theme with Woo cart and checkout |
+
+**Next up:** a Next.js + TypeScript rebuild using the Shopify Storefront API,
+which will replace the static site at dewstick.vercel.app.
 
 ## See it
 
 | | |
 |---|---|
 | **Store (public copy)** | **https://dewstick.vercel.app** — every page of the store, EN / 中文, with a working cart |
-| Shopify store | https://dewstick.myshopify.com — the real one, with Shopify checkout in test mode. Password-protected (Shopify development stores can't be made public) |
+| Shopify store | https://dewstick.myshopify.com — the real one, with Shopify checkout in test mode. Password-protected because Shopify development stores can't be made public; the password is on my portfolio |
 
 ## Website (Vercel)
 
@@ -103,4 +111,5 @@ Canonical decisions (confirmed 2026-08-31):
 
 - Social links: the photo wall is deliberately *not* linked (no real `@dewstick`
   account exists yet). Wire tile links + a "Follow" CTA once the account is real.
-- The "read the results" analytics layer — per-source landing → purchase / signup conversion.
+- Next.js + TypeScript rebuild on the Shopify Storefront API, with tests and
+  Lighthouse numbers, replacing the static site on Vercel.
